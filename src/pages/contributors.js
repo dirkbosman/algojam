@@ -4,10 +4,10 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const IndexPage = () => (
+const ContributorsPage = () => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Ready to jam?!</h1>
+    <SEO title="Contributors" />
+    <h1>Contributors</h1>
     {/* <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
@@ -18,4 +18,4 @@ const IndexPage = () => (
   </Layout>
 );
 
-export default IndexPage;
+export default ContributorsPage;
