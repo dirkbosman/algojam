@@ -19,6 +19,7 @@ const IndexPage = () => (
                 author={node.frontmatter.author}
                 path={node.frontmatter.path}
                 date={node.frontmatter.date}
+                audio_url={node.frontmatter.audio_url}
                 body={node.excerpt}
               />
             ))}
@@ -40,6 +41,7 @@ const IndexQuery = graphql`
             date(formatString: "YYYY-MM-DD ")
             author
             path
+            audio_url
           }
           excerpt
         }

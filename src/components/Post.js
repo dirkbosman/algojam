@@ -9,8 +9,14 @@ import {
   CardBody,
   Collapse,
 } from "reactstrap";
+import "../styles/index.scss";
 
-const Post = ({ title, author, path, date, body }) => {
+import AudioPlayer from "react-h5-audio-player";
+import "react-h5-audio-player/lib/styles.css";
+// import 'react-h5-audio-player/lib/styles.less' Use LESS
+// import 'react-h5-audio-player/src/styles.scss' Use SASS
+
+const Post = ({ title, author, path, date, audio_url, body }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -29,6 +35,15 @@ const Post = ({ title, author, path, date, body }) => {
         </Link> */}
 
         <div>
+          <AudioPlayer
+            // autoPlay
+            src={audio_url}
+            // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+            onPlay={(e) => console.log("onPlay")}
+            // other props here
+          />
+        </div>
+        <div>
           <Button
             color="primary"
             onClick={toggle}
@@ -37,11 +52,11 @@ const Post = ({ title, author, path, date, body }) => {
             Toggle
           </Button>
           <Collapse isOpen={isOpen}>
-            <Card>
-              <CardBody className="code-container">
-                <CardText>{body}</CardText>
-              </CardBody>
-            </Card>
+            {/* <Card> */}
+            {/* <CardBody className="code-container"> */}
+            <CardText className="card-text-sm">{body}</CardText>
+            {/* </CardBody> */}
+            {/* </Card> */}
           </Collapse>
         </div>
       </CardBody>

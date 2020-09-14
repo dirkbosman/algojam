@@ -1,8 +1,10 @@
 .container#content {
   margin-top: 60px;
 }
+
 body {
   background-color: $light-gray;
+  // background-color: red;
   font-family: $site-font;
 }
 a {
@@ -34,4 +36,9 @@ h1 {
 ul {
   list-style: none;
   padding: 0;
+}
+
+.submitBtn {
+  background-color: rgb(192, 255, 249);
+  padding: 2px;
 }

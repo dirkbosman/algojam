@@ -32,7 +32,10 @@ const Header = (props) => {
                 <NavLink href="/tags">Tags</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contributors">Contributors</NavLink>
+                <NavLink href="/tribe">Tribe</NavLink>
+              </NavItem>
+              <NavItem className="submitBtn">
+                <NavLink href="/submit">Submit</NavLink>
               </NavItem>
               {/* <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">

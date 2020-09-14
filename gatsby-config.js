@@ -28,15 +28,9 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: { inlineCodeMarker: ">" },
-          },
-        ],
+        plugins: [`gatsby-remark-prismjs`],
       },
     },
-
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

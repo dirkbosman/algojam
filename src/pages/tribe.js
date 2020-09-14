@@ -4,10 +4,10 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const ContributorsPage = () => (
+const TribePage = () => (
   <Layout>
-    <SEO title="Contributors" />
-    <h1>Contributors</h1>
+    <SEO title="Tribe" />
+    <h1>Tribe</h1>
     {/* <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
@@ -18,4 +18,4 @@ const ContributorsPage = () => (
   </Layout>
 );
 
-export default ContributorsPage;
+export default TribePage;

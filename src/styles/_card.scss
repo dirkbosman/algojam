@@ -10,3 +10,38 @@ ul.post-tags {
     margin-right: 10px;
   }
 }
+
+// If you'd like it to default open, add the additional class "in": https://getbootstrap.com/2.3.2/javascript.html#collapse
+.code-container {
+  display: block;
+  height: 0; // if you want it to start collapsed, you need this, else remove this
+
+  &.in {
+    height: auto;
+    width: 200px;
+  }
+}
+
+.card-text {
+  height: 200px;
+  border: 1px solid #000000;
+  background-color: grey;
+
+  overflow: visible;
+  text-overflow: auto;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word; /* IE & Edge */
+}
+
+p {
+  overflow: visible;
+  text-overflow: auto;
+
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word; /* IE & Edge */
+}
