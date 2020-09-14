@@ -27,8 +27,9 @@ h1 {
 }
 .navbar-light .navbar-nav .nav-link,
 .navbar-light .navbar-brand {
-  // color: #0056b3;
-  color: #dc36c8;
+  margin-left: 4px;
+  margin-right: 4px;
+  color: white;
   &:hover {
     color: #007bff;
   }
@@ -39,6 +40,9 @@ ul {
 }
 
 .submitBtn {
-  background-color: rgb(192, 255, 249);
-  padding: 2px;
+  background-color: magenta;
+  border: 1px solid grey;
+  color: black;
+  border-radius: 5px;
+  margin-left: 4px;
 }

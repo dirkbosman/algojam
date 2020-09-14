@@ -3,30 +3,74 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
+import { Row, Col } from "reactstrap";
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Ready to jam?!</h1>
-    <StaticQuery
-      query={IndexQuery}
-      render={(data) => {
-        return (
-          <div>
-            {data.allMarkdownRemark.edges.map(({ node }) => (
-              <Post
-                title={node.frontmatter.title}
-                author={node.frontmatter.author}
-                path={node.frontmatter.path}
-                date={node.frontmatter.date}
-                audio_url={node.frontmatter.audio_url}
-                body={node.excerpt}
-              />
-            ))}
-          </div>
-        );
-      }}
-    />
+    {/* <h1>Ready to jam?!</h1> */}
+    <Row>
+      <Col md="8">
+        <div
+          className="search-container"
+          style={{
+            width: "100%",
+            // backgroundColor: "grey",
+            padding: "4px",
+            margin: "2px",
+          }}
+        >
+          <input
+            type="text"
+            placeholder="Search.."
+            style={{
+              width: "80%",
+              backgroundColor: "white",
+              padding: "4px 8px",
+              border: "1px solid grey",
+              borderRadius: "5px",
+              margin: "0px 4px 0px 4px",
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: "4px 12px",
+              border: "1px solid grey",
+              borderRadius: "5px",
+              margin: "0px 4px 0px 4px",
+              backgroundColor: "#ff00ff",
+            }}
+          >
+            GO!
+          </button>
+        </div>
+        <StaticQuery
+          query={IndexQuery}
+          render={(data) => {
+            return (
+              <div>
+                {data.allMarkdownRemark.edges.map(({ node }) => (
+                  <Post
+                    title={node.frontmatter.title}
+                    author={node.frontmatter.author}
+                    path={node.frontmatter.path}
+                    date={node.frontmatter.date}
+                    audio_url={node.frontmatter.audio_url}
+                    body={node.excerpt}
+                  />
+                ))}
+              </div>
+            );
+          }}
+        />
+      </Col>
+      <Col md="4">
+        <div
+          style={{ width: "100%", height: "100%", border: "4px solid grey" }}
+        ></div>
+      </Col>
+    </Row>
   </Layout>
 );
 

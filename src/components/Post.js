@@ -18,7 +18,11 @@ import "react-h5-audio-player/lib/styles.css";
 
 const Post = ({ title, author, path, date, audio_url, body }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [status, setStatus] = useState("Show");
+
   const toggle = () => setIsOpen(!isOpen);
+  const onEntered = () => setStatus("Hide");
+  const onExited = () => setStatus("Show");
 
   return (
     <Card>
@@ -47,11 +51,17 @@ const Post = ({ title, author, path, date, audio_url, body }) => {
           <Button
             color="primary"
             onClick={toggle}
-            style={{ marginBottom: "1rem" }}
+            style={{
+              marginBottom: "1rem",
+              backgroundColor: "#ff00ff",
+              color: "black",
+              border: "1px solid grey",
+              margin: "6px 0px",
+            }}
           >
-            Toggle
+            {status}
           </Button>
-          <Collapse isOpen={isOpen}>
+          <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
             {/* <Card> */}
             {/* <CardBody className="code-container"> */}
             <CardText className="card-text-sm">{body}</CardText>
