@@ -16,15 +16,16 @@ module.exports = {
       },
     },
     {
+      // markdown-pages
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
         path: `${__dirname}/src/pages`,
+        // path: `${__dirname}/src/pages/posts`,
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
-
     {
       resolve: `gatsby-transformer-remark`,
       options: {

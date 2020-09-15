@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import {
+  Badge,
   Button,
   Card,
   CardTitle,
@@ -10,13 +11,14 @@ import {
   Collapse,
 } from "reactstrap";
 import "../styles/index.scss";
+import { slugify } from "../utils/utilityFunctions";
 
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 // import 'react-h5-audio-player/lib/styles.less' Use LESS
 // import 'react-h5-audio-player/src/styles.scss' Use SASS
 
-const Post = ({ title, author, path, date, audio_url, body }) => {
+const Post = ({ title, author, path, date, audio_url, tags, body }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("Show");
 
@@ -37,6 +39,18 @@ const Post = ({ title, author, path, date, audio_url, body }) => {
         {/* <Link to={path} className="btn btn-outline-primary float-right">
           More...
         </Link> */}
+
+        <ul className="post-tags">
+          {tags.map((tag) => (
+            <li>
+              <Link to={`/tag/${slugify(tag)}`}>
+                <Badge color="primary" className="text-uppercase">
+                  {tag}
+                </Badge>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <div>
           <AudioPlayer
@@ -65,6 +79,7 @@ const Post = ({ title, author, path, date, audio_url, body }) => {
             {/* <Card> */}
             {/* <CardBody className="code-container"> */}
             <CardText className="card-text-sm">{body}</CardText>
+            {/* <Card className="card-text-md">{body}</Card> */}
             {/* </CardBody> */}
             {/* </Card> */}
           </Collapse>

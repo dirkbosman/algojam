@@ -57,6 +57,7 @@ const IndexPage = () => (
                     path={node.frontmatter.path}
                     date={node.frontmatter.date}
                     audio_url={node.frontmatter.audio_url}
+                    tags={node.frontmatter.tags}
                     body={node.excerpt}
                   />
                 ))}
@@ -67,7 +68,7 @@ const IndexPage = () => (
       </Col>
       <Col md="4">
         <div
-          style={{ width: "100%", height: "100%", border: "4px solid grey" }}
+          style={{ width: "100%", height: "100%", border: "1px solid grey" }}
         ></div>
       </Col>
     </Row>
@@ -86,6 +87,7 @@ const IndexQuery = graphql`
             author
             path
             audio_url
+            tags
           }
           excerpt
         }
