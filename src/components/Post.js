@@ -44,9 +44,8 @@ const Post = ({ title, author, path, date, audio_url, tags, body }) => {
           {tags.map((tag) => (
             <li>
               <Link to={`/tag/${slugify(tag)}`}>
-                <Badge color="primary" className="text-uppercase">
-                  {tag}
-                </Badge>
+                {/* <Badge color="primary" className="text-uppercase"> */}
+                <Badge color="primary">{tag}</Badge>
               </Link>
             </li>
           ))}
@@ -78,7 +77,16 @@ const Post = ({ title, author, path, date, audio_url, tags, body }) => {
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
             {/* <Card> */}
             {/* <CardBody className="code-container"> */}
-            <CardText className="card-text-sm">{body}</CardText>
+            {/* <CardText className="code-container">{body}</CardText> */}
+
+            {/* <CardText className="card-text-md">{body}</CardText> */}
+            <CardText
+              className="card-text-md"
+              dangerouslySetInnerHTML={{
+                __html: body,
+              }}
+            ></CardText>
+
             {/* <Card className="card-text-md">{body}</Card> */}
             {/* </CardBody> */}
             {/* </Card> */}

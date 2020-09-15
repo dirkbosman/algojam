@@ -19,19 +19,22 @@ ul.post-tags {
 
   &.in {
     height: auto;
-    width: 200px;
+    // height: 800px;
+    // width: 200px;
   }
 }
 
 .card-text {
-  height: 200px;
-  border: 1px solid #000000;
-  background-color: grey;
+  // height: 200px;
+  height: auto;
+  border: 1px solid #433e45;
+  background-color: rgb(175, 86, 199);
+  color: white;
 
   overflow: visible;
   text-overflow: auto;
-
   white-space: normal;
+
   overflow-wrap: break-word;
   word-break: break-word;
   word-wrap: break-word; /* IE & Edge */
@@ -40,9 +43,10 @@ ul.post-tags {
 p {
   overflow: visible;
   text-overflow: auto;
-
   white-space: normal;
   overflow-wrap: break-word;
   word-break: break-word;
   word-wrap: break-word; /* IE & Edge */
+  padding: 4px;
+  margin: 4px;
 }

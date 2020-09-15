@@ -4,6 +4,7 @@ import SEO from "../components/seo";
 import { graphql, StaticQuery } from "gatsby";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
+// import Sidebar from "../components/Sidebar";
 
 const IndexPage = () => (
   <Layout>
@@ -58,7 +59,8 @@ const IndexPage = () => (
                     date={node.frontmatter.date}
                     audio_url={node.frontmatter.audio_url}
                     tags={node.frontmatter.tags}
-                    body={node.excerpt}
+                    // body={node.excerpt}
+                    body={node.html}
                   />
                 ))}
               </div>
@@ -70,6 +72,7 @@ const IndexPage = () => (
         <div
           style={{ width: "100%", height: "100%", border: "1px solid grey" }}
         ></div>
+        {/* <Sidebar /> */}
       </Col>
     </Row>
   </Layout>
@@ -90,6 +93,7 @@ const IndexQuery = graphql`
             tags
           }
           excerpt
+          html
         }
       }
     }
