@@ -50,3 +50,79 @@ p {
   padding: 4px;
   margin: 4px;
 }
+
+// .gatsby-code-button-container {
+//   touch-action: none;
+//   top: 28px;
+//   z-index: 100;
+//   // background-color: rgb(210, 175, 36);
+// }
+
+// .gatsby-code-button {
+//   padding: 5px;
+//   color: rgb(182, 71, 230);
+//   font-size: 16px;
+//   background-color: rgb(73, 12, 86);
+// }
+
+.gatsby-code-button {
+  padding: 4px;
+  color: #fff;
+  fill: #fff;
+  font-size: 14px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.gatsby-code-button:hover {
+  padding: 4px;
+  color: rgb(0, 0, 0);
+  fill: rgb(0, 0, 0);
+  font-size: 14px;
+  background-color: rgb(208, 232, 52);
+}
+
+.gatsby-code-button[data-tooltip]:after {
+  background-color: rgba(255, 255, 255, 0);
+  width: 1px;
+  height: 1px;
+}
+
+.gatsby-code-button-icon {
+  position: relative;
+  padding-left: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+.gatsby-code-button-toaster {
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+}
+.gatsby-code-button-toaster-text {
+  width: 100%;
+  margin: 0 15px;
+  max-width: 850px;
+  padding: 20px;
+  font-size: 24px;
+  letter-spacing: -1px;
+  font-family: monospace;
+  color: #fff;
+  background-color: #000;
+  border-radius: 2px;
+  text-align: center;
+  opacity: 0;
+  -webkit-animation: animation 3s cubic-bezier(0.98, 0.01, 0.53, 0.47);
+  animation: animation 3s cubic-bezier(0.98, 0.01, 0.53, 0.47);
+}
