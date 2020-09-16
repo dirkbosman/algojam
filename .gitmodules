@@ -1,0 +1,3 @@
+[submodule "src/pages/jams"]
+	path = src/pages/jams
+	url = https://github.com/dirkbosman/jams.git
