@@ -33,41 +33,26 @@ module.exports = {
       },
     },
     //
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-code-buttons",
-            options: {
-              // Optional button container class name. Defaults
-              // to 'gatsby-code-button-container'.
-              buttonContainerClass: `customButtonContainerClass`,
-              // Optional button class name. Defaults to 'gatsby-code-button'.
-              buttonClass: `customButtonClass`,
-              // Optional button text. Defaults to ''.
-              buttonText: `Copy`,
-              // Optional svg icon class name. Defaults to 'gatsby-code-button-icon'.
-              svgIconClass: `customSvgIconClass`,
-              // Optional svg icon. Defaults to svg string and can be
-              // replaced with any other valid svg. Use custom classes
-              // in the svg string and skip `iconClass` option.
-              // svgIcon: ``,
-              // Optional tooltip text. Defaults to ''.
-              // tooltipText: ``,
-              // Optional toaster class name. Defaults to ''.
-              toasterClass: `customToasterClass`,
-              // Optional toaster text class name. Defaults to ''.
-              toasterTextClass: `customToasterTextClass`,
-              // Optional toaster text. Defaults to ''.
-              toasterText: "Copied Successfully",
-              // Optional toaster duration. Defaults to 3500.
-              toasterDuration: 4000,
-            },
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: "gatsby-transformer-remark",
+    //   options: {
+    //     plugins: [
+    //       {
+    //         resolve: "gatsby-remark-code-buttons",
+    //         options: {
+    //           buttonContainerClass: `customButtonContainerClass`,
+    //           buttonClass: `customButtonClass`,
+    //           buttonText: `Copy`,
+    //           svgIconClass: `customSvgIconClass`,
+    //           toasterClass: `customToasterClass`,
+    //           toasterTextClass: `customToasterTextClass`,
+    //           toasterText: "Copied Successfully",
+    //           toasterDuration: 4000,
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
     //
     `gatsby-plugin-sharp`,
     {
