@@ -26,6 +26,16 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
   const onEntered = () => setStatus("Hide");
   const onExited = () => setStatus("Show");
 
+  //   onClickButton = () => {
+  //     toggle()
+  //     saveToLS()
+  //   }
+
+  //   <Button
+  //     onClick={onClickButton}
+  //     ...
+  //   />
+
   return (
     <Card>
       <CardBody>
@@ -93,9 +103,10 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             {/* <CardText className="card-text-md">{body}</CardText> */}
             <CardText
               className="card-text-md"
-              dangerouslySetInnerHTML={{
-                __html: body,
-              }}
+              //   dangerouslySetInnerHTML={{
+              //     __html: body,
+              //   }}
+              dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
             ></CardText>
             <CardText>{body}</CardText>
 
