@@ -96,6 +96,19 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
                 // dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
+            <div>
+              <CardText
+                key={`body`}
+                className="card-text-md"
+                dangerouslySetInnerHTML={{ __html: body }}
+              ></CardText>
+            </div>
+            <div>
+              <CardText>{body}</CardText>
+            </div>
+            <div>
+              <h5>Enjoy the jams!</h5>
+            </div>
           </Collapse>
         </div>
       </CardBody>
