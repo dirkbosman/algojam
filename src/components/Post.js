@@ -86,6 +86,9 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
           </Button>
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
             <div>
+              <h3>This is a test</h3>
+            </div>
+            <div>
               <CardText
                 key={`body`}
                 className="card-text-md"
