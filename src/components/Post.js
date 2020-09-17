@@ -18,7 +18,7 @@ import "react-h5-audio-player/lib/styles.css";
 // import 'react-h5-audio-player/lib/styles.less' Use LESS
 // import 'react-h5-audio-player/src/styles.scss' Use SASS
 
-const Post = ({ title, author, path, date, audio_url, tags, body }) => {
+const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("Show");
 
@@ -80,12 +80,13 @@ const Post = ({ title, author, path, date, audio_url, tags, body }) => {
             {/* <CardText className="code-container">{body}</CardText> */}
 
             {/* <CardText className="card-text-md">{body}</CardText> */}
-            <CardText
+            {/* <CardText
               className="card-text-md"
               dangerouslySetInnerHTML={{
                 __html: body,
               }}
-            ></CardText>
+            ></CardText> */}
+            <CardText>{body}</CardText>
 
             {/* <Card className="card-text-md">{body}</Card> */}
             {/* </CardBody> */}
