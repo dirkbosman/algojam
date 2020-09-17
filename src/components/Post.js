@@ -70,22 +70,6 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             // other props here
           />
         </div>
-        {/* start */}
-
-        <div>
-          <CardText
-            className="card-text-md"
-            dangerouslySetInnerHTML={{
-              __html: body,
-            }}
-          ></CardText>
-        </div>
-        <div>
-          <CardText>{body}</CardText>
-        </div>
-
-        {/* end */}
-
         <div>
           <Button
             color="primary"
@@ -101,32 +85,13 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             {status}
           </Button>
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
-            {/* <Card> */}
-            {/* <CardBody className="code-container"> */}
-            {/* <CardText className="code-container">{body}</CardText> */}
-
-            {/* <CardText className="card-text-md">{body}</CardText> */}
-            <CardText
-              className="card-text-md"
-              //   dangerouslySetInnerHTML={{
-              //     __html: body,
-              //   }}
-              dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
-            ></CardText>
             <div>
               <CardText
                 className="card-text-md"
-                //   dangerouslySetInnerHTML={{
-                //     __html: body,
-                //   }}
+                // dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
                 dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
-            <CardText>{body}</CardText>
-
-            {/* <Card className="card-text-md">{body}</Card> */}
-            {/* </CardBody> */}
-            {/* </Card> */}
           </Collapse>
         </div>
       </CardBody>

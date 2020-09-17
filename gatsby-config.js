@@ -33,26 +33,26 @@ module.exports = {
       },
     },
     //
-    // {
-    //   resolve: "gatsby-transformer-remark",
-    //   options: {
-    //     plugins: [
-    //       {
-    //         resolve: "gatsby-remark-code-buttons",
-    //         options: {
-    //           buttonContainerClass: `customButtonContainerClass`,
-    //           buttonClass: `customButtonClass`,
-    //           buttonText: `Copy`,
-    //           svgIconClass: `customSvgIconClass`,
-    //           toasterClass: `customToasterClass`,
-    //           toasterTextClass: `customToasterTextClass`,
-    //           toasterText: "Copied Successfully",
-    //           toasterDuration: 4000,
-    //         },
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-code-buttons",
+            options: {
+              buttonContainerClass: `customButtonContainerClass`,
+              buttonClass: `customButtonClass`,
+              buttonText: `Copy`,
+              svgIconClass: `customSvgIconClass`,
+              toasterClass: `customToasterClass`,
+              toasterTextClass: `customToasterTextClass`,
+              toasterText: "Copied Successfully",
+              toasterDuration: 4000,
+            },
+          },
+        ],
+      },
+    },
     //
     `gatsby-plugin-sharp`,
     {
