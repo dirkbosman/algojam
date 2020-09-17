@@ -150,47 +150,17 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
               <Card
                 className="blah"
                 dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-                // dangerouslySetInnerHTML={{ __html: body }}
               ></Card>
             </div>
             <br />
             <div>
-              <CardText
-                className="blah"
-                dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-                // dangerouslySetInnerHTML={{ __html: body }}
-              ></CardText>
-            </div>
-            <br />
-            <div>
-              <CardText
-                key={key}
+              <Card
                 className="card-text-md"
                 dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-                // dangerouslySetInnerHTML={{ __html: body }}
-              ></CardText>
+              ></Card>
             </div>
             <br />
-            <div>
-              <CardText
-                key={key}
-                className="card-text-md"
-                // dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-                dangerouslySetInnerHTML={{ __html: body }}
-              ></CardText>
-            </div>
-            <br />
-            <div>
-              <CardText
-                key={`body`}
-                className="card-text-md"
-                dangerouslySetInnerHTML={{ __html: body }}
-              ></CardText>
-            </div>
-            <br />
-            <div>
-              <CardText>{body}</CardText>
-            </div>
+
             <br />
             <div>
               <h5>Enjoy the jams!</h5>
