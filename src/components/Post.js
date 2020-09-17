@@ -87,8 +87,9 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
             <div>
               <CardText
+                key={`body`}
                 className="card-text-md"
-                dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
+                dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
                 // dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
