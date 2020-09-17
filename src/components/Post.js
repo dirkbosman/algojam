@@ -119,7 +119,7 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
                 //   dangerouslySetInnerHTML={{
                 //     __html: body,
                 //   }}
-                dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
+                dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
             <CardText>{body}</CardText>
