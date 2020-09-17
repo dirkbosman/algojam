@@ -60,6 +60,16 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             // other props here
           />
         </div>
+        {/* start */}
+        <CardText
+          className="card-text-md"
+          dangerouslySetInnerHTML={{
+            __html: body,
+          }}
+        ></CardText>
+        <CardText>{body}</CardText>
+        {/* end */}
+
         <div>
           <Button
             color="primary"
