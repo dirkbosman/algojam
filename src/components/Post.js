@@ -71,13 +71,18 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
           />
         </div>
         {/* start */}
-        <CardText
-          className="card-text-md"
-          dangerouslySetInnerHTML={{
-            __html: body,
-          }}
-        ></CardText>
-        <CardText>{body}</CardText>
+
+        <div>
+          <CardText
+            className="card-text-md"
+            dangerouslySetInnerHTML={{
+              __html: body,
+            }}
+          ></CardText>
+        </div>
+        <div>
+          <CardText>{body}</CardText>
+        </div>
 
         {/* end */}
 
@@ -108,6 +113,15 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
               //   }}
               dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
             ></CardText>
+            <div>
+              <CardText
+                className="card-text-md"
+                //   dangerouslySetInnerHTML={{
+                //     __html: body,
+                //   }}
+                dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
+              ></CardText>
+            </div>
             <CardText>{body}</CardText>
 
             {/* <Card className="card-text-md">{body}</Card> */}
