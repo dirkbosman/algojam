@@ -88,8 +88,8 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             <div>
               <CardText
                 className="card-text-md"
-                // dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
-                dangerouslySetInnerHTML={{ __html: body }}
+                dangerouslySetInnerHTML={{ __html: `<div> ${body} </div>` }}
+                // dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
           </Collapse>
