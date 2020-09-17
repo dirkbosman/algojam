@@ -24,12 +24,14 @@ ul.post-tags {
   }
 }
 
-.card-text {
+// .card-text {
+.inner-code-block {
   // height: 200px;
   height: auto;
   border: 1px solid #433e45;
   background-color: rgb(175, 86, 199);
   color: white;
+  padding: 10px 20px;
 
   overflow: visible;
   text-overflow: auto;

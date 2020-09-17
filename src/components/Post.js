@@ -5,7 +5,7 @@ import {
   Button,
   Card,
   CardTitle,
-  CardText,
+  // CardText,
   CardSubtitle,
   CardBody,
   Collapse,
@@ -70,63 +70,6 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             // other props here
           />
         </div>
-
-        {/* begin */}
-        <div>
-          <h3>This is a test</h3>
-        </div>
-        <br />
-        <div>
-          <Card
-            className="blah"
-            dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-            // dangerouslySetInnerHTML={{ __html: body }}
-          ></Card>
-        </div>
-        <br />
-        <div>
-          <CardText
-            className="blah"
-            dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-            // dangerouslySetInnerHTML={{ __html: body }}
-          ></CardText>
-        </div>
-        <br />
-        <div>
-          <CardText
-            key={key}
-            className="card-text-md"
-            dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-            // dangerouslySetInnerHTML={{ __html: body }}
-          ></CardText>
-        </div>
-        <br />
-        <div>
-          <CardText
-            key={key}
-            className="card-text-md"
-            // dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-            dangerouslySetInnerHTML={{ __html: body }}
-          ></CardText>
-        </div>
-        <br />
-        <div>
-          <CardText
-            key={`body`}
-            className="card-text-md"
-            dangerouslySetInnerHTML={{ __html: body }}
-          ></CardText>
-        </div>
-        <br />
-        <div>
-          <CardText>{body}</CardText>
-        </div>
-        <br />
-        <div>
-          <h5>Enjoy the jams!</h5>
-        </div>
-        {/* end */}
-
         <div>
           <Button
             color="primary"
@@ -142,28 +85,12 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             {status}
           </Button>
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
-            <div>
-              <h3>This is a test</h3>
-            </div>
-            <br />
-            <div>
+            <div className="code-block">
               <Card
-                className="blah"
+                // className="card-text-md"
+                className="inner-code-block"
                 dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
               ></Card>
-            </div>
-            <br />
-            <div>
-              <Card
-                className="card-text-md"
-                dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
-              ></Card>
-            </div>
-            <br />
-
-            <br />
-            <div>
-              <h5>Enjoy the jams!</h5>
             </div>
           </Collapse>
         </div>
