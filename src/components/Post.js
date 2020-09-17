@@ -70,6 +70,11 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             // other props here
           />
         </div>
+
+        {/* begin */}
+
+        {/* end */}
+
         <div>
           <Button
             color="primary"
@@ -88,14 +93,25 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
             <div>
               <h3>This is a test</h3>
             </div>
+            <br />
             <div>
               <CardText
-                key={`body`}
+                key={key}
                 className="card-text-md"
                 dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
                 // dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
+            <br />
+            <div>
+              <CardText
+                key={key}
+                className="card-text-md"
+                // dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+                dangerouslySetInnerHTML={{ __html: body }}
+              ></CardText>
+            </div>
+            <br />
             <div>
               <CardText
                 key={`body`}
@@ -103,9 +119,11 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
                 dangerouslySetInnerHTML={{ __html: body }}
               ></CardText>
             </div>
+            <br />
             <div>
               <CardText>{body}</CardText>
             </div>
+            <br />
             <div>
               <h5>Enjoy the jams!</h5>
             </div>
