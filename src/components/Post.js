@@ -72,7 +72,51 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
         </div>
 
         {/* begin */}
-
+        <div>
+          <h3>This is a test</h3>
+        </div>
+        <br />
+        <div>
+          <CardText
+            className="card-text-md"
+            dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+            // dangerouslySetInnerHTML={{ __html: body }}
+          ></CardText>
+        </div>
+        <br />
+        <div>
+          <CardText
+            key={key}
+            className="card-text-md"
+            dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+            // dangerouslySetInnerHTML={{ __html: body }}
+          ></CardText>
+        </div>
+        <br />
+        <div>
+          <CardText
+            key={key}
+            className="card-text-md"
+            // dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+            dangerouslySetInnerHTML={{ __html: body }}
+          ></CardText>
+        </div>
+        <br />
+        <div>
+          <CardText
+            key={`body`}
+            className="card-text-md"
+            dangerouslySetInnerHTML={{ __html: body }}
+          ></CardText>
+        </div>
+        <br />
+        <div>
+          <CardText>{body}</CardText>
+        </div>
+        <br />
+        <div>
+          <h5>Enjoy the jams!</h5>
+        </div>
         {/* end */}
 
         <div>
@@ -92,6 +136,14 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
             <div>
               <h3>This is a test</h3>
+            </div>
+            <br />
+            <div>
+              <CardText
+                className="card-text-md"
+                dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+                // dangerouslySetInnerHTML={{ __html: body }}
+              ></CardText>
             </div>
             <br />
             <div>
