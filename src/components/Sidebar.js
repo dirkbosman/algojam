@@ -10,6 +10,7 @@ const Sidebar = ({ uid }) => {
   // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
   // Local Storage (Begin)
+
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
   const handleBookmarks = (uid) => {
