@@ -76,6 +76,7 @@ const IndexPage = () => {
               return (
                 <Post
                   key={node.id}
+                  uid={node.frontmatter.uid}
                   title={node.frontmatter.title}
                   author={node.frontmatter.author}
                   path={node.frontmatter.path}

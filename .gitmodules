@@ -1,5 +1,5 @@
 [submodule "src/pages/jams"]
 	path = src/pages/jams
-	url = git@github.com:dirkbosman/jams.git
+	# url = git@github.com:dirkbosman/jams.git
 	# url = git:https://github.com/dirkbosman/jams.git
-	# url = https://github.com/dirkbosman/jams.git
+	url = https://github.com/dirkbosman/jams.git

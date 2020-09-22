@@ -9,6 +9,7 @@ export const useJamsData = () => {
             node {
               id
               frontmatter {
+                uid
                 title
                 date(formatString: "YYYY-MM-DD ")
                 author

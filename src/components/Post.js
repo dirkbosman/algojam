@@ -10,15 +10,18 @@ import {
   CardBody,
   Collapse,
 } from "reactstrap";
+
 import "../styles/index.scss";
 import { slugify } from "../utils/utilityFunctions";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import { node } from "prop-types";
 // import 'react-h5-audio-player/lib/styles.less' Use LESS
 // import 'react-h5-audio-player/src/styles.scss' Use SASS
 
-const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
+const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("Show");
 
@@ -26,15 +29,20 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
   const onEntered = () => setStatus("Hide");
   const onExited = () => setStatus("Show");
 
-  //   onClickButton = () => {
-  //     toggle()
-  //     saveToLS()
-  //   }
+  // Local Storage (Begin)
+  const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
-  //   <Button
-  //     onClick={onClickButton}
-  //     ...
-  //   />
+  const handleBookmarks = (uid) => {
+    const storedBookmarks = JSON.parse(
+      window.localStorage.getItem("bookmarks") || "[]"
+    );
+    if (storedBookmarks.indexOf(uid) === -1) {
+      return setBookmarks([uid, ...storedBookmarks]);
+    }
+
+    setBookmarks(storedBookmarks.filter((item) => item !== uid));
+  };
+  // Local Storage (End)
 
   return (
     <Card>
@@ -44,11 +52,9 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
         </CardTitle>
         <CardSubtitle>
           <span className="text-info">{date}</span> by{" "}
-          <span className="text-info">{author}</span>
+          <span className="text-info">{author}</span> by{" "}
+          <span className="text-info">{uid}</span>
         </CardSubtitle>
-        {/* <Link to={path} className="btn btn-outline-primary float-right">
-          More...
-        </Link> */}
 
         <ul className="post-tags">
           {tags.map((tag) => (
@@ -63,14 +69,36 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
 
         <div>
           <AudioPlayer
-            // autoPlay
             src={audio_url}
+            // autoPlay and other props here
             // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
             onPlay={(e) => console.log("onPlay")}
-            // other props here
           />
         </div>
+        <br />
+        <br />
+
         <div>
+          <div>
+            {/* localStorage start */}
+
+            <Button
+              color="primary"
+              onClick={() => handleBookmarks(uid)}
+              style={{
+                marginBottom: "1rem",
+                backgroundColor: bookmarks.indexOf(uid) ? "#8CFACA" : "blue",
+                color: "black",
+                border: "1px solid grey",
+                margin: "6px 0px",
+              }}
+            >
+              Bookmark
+            </Button>
+
+            {/* localStorage end */}
+          </div>
+
           <Button
             color="primary"
             onClick={toggle}
@@ -100,3 +128,24 @@ const Post = ({ key, title, author, path, date, audio_url, tags, body }) => {
 };
 
 export default Post;
+
+// export const SaveJams = () => {
+//   function useLocalState(localItem) {
+//     const [loc, setState] = useState(localStorage.getItem(localItem));
+
+//     function setLoc(newItem) {
+//       localStorage.setItem(localItem, newItem);
+//       setState(newItem);
+//     }
+//     return [loc, setLoc];
+//   }
+
+//   const [fruit, setFruit] = useLocalState("fruit");
+//   return (
+//     <div>
+//       <p>Fruit: {fruit}</p>
+//       <button onClick={() => setFruit("Apple")}>Apple</button>
+//       <button onClick={() => setFruit("Banana")}>Banana</button>
+//     </div>
+//   );
+// };
