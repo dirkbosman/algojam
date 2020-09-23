@@ -5,59 +5,18 @@ import { Button } from "reactstrap";
 import { StateContext } from "../components/stateContext";
 
 const Sidebar = ({ uid }) => {
-  // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-
-  // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-
-  // Local Storage (Begin)
-
-  // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-
-  // const handleBookmarks = (uid) => {
-  //   // const storedBookmarks = JSON.parse(
-  //   //   window.localStorage.getItem("bookmarks") || "[]"
-  //   // );
-  //   // if (storedBookmarks.indexOf(uid) === -1) {
-  //   //   return setBookmarks([uid, ...storedBookmarks]);
-  //   // }
-
-  //   const newb = JSON.parse(bookmarks);
-
-  //   setBookmarks(newb.filter((item) => item !== uid));
-  // };
-
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
   // Local Storage (End)
 
-  const listItems = bookmarks.map((a, i) => (
-    <li key={i} className="BookMarkedItem" style={{ padding: "5px" }}>
+  // Object.keys(myObject).map(function(key, index) {
+  //   myObject[key] *= 2;
+  // });
+
+  // const listItems = Object.keys(bookmarks).map((a, i) => (
+  const listItems = bookmarks.map((a) => (
+    <li key={a} className="BookMarkedItem" style={{ padding: "5px" }}>
       {a}{" "}
-      {/* <Button outline color="info" size="sm">
-        Search
-      </Button>{" "} */}
-      {/* <Button
-        outline
-        color="danger"
-        size="sm"
-        onClick={() => deleteBookmark(uid)}
-      >
-        Remove
-      </Button>{" "} */}
-      {/* <Button
-        color="danger"
-        size="sm"
-        onClick={() => handleBookmarks(uid)}
-        style={{
-          marginBottom: "1rem",
-          backgroundColor: bookmarks.indexOf(uid) ? "blue" : "#8CFACA",
-          color: "black",
-          border: "1px solid grey",
-          margin: "6px 0px",
-        }}
-      >
-        Bookmark
-      </Button> */}
       <Button
         color="primary"
         size="sm"
@@ -75,7 +34,8 @@ const Sidebar = ({ uid }) => {
     </li>
   ));
 
-  console.log(listItems);
+  console.log(typeof listItems);
+
   return (
     <div
       style={{
