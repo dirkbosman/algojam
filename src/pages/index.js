@@ -6,6 +6,7 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import { useJamsData } from "../hooks/jams";
+import StateContextProvider from "../components/stateContext";
 
 let fuseData = [];
 const IndexPage = () => {
@@ -34,67 +35,69 @@ const IndexPage = () => {
 
   const hasResults = results.length > 0;
   return (
-    <Layout>
-      <SEO title="Home" />
-      {/* <h1>Ready to jam?!</h1> */}
-      <Row>
-        <Col md="8">
-          <div
-            className="search-container"
-            style={{
-              width: "100%",
-              // backgroundColor: "grey",
-              padding: "4px",
-              margin: "2px",
-            }}
-          >
-            <input
-              type="text"
-              placeholder="Search.."
+    <StateContextProvider>
+      <Layout>
+        <SEO title="Home" />
+        {/* <h1>Ready to jam?!</h1> */}
+        <Row>
+          <Col md="8">
+            <div
+              className="search-container"
               style={{
                 width: "100%",
-                backgroundColor: "white",
-                padding: "4px 8px",
-                border: "1px solid grey",
-                borderRadius: "5px",
-                margin: "0px 4px 0px 4px",
+                // backgroundColor: "grey",
+                padding: "4px",
+                margin: "2px",
               }}
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-              }}
-            />
-          </div>
-          <div>
-            {searchTerm && hasResults && (
-              <strong>Found {results.length} items</strong>
-            )}
-            {searchTerm && !hasResults && <strong>No items found</strong>}
-          </div>
-          <div>
-            {results.map(({ node }) => {
-              return (
-                <Post
-                  key={node.id}
-                  uid={node.frontmatter.uid}
-                  title={node.frontmatter.title}
-                  author={node.frontmatter.author}
-                  path={node.frontmatter.path}
-                  date={node.frontmatter.date}
-                  audio_url={node.frontmatter.audio_url}
-                  tags={node.frontmatter.tags}
-                  // body={node.excerpt}
-                  body={node.html}
-                />
-              );
-            })}
-          </div>
-        </Col>
-        <Col md="4">
-          <Sidebar />
-        </Col>
-      </Row>
-    </Layout>
+            >
+              <input
+                type="text"
+                placeholder="Search.."
+                style={{
+                  width: "100%",
+                  backgroundColor: "white",
+                  padding: "4px 8px",
+                  border: "1px solid grey",
+                  borderRadius: "5px",
+                  margin: "0px 4px 0px 4px",
+                }}
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                }}
+              />
+            </div>
+            <div>
+              {searchTerm && hasResults && (
+                <strong>Found {results.length} items</strong>
+              )}
+              {searchTerm && !hasResults && <strong>No items found</strong>}
+            </div>
+            <div>
+              {results.map(({ node }) => {
+                return (
+                  <Post
+                    key={node.id}
+                    uid={node.frontmatter.uid}
+                    title={node.frontmatter.title}
+                    author={node.frontmatter.author}
+                    path={node.frontmatter.path}
+                    date={node.frontmatter.date}
+                    audio_url={node.frontmatter.audio_url}
+                    tags={node.frontmatter.tags}
+                    // body={node.excerpt}
+                    body={node.html}
+                  />
+                );
+              })}
+            </div>
+          </Col>
+          <Col md="4">
+            <Sidebar />
+          </Col>
+        </Row>
+      </Layout>
+    </StateContextProvider>
   );
 };
 

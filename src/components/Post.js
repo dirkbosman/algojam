@@ -1,25 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
 import {
   Badge,
   Button,
   Card,
   CardTitle,
-  // CardText,
   CardSubtitle,
   CardBody,
   Collapse,
 } from "reactstrap";
 
+import { StateContext } from "../components/stateContext";
+
 import "../styles/index.scss";
 import { slugify } from "../utils/utilityFunctions";
-import useLocalStorage from "../hooks/useLocalStorage";
 
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-import { node } from "prop-types";
-// import 'react-h5-audio-player/lib/styles.less' Use LESS
-// import 'react-h5-audio-player/src/styles.scss' Use SASS
 
 const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,26 +27,43 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
   const onExited = () => setStatus("Show");
 
   // Local Storage (Begin)
-  const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
-  const handleBookmarks = (uid) => {
-    const storedBookmarks = JSON.parse(
-      window.localStorage.getItem("bookmarks") || "[]"
-    );
-    if (storedBookmarks.indexOf(uid) === -1) {
-      return setBookmarks([uid, ...storedBookmarks]);
-    }
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-    setBookmarks(storedBookmarks.filter((item) => item !== uid));
-  };
+  //////
+
+  // const newb = JSON.parse(bookmarks);
+
+  // console.log(newb);
+  // console.log(typeof newb);
+
+  // console.log(typeof bookmarks);
   // Local Storage (End)
 
   return (
     <Card>
       <CardBody>
-        <CardTitle>
-          <Link to={path}>{title}</Link>
-        </CardTitle>
+        <div className="cardTopContent">
+          <CardTitle>
+            <Link to={path}>{title}</Link>
+          </CardTitle>
+
+          <Button
+            size="sm"
+            color="primary"
+            onClick={() => handleBookmarks(uid)}
+            style={{
+              marginBottom: "1rem",
+              backgroundColor: bookmarks.includes(uid) ? "blue" : "#8CFACA",
+              color: "black",
+              border: "1px solid grey",
+              margin: "6px 0px",
+            }}
+          >
+            {bookmarks.includes(uid) ? "🔖" : "💾"}
+          </Button>
+        </div>
+
         <CardSubtitle>
           <span className="text-info">{date}</span> by{" "}
           <span className="text-info">{author}</span> by{" "}
@@ -79,25 +93,23 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
         <br />
 
         <div>
-          <div>
-            {/* localStorage start */}
-
+          {/* <div>
+        
             <Button
               color="primary"
               onClick={() => handleBookmarks(uid)}
               style={{
                 marginBottom: "1rem",
-                backgroundColor: bookmarks.indexOf(uid) ? "#8CFACA" : "blue",
+                backgroundColor: bookmarks.includes(uid) ? "blue" : "#8CFACA",
                 color: "black",
                 border: "1px solid grey",
                 margin: "6px 0px",
               }}
             >
-              Bookmark
+              {bookmarks.includes(uid) ? "Bookmark-ed" : "Bookmark"}
             </Button>
 
-            {/* localStorage end */}
-          </div>
+          </div> */}
 
           <Button
             color="primary"

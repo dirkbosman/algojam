@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Button } from "reactstrap";
-import useLocalStorage from "../hooks/useLocalStorage";
+// import useLocalStorage from "../hooks/useLocalStorage";
 
-// const Sidebar = () => (
+import { StateContext } from "../components/stateContext";
 
 const Sidebar = ({ uid }) => {
   // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
@@ -11,20 +11,23 @@ const Sidebar = ({ uid }) => {
 
   // Local Storage (Begin)
 
-  const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
+  // const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
-  const handleBookmarks = (uid) => {
-    // const storedBookmarks = JSON.parse(
-    //   window.localStorage.getItem("bookmarks") || "[]"
-    // );
-    // if (storedBookmarks.indexOf(uid) === -1) {
-    //   return setBookmarks([uid, ...storedBookmarks]);
-    // }
+  // const handleBookmarks = (uid) => {
+  //   // const storedBookmarks = JSON.parse(
+  //   //   window.localStorage.getItem("bookmarks") || "[]"
+  //   // );
+  //   // if (storedBookmarks.indexOf(uid) === -1) {
+  //   //   return setBookmarks([uid, ...storedBookmarks]);
+  //   // }
 
-    const newb = JSON.parse(bookmarks);
+  //   const newb = JSON.parse(bookmarks);
 
-    setBookmarks(newb.filter((item) => item !== uid));
-  };
+  //   setBookmarks(newb.filter((item) => item !== uid));
+  // };
+
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
+
   // Local Storage (End)
 
   const listItems = bookmarks.map((a, i) => (
@@ -41,7 +44,7 @@ const Sidebar = ({ uid }) => {
       >
         Remove
       </Button>{" "} */}
-      <Button
+      {/* <Button
         color="danger"
         size="sm"
         onClick={() => handleBookmarks(uid)}
@@ -54,10 +57,25 @@ const Sidebar = ({ uid }) => {
         }}
       >
         Bookmark
+      </Button> */}
+      <Button
+        color="primary"
+        size="sm"
+        onClick={() => handleBookmarks(a)}
+        style={{
+          marginBottom: "1rem",
+          backgroundColor: bookmarks.includes(uid) ? "#8CFACA" : "blue",
+          color: "black",
+          border: "1px solid grey",
+          margin: "6px 0px",
+        }}
+      >
+        {bookmarks.includes(uid) ? "💾" : "🔖"}
       </Button>
     </li>
   ));
 
+  console.log(listItems);
   return (
     <div
       style={{
@@ -68,6 +86,7 @@ const Sidebar = ({ uid }) => {
         textAlign: "center",
       }}
     >
+      <h4>Bookmarked JAMS</h4>
       <ul className="entries" uid={uid}>
         {listItems}
       </ul>
