@@ -9,18 +9,41 @@ const Sidebar = ({ uid }) => {
 
   // Local Storage (End)
 
-  // Object.keys(myObject).map(function(key, index) {
-  //   myObject[key] *= 2;
-  // });
+  // const listItems = Object.keys(bookmarks).map((v, index) => (
+  //   <ul key={index}>
+  //   {bookmarks[v].map((uid, itemIndex) => (
+  //       <li key={itemIndex}>
+  //         <Button
+  //           color="primary"
+  //           size="sm"
+  //           onClick={() => handleBookmarks(uid)}
+  //           style={{
+  //             marginBottom: "1rem",
+  //             backgroundColor: bookmarks.includes(uid) ? "#8CFACA" : "blue",
+  //             color: "black",
+  //             border: "1px solid grey",
+  //             margin: "6px 0px",
+  //           }}
+  //         >
+  //           {bookmarks.includes(uid) ? "💾" : "🔖"}
+  //         </Button>
+  //       </li>
+  //     ))}
+  //   </ul>
+  // ));
 
+  ////
+
+  // console.log(typeof bookmarks);
   // const listItems = Object.keys(bookmarks).map((a, i) => (
-  const listItems = bookmarks.map((a) => (
-    <li key={a} className="BookMarkedItem" style={{ padding: "5px" }}>
-      {a}{" "}
+  const listItems = bookmarks.map((key) => (
+    // const listItems = Object.keys(bookmarks).map((key) => (
+    <li key={key} className="BookMarkedItem" style={{ padding: "5px" }}>
+      {key}{" "}
       <Button
         color="primary"
         size="sm"
-        onClick={() => handleBookmarks(a)}
+        onClick={() => handleBookmarks(key)}
         style={{
           marginBottom: "1rem",
           backgroundColor: bookmarks.includes(uid) ? "#8CFACA" : "blue",
@@ -34,6 +57,7 @@ const Sidebar = ({ uid }) => {
     </li>
   ));
 
+  console.log(Array.isArray(bookmarks));
   console.log(typeof listItems);
 
   return (
@@ -47,9 +71,8 @@ const Sidebar = ({ uid }) => {
       }}
     >
       <h4>Bookmarked JAMS</h4>
-      <ul className="entries" uid={uid}>
-        {listItems}
-      </ul>
+      {/* <ul className="entries" uid={uid}> */}
+      <ul className="entries">{listItems}</ul>
     </div>
   );
 };
