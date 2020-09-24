@@ -9,6 +9,7 @@ import { useJamsData } from "../hooks/jams";
 import StateContextProvider from "../components/stateContext";
 
 let fuseData = [];
+
 const IndexPage = () => {
   const originalData = useJamsData();
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,6 +35,7 @@ const IndexPage = () => {
   }, [searchTerm]);
 
   const hasResults = results.length > 0;
+
   return (
     <StateContextProvider>
       <Layout>
@@ -63,8 +65,6 @@ const IndexPage = () => {
                 }}
                 value={searchTerm}
                 onChange={(e) => {
-                  // setSearchTerm(e.target.value);
-
                   setSearchTerm(e.target.value);
                 }}
               />
@@ -87,7 +87,6 @@ const IndexPage = () => {
                     date={node.frontmatter.date}
                     audio_url={node.frontmatter.audio_url}
                     tags={node.frontmatter.tags}
-                    // body={node.excerpt}
                     body={node.html}
                   />
                 );
@@ -109,21 +108,29 @@ function prepareFuseData(data) {
   const options = {
     keys: [
       {
+        name: "uid",
+        weight: 1,
+      },
+      {
         name: "tags",
-        weight: 0.8,
+        weight: 0.6,
       },
       {
         name: "title",
-        weight: 0.6,
+        weight: 0.4,
       },
     ],
+    useExtendedSearch: true,
     includeMatches: true,
   };
+
   const list = data.map((item) => {
     return {
       ...item,
       tags: item.node.frontmatter.tags.join(","),
+      uid: item.node.frontmatter.uid.toString(),
     };
   });
+
   return new Fuse(list, options);
 }

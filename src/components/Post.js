@@ -30,16 +30,6 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  //////
-
-  // const newb = JSON.parse(bookmarks);
-
-  // console.log(newb);
-  // console.log(typeof newb);
-
-  // console.log(typeof bookmarks);
-  // Local Storage (End)
-
   return (
     <Card>
       <CardBody>
