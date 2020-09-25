@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{EK19:function(e,t,n){"use strict";n.r(t);var a=n("q1tI"),l=n.n(a),u=n("Bl7J"),r=n("vrFN");t.default=function(){return l.a.createElement(u.a,null,l.a.createElement(r.a,{title:"Submit"}),l.a.createElement("h1",null,"Submit"))}}}]);
-//# sourceMappingURL=component---src-pages-submit-js-2271ffa66b35867152fe.js.map

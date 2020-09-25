@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "gatsby";
+
 import {
   Badge,
   Button,
@@ -11,14 +12,23 @@ import {
 } from "reactstrap";
 
 import { StateContext } from "../components/stateContext";
-
 import "../styles/index.scss";
 import { slugify } from "../utils/utilityFunctions";
-
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
+import Img from "gatsby-image";
 
-const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
+const Post = ({
+  uid,
+  title,
+  author,
+  path,
+  date,
+  audio_url,
+  tags,
+  fluid,
+  body,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState("Show");
 
@@ -33,10 +43,27 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
   return (
     <Card>
       <CardBody>
-        <div className="cardTopContent">
-          <CardTitle>
-            <Link to={path}>{title}</Link>
-          </CardTitle>
+        <div className="cardOverallContent">
+          <div className="cardTopContent">
+            <Img
+              className="card-image-top"
+              fluid={fluid}
+              style={{
+                width: "60px",
+                height: "60px",
+                marginRight: "10px",
+              }}
+            />
+            <div className="cardTitleContent">
+              <CardTitle>
+                <Link to={path}>{title}</Link>
+              </CardTitle>
+              <CardSubtitle>
+                <span className="text-info">{date}</span> by{" "}
+                <span className="text-info">{author}</span>
+              </CardSubtitle>
+            </div>
+          </div>
 
           <Button
             size="sm"
@@ -47,30 +74,24 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
               backgroundColor: bookmarks.includes(uid) ? "blue" : "#8CFACA",
               color: "black",
               border: "1px solid grey",
-              margin: "6px 0px",
+              margin: "5px",
             }}
           >
             {bookmarks.includes(uid) ? "🔖" : "💾"}
           </Button>
         </div>
 
-        <CardSubtitle>
-          <span className="text-info">{date}</span> by{" "}
-          <span className="text-info">{author}</span> by{" "}
-          <span className="text-info">{uid}</span>
-        </CardSubtitle>
-
-        <ul className="post-tags">
-          {tags.map((tag) => (
-            <li key={tag}>
-              <Link to={`/tag/${slugify(tag)}`}>
-                {/* <Badge color="primary" className="text-uppercase"> */}
-                <Badge color="primary">{tag}</Badge>
-              </Link>
-            </li>
-          ))}
-        </ul>
-
+        <div>
+          <ul className="post-tags">
+            {tags.map((tag) => (
+              <li key={tag}>
+                <Link to={`/tag/${slugify(tag)}`}>
+                  <Badge color="primary">{tag}</Badge>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div>
           <AudioPlayer
             src={audio_url}
@@ -79,28 +100,8 @@ const Post = ({ uid, title, author, path, date, audio_url, tags, body }) => {
             onPlay={(e) => console.log("onPlay")}
           />
         </div>
-        <br />
-        <br />
 
         <div>
-          {/* <div>
-        
-            <Button
-              color="primary"
-              onClick={() => handleBookmarks(uid)}
-              style={{
-                marginBottom: "1rem",
-                backgroundColor: bookmarks.includes(uid) ? "blue" : "#8CFACA",
-                color: "black",
-                border: "1px solid grey",
-                margin: "6px 0px",
-              }}
-            >
-              {bookmarks.includes(uid) ? "Bookmark-ed" : "Bookmark"}
-            </Button>
-
-          </div> */}
-
           <Button
             color="primary"
             onClick={toggle}

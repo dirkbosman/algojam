@@ -87,6 +87,7 @@ const IndexPage = () => {
                     date={node.frontmatter.date}
                     audio_url={node.frontmatter.audio_url}
                     tags={node.frontmatter.tags}
+                    fluid={node.frontmatter.image.childImageSharp.fluid}
                     body={node.html}
                   />
                 );

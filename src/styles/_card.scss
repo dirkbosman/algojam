@@ -12,10 +12,21 @@ ul.post-tags {
   }
 }
 
-.cardTopContent {
+.cardOverallContent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.cardTopContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.cardTitleContent {
+  display: flex;
+  flex-direction: column;
 }
 
 // If you'd like it to default open, add the additional class "in": https://getbootstrap.com/2.3.2/javascript.html#collapse

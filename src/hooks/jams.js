@@ -16,6 +16,14 @@ export const useJamsData = () => {
                 path
                 audio_url
                 tags
+                image {
+                  childImageSharp {
+                    fluid(maxWidth: 500, quality: 100) {
+                      ...GatsbyImageSharpFluid
+                      ...GatsbyImageSharpFluidLimitPresentationSize
+                    }
+                  }
+                }
               }
               excerpt
               html
