@@ -81,8 +81,8 @@ const Post = ({
           </Button>
         </div>
 
-        <div>
-          <ul className="post-tags">
+        <div className="cardTags">
+          <ul className="postTags">
             {tags.map((tag) => (
               <li key={tag}>
                 <Link to={`/tag/${slugify(tag)}`}>
