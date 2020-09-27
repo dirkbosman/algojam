@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { StateContext } from "../components/stateContext";
+// import { Link } from "gatsby";
+// import { useJamsData } from "../hooks/jams";
 import {
   // Badge,
   Button,
@@ -8,16 +10,27 @@ import {
   CardSubtitle,
   CardBody,
   // Collapse,
-  Form,
-  FormGroup,
-  Input,
+  // Form,
+  // FormGroup,
+  // Input,
 } from "reactstrap";
 
 const Sidebar = ({ uid }) => {
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
+  // const originalData = useJamsData();
+
+  // const test = originalData.map(({ node }) => {
+  //   node.frontmatter.path;
+  //   node.fields.slug;
+  // })}
+
   const listItems = bookmarks.map((key) => (
     <li key={key} className="BookMarkedItem" style={{ padding: "5px" }}>
+      {/* <Link to={path}>{key}</Link>{" "} */}
+      {/* <Link to={node.frontmatter.path}>{key}</Link>{" "} */}
+      {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
+      {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
       {key}{" "}
       <Button
         color="primary"

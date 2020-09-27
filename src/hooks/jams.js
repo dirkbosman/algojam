@@ -13,7 +13,6 @@ export const useJamsData = () => {
                 title
                 date(formatString: "YYYY-MM-DD ")
                 author
-                path
                 audio_url
                 tags
                 image {
@@ -25,7 +24,9 @@ export const useJamsData = () => {
                   }
                 }
               }
-              excerpt
+              fields {
+                slug
+              }
               html
             }
           }

@@ -83,7 +83,9 @@ const IndexPage = () => {
                     uid={node.frontmatter.uid}
                     title={node.frontmatter.title}
                     author={node.frontmatter.author}
-                    path={node.frontmatter.path}
+                    ///////////////////////
+                    slug={node.fields.slug}
+                    ///////////////////////
                     date={node.frontmatter.date}
                     audio_url={node.frontmatter.audio_url}
                     tags={node.frontmatter.tags}
@@ -96,6 +98,22 @@ const IndexPage = () => {
           </Col>
           <Col md="4">
             <Sidebar />
+            {/* <Sidebar
+              key={originalData.node.id}
+              uid={originalData.node.frontmatter.uid}
+              path={originalData.node.frontmatter.path}
+            /> */}
+            {/* <div>
+              {originalData(({ node }) => {
+                return (
+                  <Sidebar
+                    key={node.id}
+                    uid={node.frontmatter.uid}
+                    path={node.frontmatter.path}
+                  />
+                );
+              })}
+            </div> */}
           </Col>
         </Row>
       </Layout>

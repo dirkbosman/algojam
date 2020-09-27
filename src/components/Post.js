@@ -22,7 +22,7 @@ const Post = ({
   uid,
   title,
   author,
-  path,
+  slug,
   date,
   audio_url,
   tags,
@@ -56,7 +56,7 @@ const Post = ({
             />
             <div className="cardTitleContent">
               <CardTitle>
-                <Link to={path}>{title}</Link>
+                <Link to={slug}>{title}</Link>
               </CardTitle>
               <CardSubtitle>
                 <span className="text-info">{date}</span> by{" "}
