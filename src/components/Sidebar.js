@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { StateContext } from "../components/stateContext";
-// import { Link } from "gatsby";
+import { Link } from "gatsby";
 // import { useJamsData } from "../hooks/jams";
 import {
   // Badge,
@@ -25,26 +25,35 @@ const Sidebar = ({ uid }) => {
   //   node.fields.slug;
   // })}
 
-  const listItems = bookmarks.map((key) => (
-    <li key={key} className="BookMarkedItem" style={{ padding: "5px" }}>
+  const listItems = bookmarks.map((bookmark) => (
+    <li
+      key={bookmark.uid}
+      className="BookMarkedItem"
+      style={{ padding: "5px" }}
+    >
       {/* <Link to={path}>{key}</Link>{" "} */}
       {/* <Link to={node.frontmatter.path}>{key}</Link>{" "} */}
       {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
       {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
-      {key}{" "}
+
+      <Link to={"/" + bookmark.uid}>{bookmark.title} </Link>
+
       <Button
         color="primary"
         size="sm"
-        onClick={() => handleBookmarks(key)}
+        onClick={() => handleBookmarks(bookmark.uid, bookmark.title)}
         style={{
           marginBottom: "1rem",
-          backgroundColor: bookmarks.includes(uid) ? "#8CFACA" : "blue",
+          backgroundColor: bookmarks.find((item) => item.uid === uid)
+            ? "#8CFACA"
+            : "blue",
           color: "black",
           border: "1px solid grey",
           margin: "6px 0px",
         }}
       >
-        {bookmarks.includes(uid) ? "💾" : "🔖"}
+        {/* {bookmarks.includes(uid) ? "💾" : "🔖"} */}
+        {bookmarks.find((item) => item.uid === uid) ? "💾" : "🔖"}
       </Button>
     </li>
   ));

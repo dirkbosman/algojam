@@ -5,11 +5,12 @@ exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    const slugFromTitle = slugify(node.frontmatter.title);
+    // const slugFromTitle = slugify(node.frontmatter.title);
+    const slugFromUid = slugify(node.frontmatter.uid);
     createNodeField({
       node,
       name: "slug",
-      value: slugFromTitle,
+      value: slugFromUid,
     });
   }
 };

@@ -18,15 +18,18 @@ function StateContextProvider({ children }) {
   //   setBookmarks(storedBookmarks.filter((item) => item !== uid));
   // };
 
-  const handleBookmarks = (uid) => {
+  const handleBookmarks = (uid, title) => {
     const storedBookmarks = JSON.parse(
       window.localStorage.getItem("bookmarks") || "[]"
     );
     // check whether bookmark id is in local storage
-    if (storedBookmarks.indexOf(uid) === -1) {
-      return setBookmarks([uid, ...storedBookmarks]);
+
+    const bookmarkedItem = storedBookmarks.find((item) => item.uid === uid);
+
+    if (!bookmarkedItem) {
+      return setBookmarks([{ uid, title }, ...storedBookmarks]);
     }
-    setBookmarks(storedBookmarks.filter((item) => item !== uid));
+    setBookmarks(storedBookmarks.filter((item) => item.uid !== uid));
   };
 
   return (
@@ -42,3 +45,8 @@ function StateContextProvider({ children }) {
 }
 
 export default StateContextProvider;
+
+// if (storedBookmarks.indexOf(uid) === -1) {
+// return setBookmarks([uid, ...storedBookmarks]);
+
+// i.e. bookmarks = [{uid: 16383389398379873 , title: "kjebkebekjbeek"},{uid: 1638338939837898798 , title: "kjebkebekjbeek"}, ]

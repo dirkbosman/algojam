@@ -50,6 +50,15 @@ ul.postTags {
 //   flex-wrap: wrap;
 // }
 
+// .jamsContainer {
+//   display: flex;
+// }
+
+// .jamsBtnContainer button {
+//   justify-content: center;
+//   align-content: center;
+// }
+
 // If you'd like it to default open, add the additional class "in": https://getbootstrap.com/2.3.2/javascript.html#collapse
 .code-container {
   display: block;
@@ -165,4 +174,89 @@ ul.postTags {
   opacity: 0;
   -webkit-animation: animation 3s cubic-bezier(0.98, 0.01, 0.53, 0.47);
   animation: animation 3s cubic-bezier(0.98, 0.01, 0.53, 0.47);
+}
+
+.rhap_container,
+.rhap_container *:focus {
+  outline: none;
+  border: none;
+}
+
+.rhap_container {
+  // background-color: rgba(0, 0, 0, 0);
+  // background-color: rgba(255, 0, 221, 0);
+  background-color: rgba(43, 196, 132, 0.404);
+}
+
+.rhap_container svg {
+  color: rgb(255, 0, 200);
+}
+
+.rhap_time {
+  // color: rgba(255, 255, 255, 0.7);
+  color: rgb(119, 0, 255);
+}
+
+.playerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mainPlayer {
+  background-color: rgb(190, 102, 186);
+  // width: 70%;
+}
+
+.recommenderContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+}
+
+.recommenderContainer h5 {
+  color: blueviolet;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+}
+
+// .recos {
+//   display: flex;
+//   flex-direction: row;
+//   // width: 30%;
+// }
+
+.reco_0 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: blueviolet;
+  width: 50%;
+  color: white;
+}
+
+.reco_0 a {
+  color: white;
+}
+
+.reco_0 .rhap_container svg {
+  color: blueviolet;
+}
+
+.reco_1 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(90, 57, 120);
+  width: 50%;
+  color: white;
+}
+
+.reco_1 a {
+  color: white;
+}
+
+.reco_1 .rhap_container svg {
+  color: rgb(90, 57, 120);
 }
