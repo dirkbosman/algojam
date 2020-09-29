@@ -20,7 +20,8 @@ import { slugify } from "../utils/utilityFunctions";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Img from "gatsby-image";
-import MetaData from "../data/meta";
+// import MetaData from "../data/meta";
+import PyMetaData from "../data/pymeta";
 
 // console.log(MetaData);
 
@@ -46,12 +47,25 @@ const Post = ({
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  const getRecommendations = (uid) => {
-    const recommendations = MetaData[uid] || [];
-    // console.log(recommendations);
-    return recommendations;
-  };
+  // const getRecommendations = (uid) => {
+  //   const recommendations = MetaData[uid] || [];
+  //   // console.log(recommendations);
+  //   return recommendations;
+  // };
 
+  // const getRecommendations = (uid) => {
+  //   const recommendations = PyMetaData.find((uid) => {
+  //     console.log(recommendations);
+  //     return recommendations;
+  //     // if (item.uid === uid) {
+  //     //   console.log(recommendations);
+  //     // }
+  //   });
+  // };
+
+  // console.log(MetaData[uid]);
+  const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
+  console.log(recommendations);
   return (
     <Card>
       <CardBody>
@@ -129,7 +143,8 @@ const Post = ({
                 color: "black",
                 border: "1px solid grey",
                 margin: "6px 0px",
-                marginLeft: "45%",
+                marginLeft: "50%",
+                marginRight: "50%",
                 marginTop: "15px",
               }}
             >
@@ -175,17 +190,7 @@ const Post = ({
           </div>
         </div> */}
 
-        <div className="recommenderContainer">
-          {/* <h1>{uid}</h1>
-          <h1>{slug}</h1> */}
-
-          {/* <div className="recommenderContainer"> */}
-          {/* <h5>Similar JAMS</h5> */}
-          {/* {bookmarks.find((item) => item.uid === uid) ? "🔖" : "💾"} */}
-          {/* {MetaData[uid] === uid ? "yeah" : "neah"} */}
-          {/* {MetaData[uid].find((item) => item.uid === uid) ? "yeah" : "neah"} */}
-
-          {/* {getRecommendations(uid).map(({ uid, title, audio_url }) => ( */}
+        {/* <div className="recommenderContainer">
           {getRecommendations(uid).map(({ uid, title, audio_url }, index) => (
             <Fragment key={uid} className="recos">
               <div className={"reco_" + index}>
@@ -204,32 +209,47 @@ const Post = ({
               </div>
             </Fragment>
           ))}
-          {/* </div> */}
-        </div>
+        </div> */}
+
+        {recommendations ? (
+          <div className="recommenderContainer">
+            <h1>Fey is cool!x</h1>
+
+            <Fragment className="recos">
+              <div className={"reco_"}>
+                <Link to={"/" + recommendations.neighbour_1}>Blahhhh</Link>
+                <AudioPlayer
+                  // className="reco_1" {"reco"+index}
+                  src={recommendations.neighbour_1}
+                  layout="horizontal-reverse"
+                  showJumpControls={false}
+                  customVolumeControls={[]}
+                  customAdditionalControls={[]}
+                  showDownloadProgress={false}
+                  customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
+                />
+              </div>
+              <div className={"reco_"}>
+                <Link to={"/" + recommendations.neighbour_2}>Blahhhh</Link>
+                <AudioPlayer
+                  // className="reco_1" {"reco"+index}
+                  src={recommendations.neighbour_2}
+                  layout="horizontal-reverse"
+                  showJumpControls={false}
+                  customVolumeControls={[]}
+                  customAdditionalControls={[]}
+                  showDownloadProgress={false}
+                  customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
+                />
+              </div>
+            </Fragment>
+          </div>
+        ) : (
+          ""
+        )}
       </CardBody>
     </Card>
   );
 };
 
 export default Post;
-
-// export const SaveJams = () => {
-//   function useLocalState(localItem) {
-//     const [loc, setState] = useState(localStorage.getItem(localItem));
-
-//     function setLoc(newItem) {
-//       localStorage.setItem(localItem, newItem);
-//       setState(newItem);
-//     }
-//     return [loc, setLoc];
-//   }
-
-//   const [fruit, setFruit] = useLocalState("fruit");
-//   return (
-//     <div>
-//       <p>Fruit: {fruit}</p>
-//       <button onClick={() => setFruit("Apple")}>Apple</button>
-//       <button onClick={() => setFruit("Banana")}>Banana</button>
-//     </div>
-//   );
-// };
