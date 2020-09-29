@@ -37,13 +37,15 @@ const Post = ({
   body,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [status, setStatus] = useState("Show");
+  const [status, setStatus] = useState("Show Code");
 
   const toggle = () => setIsOpen(!isOpen);
-  const onEntered = () => setStatus("Hide");
-  const onExited = () => setStatus("Show");
+  const onEntered = () => setStatus("Hide Code");
+  const onExited = () => setStatus("Show Code");
 
-  // Local Storage (Begin)
+  const netflifyAudioHostingUrl =
+    "https://confident-ritchie-5e6b2d.netlify.app/";
+  const audioFileFormat = ".mp3";
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
@@ -133,19 +135,22 @@ const Post = ({
         </div>
 
         <div className="jamsContainer">
-          <div className="jamsBtnContainer">
+          <div className="text-center">
             <Button
               color="primary"
+              size="sm"
               onClick={toggle}
               style={{
+                // textAlign: "center",
                 marginBottom: "1rem",
                 backgroundColor: "#ff00ff",
                 color: "black",
                 border: "1px solid grey",
-                margin: "6px 0px",
-                marginLeft: "50%",
-                marginRight: "50%",
-                marginTop: "15px",
+                margin: "10px 0",
+                // marginLeft: "auto",
+                // marginRight: "auto",
+                // marginTop: "10px",
+                // marginButton: "10px",
               }}
             >
               {status}
@@ -213,36 +218,49 @@ const Post = ({
 
         {recommendations ? (
           <div className="recommenderContainer">
-            <h1>Fey is cool!x</h1>
-
-            <Fragment className="recos">
-              <div className={"reco_"}>
-                <Link to={"/" + recommendations.neighbour_1}>Blahhhh</Link>
-                <AudioPlayer
-                  // className="reco_1" {"reco"+index}
-                  src={recommendations.neighbour_1}
-                  layout="horizontal-reverse"
-                  showJumpControls={false}
-                  customVolumeControls={[]}
-                  customAdditionalControls={[]}
-                  showDownloadProgress={false}
-                  customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
-                />
-              </div>
-              <div className={"reco_"}>
-                <Link to={"/" + recommendations.neighbour_2}>Blahhhh</Link>
-                <AudioPlayer
-                  // className="reco_1" {"reco"+index}
-                  src={recommendations.neighbour_2}
-                  layout="horizontal-reverse"
-                  showJumpControls={false}
-                  customVolumeControls={[]}
-                  customAdditionalControls={[]}
-                  showDownloadProgress={false}
-                  customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
-                />
-              </div>
-            </Fragment>
+            <h5>Similar JAMS</h5>
+            <div className="recos">
+              <Fragment>
+                <div className={"reco_0"}>
+                  <AudioPlayer
+                    // className="reco_1" {"reco"+index}
+                    src={
+                      netflifyAudioHostingUrl +
+                      recommendations.neighbour_1.toString() +
+                      audioFileFormat
+                    }
+                    layout="horizontal-reverse"
+                    showJumpControls={false}
+                    customVolumeControls={[]}
+                    customAdditionalControls={[]}
+                    showDownloadProgress={false}
+                    customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
+                  />
+                  <Link to={"/" + recommendations.neighbour_1}>
+                    {recommendations.neighbour_1}
+                  </Link>
+                </div>
+                <div className={"reco_1"}>
+                  <AudioPlayer
+                    // className="reco_1" {"reco"+index}
+                    src={
+                      netflifyAudioHostingUrl +
+                      recommendations.neighbour_2.toString() +
+                      audioFileFormat
+                    }
+                    layout="horizontal-reverse"
+                    showJumpControls={false}
+                    customVolumeControls={[]}
+                    customAdditionalControls={[]}
+                    showDownloadProgress={false}
+                    customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
+                  />
+                  <Link to={"/" + recommendations.neighbour_2}>
+                    {recommendations.neighbour_2}
+                  </Link>
+                </div>
+              </Fragment>
+            </div>
           </div>
         ) : (
           ""
