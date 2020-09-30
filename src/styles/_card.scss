@@ -42,10 +42,11 @@ ul.postTags {
 //   flex-wrap: wrap;
 // }
 
-// .jamsContainer {
-//   // display: flex;
-//   position: relative;
-// }
+.jamsContainer {
+  // display: flex;
+  // position: relative;
+  margin-top: 20px;
+}
 
 // .jamsBtnContainer button {
 // justify-content: center;
@@ -190,15 +191,20 @@ ul.audioFeatures {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 
   li {
     margin-right: 10px;
-    background-color: rgb(255, 0, 200);
+    // background-color: rgb(255, 0, 200);
+    background-color: rgb(175, 86, 199);
     color: white;
-    font-weight: bold;
+    // font-weight: bold;
     border-radius: 5px;
     padding: 2px 4px;
-    font-size: small;
+    // font-size: small;
+    font-size: 0.8rem;
     margin-top: 10px;
   }
 }

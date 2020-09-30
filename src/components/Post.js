@@ -134,37 +134,6 @@ const Post = ({
           />
         </div>
 
-        {/* //// */}
-        <div className="audioFeaturesBigContainer">
-          {recommendations ? (
-            <div className="audioFeaturesContainer">
-              {/* <h5>Audio Features</h5> */}
-              <div>
-                <ul className="audioFeatures">
-                  <li>bpm: {recommendations.bpm.toString()}</li>
-                  <li>stft: {recommendations.chroma_stft.toString()}</li>
-                  <li>rmse: {recommendations.rmse.toString()}</li>
-                  <li>
-                    crossing: {recommendations.zero_crossing_rate.toString()}
-                  </li>
-                  <li>
-                    bandwidth: {recommendations.spectral_bandwidth.toString()}
-                  </li>
-                  <li>
-                    centroid: {recommendations.spectral_centroid.toString()}
-                  </li>
-                  <li>
-                    rolloff: {recommendations.spectral_rolloff.toString()}
-                  </li>
-                </ul>
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-        </div>
-        {/* //// */}
-
         <div className="jamsContainer">
           <div className="text-center">
             <Button
@@ -188,7 +157,40 @@ const Post = ({
             </Button>
           </div>
           <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
+            {/* //// */}
+            <div className="audioFeaturesBigContainer">
+              {recommendations ? (
+                <div className="audioFeaturesContainer">
+                  {/* <h5 className="text-center">Stats</h5> */}
+                  <div>
+                    <ul className="audioFeatures">
+                      <li>bpm: {recommendations.bpm.toString()}</li>
+                      <li>stft: {recommendations.chroma_stft.toString()}</li>
+                      <li>rmse: {recommendations.rmse.toString()}</li>
+                      <li>
+                        crossing:{" "}
+                        {recommendations.zero_crossing_rate.toString()}
+                      </li>
+                      <li>
+                        bandwidth:{" "}
+                        {recommendations.spectral_bandwidth.toString()}
+                      </li>
+                      <li>
+                        centroid: {recommendations.spectral_centroid.toString()}
+                      </li>
+                      <li>
+                        rolloff: {recommendations.spectral_rolloff.toString()}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+            {/* //// */}
             <div className="code-block">
+              {/* <h5 className="text-center">Code</h5> */}
               <Card
                 // className="card-text-md"
                 className="inner-code-block"
@@ -252,7 +254,7 @@ const Post = ({
             <h5>Similar JAMS</h5>
             <div className="recos">
               <Fragment>
-                <div className={"reco_0"}>
+                <div className="reco_0">
                   <AudioPlayer
                     // className="reco_1" {"reco"+index}
                     src={
@@ -268,10 +270,10 @@ const Post = ({
                     customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
                   />
                   <Link to={"/" + recommendations.neighbour_1}>
-                    {recommendations.neighbour_1}
+                    {/* {recommendations.neighbour_1} */} info
                   </Link>
                 </div>
-                <div className={"reco_1"}>
+                <div className="reco_1">
                   <AudioPlayer
                     // className="reco_1" {"reco"+index}
                     src={
@@ -287,7 +289,7 @@ const Post = ({
                     customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
                   />
                   <Link to={"/" + recommendations.neighbour_2}>
-                    {recommendations.neighbour_2}
+                    {/* {recommendations.neighbour_2} */} info
                   </Link>
                 </div>
               </Fragment>
