@@ -180,6 +180,29 @@ ul.postTags {
   animation: animation 3s cubic-bezier(0.98, 0.01, 0.53, 0.47);
 }
 
+.audioFeatures {
+  display: flex;
+  flex-direction: row;
+}
+
+ul.audioFeatures {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    margin-right: 10px;
+    background-color: rgb(255, 0, 200);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 4px;
+    font-size: small;
+    margin-top: 10px;
+  }
+}
+
 .rhap_container,
 .rhap_container *:focus {
   outline: none;

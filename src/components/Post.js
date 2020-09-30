@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useContext } from "react";
 import { Link } from "gatsby";
-
 import {
   Badge,
   Button,
@@ -9,6 +8,7 @@ import {
   CardSubtitle,
   CardBody,
   Collapse,
+  Table,
   // Col,
   // Row,
 } from "reactstrap";
@@ -133,6 +133,37 @@ const Post = ({
             customAdditionalControls={[]}
           />
         </div>
+
+        {/* //// */}
+        <div className="audioFeaturesBigContainer">
+          {recommendations ? (
+            <div className="audioFeaturesContainer">
+              {/* <h5>Audio Features</h5> */}
+              <div>
+                <ul className="audioFeatures">
+                  <li>bpm: {recommendations.bpm.toString()}</li>
+                  <li>stft: {recommendations.chroma_stft.toString()}</li>
+                  <li>rmse: {recommendations.rmse.toString()}</li>
+                  <li>
+                    crossing: {recommendations.zero_crossing_rate.toString()}
+                  </li>
+                  <li>
+                    bandwidth: {recommendations.spectral_bandwidth.toString()}
+                  </li>
+                  <li>
+                    centroid: {recommendations.spectral_centroid.toString()}
+                  </li>
+                  <li>
+                    rolloff: {recommendations.spectral_rolloff.toString()}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        {/* //// */}
 
         <div className="jamsContainer">
           <div className="text-center">
