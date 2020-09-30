@@ -8,7 +8,7 @@ import {
   CardSubtitle,
   CardBody,
   Collapse,
-  Table,
+  // Table,
   // Col,
   // Row,
 } from "reactstrap";
@@ -32,6 +32,7 @@ const Post = ({
   slug,
   date,
   audio_url,
+  palette,
   tags,
   fluid,
   body,
@@ -122,16 +123,71 @@ const Post = ({
           </ul>
         </div>
 
-        <div className="mainPlayer">
-          <AudioPlayer
-            src={audio_url}
-            // autoPlay and other props here
-            // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-            onPlay={(e) => console.log("onPlay")}
-            // layout="horizontal-reverse"
-            customVolumeControls={[]}
-            customAdditionalControls={[]}
-          />
+        <div className="mainPlayerVisualContainer">
+          {audio_url ? (
+            <AudioPlayer
+              src={audio_url}
+              // autoPlay and other props here
+              // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+              onPlay={(e) => console.log("onPlay")}
+              // layout="horizontal-reverse"
+              customVolumeControls={[]}
+              customAdditionalControls={[]}
+            />
+          ) : (
+            <>
+              <h5 className="text-center">VJ Color Palette</h5>
+
+              <ul className="paletteContainer1" style={{ marginBottom: 0 }}>
+                {/* {palette(([Math.floor(Math.random() * palette.length)]) => ( */}
+                {palette.map((palette_item) => (
+                  <li
+                    key={palette_item}
+                    style={{ backgroundColor: palette_item }}
+                  >
+                    {""}
+                  </li>
+                ))}
+              </ul>
+
+              <ul className="paletteContainer2" style={{ marginBottom: 0 }}>
+                {palette
+                  .slice(0)
+                  .reverse()
+                  .map((palette_item) => (
+                    <li
+                      key={palette_item}
+                      style={{ backgroundColor: palette_item }}
+                    >
+                      {""}
+                    </li>
+                  ))}
+              </ul>
+              <ul className="paletteContainer3" style={{ marginBottom: 0 }}>
+                {palette.map((palette_item) => (
+                  <li
+                    key={palette_item}
+                    style={{ backgroundColor: palette_item }}
+                  >
+                    {""}
+                  </li>
+                ))}
+              </ul>
+              <ul className="paletteContainer4" style={{ marginBottom: 0 }}>
+                {palette
+                  .slice(0)
+                  .reverse()
+                  .map((palette_item) => (
+                    <li
+                      key={palette_item}
+                      style={{ backgroundColor: palette_item }}
+                    >
+                      {""}
+                    </li>
+                  ))}
+              </ul>
+            </>
+          )}
         </div>
 
         <div className="jamsContainer">

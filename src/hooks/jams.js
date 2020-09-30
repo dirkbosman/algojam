@@ -15,6 +15,7 @@ export const useJamsData = () => {
                 author
                 audio_url
                 tags
+                palette
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {
