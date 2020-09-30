@@ -47,7 +47,6 @@ const IndexPage = () => {
               className="search-container"
               style={{
                 width: "100%",
-                // backgroundColor: "grey",
                 padding: "4px",
                 margin: "2px",
               }}
@@ -98,6 +97,7 @@ const IndexPage = () => {
           </Col>
           <Col md="4">
             <Sidebar />
+
             {/* <Sidebar
               key={originalData.node.id}
               uid={originalData.node.frontmatter.uid}

@@ -1,3 +1,27 @@
+.featuredSidebarContainer {
+  height: 100%;
+}
+
+.featuredContainer {
+  border: 1px solid greenyellow;
+  padding-top: 10px;
+}
+
+.featuredBlocks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.featuredBlocks li {
+  padding: 4px;
+  border: 1px solid black;
+  height: 60px;
+  width: 60px;
+  margin: 4px;
+  font-size: small;
+}
+
 .author-social-links {
   ul {
     display: inline-flex;

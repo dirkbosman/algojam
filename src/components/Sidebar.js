@@ -14,12 +14,12 @@ import {
   // FormGroup,
   // Input,
 } from "reactstrap";
+// import Img from "gatsby-image";
 
 const Sidebar = ({ uid }) => {
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
   // const originalData = useJamsData();
-
   // const test = originalData.map(({ node }) => {
   //   node.frontmatter.path;
   //   node.fields.slug;
@@ -61,14 +61,14 @@ const Sidebar = ({ uid }) => {
   return (
     <div
       style={{
-        padding: "20px 0px 0px 0px",
+        // padding: "20px 0px 0px 0px",
         width: "100%",
         height: "100%",
         border: "1px solid grey",
         textAlign: "center",
       }}
     >
-      <Card>
+      <Card className="featuredSidebarContainer">
         <CardBody>
           {/* <Card>
             <CardTitle className="text-center text-uppercase mb-3">
@@ -87,37 +87,11 @@ const Sidebar = ({ uid }) => {
               </Button>
             </Form>
           </Card> */}
-          <Card>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Featured Creators
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-          </Card>
-          <Card>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Featured Languages
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>Ruby</li>
-                <li>Python</li>
-                <li>Haskell</li>
-                <li>Javascript</li>
-              </ul>
-            </div>
-          </Card>
-
-          <Card>
-            <CardTitle className="text-center text-uppercase mb-3">
+          <h4>Featured Tools</h4>
+          <Card className="featuredContainer">
+            {/* <CardTitle className="text-center text-uppercase mb-3">
               Featured Tools
-            </CardTitle>
+            </CardTitle> */}
             <CardSubtitle className="text-center text-uppercase mb-3">
               LiveCoding
             </CardSubtitle>
@@ -140,11 +114,22 @@ const Sidebar = ({ uid }) => {
                 <li>Four</li>
               </ul>
             </div>
-          </Card>
-
-          <Card>
             <CardTitle className="text-center text-uppercase mb-3">
-              Featured JAMS
+              Languages
+            </CardTitle>
+            <div>
+              <ul className="featuredBlocks">
+                <li>.ruby</li>
+                <li>.py</li>
+                <li>.lhs</li>
+                <li>.js</li>
+              </ul>
+            </div>
+          </Card>
+          <h4>Featured Activity</h4>
+          <Card className="featuredContainer">
+            <CardTitle className="text-center text-uppercase mb-3">
+              JAMS
             </CardTitle>
             <div>
               <ul className="featuredBlocks">
@@ -154,10 +139,8 @@ const Sidebar = ({ uid }) => {
                 <li>Four</li>
               </ul>
             </div>
-          </Card>
-          <Card>
             <CardTitle className="text-center text-uppercase mb-3">
-              Featured Samples
+              Samples
             </CardTitle>
             <div>
               <ul className="featuredBlocks">
@@ -167,10 +150,8 @@ const Sidebar = ({ uid }) => {
                 <li>Four</li>
               </ul>
             </div>
-          </Card>
-          <Card>
             <CardTitle className="text-center text-uppercase mb-3">
-              Featured Tracks
+              Tracks
             </CardTitle>
             <div>
               <ul className="featuredBlocks">
@@ -180,10 +161,8 @@ const Sidebar = ({ uid }) => {
                 <li>Four</li>
               </ul>
             </div>
-          </Card>
-          <Card>
             <CardTitle className="text-center text-uppercase mb-3">
-              Featured Visuals
+              Visuals
             </CardTitle>
             <div>
               <ul className="featuredBlocks">
@@ -193,14 +172,58 @@ const Sidebar = ({ uid }) => {
                 <li>Four</li>
               </ul>
             </div>
+            <CardTitle className="text-center text-uppercase mb-3">
+              Creators
+            </CardTitle>
+            <div>
+              <ul className="featuredBlocks">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+              </ul>
+            </div>
+            <CardTitle className="text-center text-uppercase mb-3">
+              Companies
+            </CardTitle>
+            <div>
+              <ul className="featuredBlocks">
+                <li>One</li>
+                <li>Two</li>
+                <li>Three</li>
+                <li>Four</li>
+              </ul>
+            </div>
+            <CardTitle className="text-center text-uppercase mb-3">
+              Bookmarked JAMS
+            </CardTitle>
+            <div>
+              <ul className="entries">{listItems}</ul>
+            </div>
           </Card>
-
-          <Card>
+          {/* <h4>Featured Ad</h4>
+          <Card className="featuredContainer">
+            <CardTitle className="text-center text-uppercase mb-3">
+              Want to advertise here?
+            </CardTitle>
+            <div className="featuredBlocks">
+              <Img
+                className="card-image-top"
+                fluid={originalData.fluid}
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  marginRight: "10px",
+                }}
+              />
+            </div>
+          </Card> */}
+          {/* <Card className="featuredContainer">
             <CardTitle className="text-center text-uppercase mb-3">
               Bookmarked JAMS
             </CardTitle>
             <ul className="entries">{listItems}</ul>
-          </Card>
+          </Card> */}
         </CardBody>
       </Card>
     </div>
