@@ -137,7 +137,6 @@ const Post = ({
           ) : (
             <>
               <h5 className="text-center">VJ Color Palette</h5>
-
               <ul className="paletteContainer1" style={{ marginBottom: 0 }}>
                 {/* {palette(([Math.floor(Math.random() * palette.length)]) => ( */}
                 {palette.map((palette_item) => (
