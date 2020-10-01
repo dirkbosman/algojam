@@ -3,7 +3,6 @@ import { StateContext } from "../components/stateContext";
 import { Link } from "gatsby";
 // import { useJamsData } from "../hooks/jams";
 import {
-  // Badge,
   Button,
   Card,
   CardTitle,
@@ -31,17 +30,14 @@ const Sidebar = ({ uid }) => {
       className="BookMarkedItem"
       style={{ padding: "5px" }}
     >
-      {/* <Link to={path}>{key}</Link>{" "} */}
-      {/* <Link to={node.frontmatter.path}>{key}</Link>{" "} */}
-      {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
-      {/* <Link to={node.fields.slug}>{key}</Link>{" "} */}
-
       <Link to={"/" + bookmark.uid}>{bookmark.title} </Link>
 
       <Button
         color="primary"
         size="sm"
-        onClick={() => handleBookmarks(bookmark.uid, bookmark.title)}
+        onClick={() =>
+          handleBookmarks(bookmark.uid, bookmark.title, bookmark.tags)
+        }
         style={{
           marginBottom: "1rem",
           backgroundColor: bookmarks.find((item) => item.uid === uid)
@@ -52,7 +48,6 @@ const Sidebar = ({ uid }) => {
           margin: "6px 0px",
         }}
       >
-        {/* {bookmarks.includes(uid) ? "💾" : "🔖"} */}
         {bookmarks.find((item) => item.uid === uid) ? "💾" : "🔖"}
       </Button>
     </li>

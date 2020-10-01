@@ -74,6 +74,7 @@ const IndexPage = () => {
               )}
               {searchTerm && !hasResults && <strong>No items found</strong>}
             </div>
+
             <div>
               {results.map(({ node }) => {
                 return (
@@ -98,7 +99,6 @@ const IndexPage = () => {
           </Col>
           <Col md="4">
             <Sidebar />
-
             {/* <Sidebar
               key={originalData.node.id}
               uid={originalData.node.frontmatter.uid}

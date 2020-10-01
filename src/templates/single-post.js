@@ -1,49 +1,103 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
-import { Badge, Card, CardBody, CardSubtitle } from "reactstrap";
+import { Button, Badge, Card, CardBody, CardSubtitle } from "reactstrap";
 import Img from "gatsby-image";
 import { slugify } from "../utils/utilityFunctions";
+import { StateContext } from "../components/stateContext";
+import StateContextProvider from "../components/stateContext";
+// import { useJamsData } from "../hooks/jams";
 
-const SinglePost = ({ data, pageContext, location }) => {
+const SinglePost = ({
+  data,
+  location,
+  // uid,
+  // title,
+  // tags,
+  // id,
+  // slug,
+  // pageContext,
+  // author,
+  // slug,
+  // date,
+  // audio_url,
+  // palette,
+  // fluid,
+  // body,
+}) => {
   const post = data.markdownRemark.frontmatter;
+  // console.log(post);
+
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
+
+  // console.log(post);
+  // console.log(uid);
+  // console.log(slug);
+  // console.log(bookmarks);
+  // console.log(handleBookmarks);
 
   return (
-    <Layout pageTitle={post.title}>
-      <SEO
-        title={post.title}
-        keywords={post.tags}
-        description={post.description}
-        // url={baseUrl}
-        pathname={location.pathname}
-      />
-      <Card>
-        <Img
-          className="card-image-top"
-          fluid={post.image.childImageSharp.fluid}
+    <StateContextProvider>
+      <Layout pageTitle={post.title}>
+        <SEO
+          title={post.title}
+          keywords={post.tags}
+          description={post.description}
+          // url={baseUrl}
+          pathname={location.pathname}
         />
-        <CardBody>
-          <CardSubtitle>
-            <span className="text-info">{post.date}</span> by{" "}
-            <span className="text-info">{post.author}</span>
-          </CardSubtitle>
+        <Card>
+          <Img
+            className="card-image-top"
+            fluid={post.image.childImageSharp.fluid}
+          />
+          <CardBody>
+            <CardSubtitle>
+              <span className="text-info">{post.date}</span> by{" "}
+              <span className="text-info">{post.author}</span>
+            </CardSubtitle>
 
-          {/* Use alternative syntax for dangerouslySetInnerHTML ???? */}
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          <ul className="post-tags">
-            {post.tags.map((tag) => (
-              <li key={tag}>
-                <Link to={`/tag/${slugify(tag)}`}>
-                  <Badge color="primary">{tag}</Badge>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </CardBody>
-      </Card>
-      <h3 className="text-center">Share this post</h3>
-    </Layout>
+            {/* //// Start of Bookmark //// */}
+            <Button
+              color="primary"
+              size="sm"
+              onClick={() => handleBookmarks(post.uid, post.title, post.tags)}
+              style={{
+                marginBottom: "1rem",
+                backgroundColor: bookmarks.find((item) => item.uid === post.uid)
+                  ? "blue"
+                  : "#8CFACA",
+
+                color: "black",
+                border: "1px solid grey",
+                margin: "6px 0px",
+              }}
+            >
+              {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
+            </Button>
+            {/* //// End of Bookmark //// */}
+
+            <div></div>
+
+            <div
+              // Use alternative syntax for dangerouslySetInnerHTML ????
+              dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+            />
+            <ul className="post-tags">
+              {post.tags.map((tag) => (
+                <li key={tag}>
+                  <Link to={`/tag/${slugify(tag)}`}>
+                    <Badge color="primary">{tag}</Badge>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </CardBody>
+        </Card>
+        <h3 className="text-center">Share this post</h3>
+      </Layout>
+    </StateContextProvider>
   );
 };
 
@@ -54,10 +108,12 @@ export const postQuery = graphql`
       id
       html
       frontmatter {
+        uid
         title
         author
         date(formatString: "MMM Do YYYY")
         tags
+        palette
         image {
           childImageSharp {
             fluid(maxWidth: 700) {

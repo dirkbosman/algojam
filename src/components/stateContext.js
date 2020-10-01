@@ -5,20 +5,8 @@ export const StateContext = createContext({});
 
 function StateContextProvider({ children }) {
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
-  // const [favourites, setFavourites] = useLocalStorage("favourites", [])
 
-  // const handleFavourites = (uid) => {
-  //   const storedBookmarks = JSON.parse(
-  //     window.localStorage.getItem("bookmarks") || "[]"
-  //   );
-  //   // check whether bookmark id is in local storage
-  //   if (storedBookmarks.indexOf(uid) === -1) {
-  //     return setBookmarks([uid, ...storedBookmarks]);
-  //   }
-  //   setBookmarks(storedBookmarks.filter((item) => item !== uid));
-  // };
-
-  const handleBookmarks = (uid, title) => {
+  const handleBookmarks = (uid, title, tags) => {
     const storedBookmarks = JSON.parse(
       window.localStorage.getItem("bookmarks") || "[]"
     );
@@ -27,7 +15,7 @@ function StateContextProvider({ children }) {
     const bookmarkedItem = storedBookmarks.find((item) => item.uid === uid);
 
     if (!bookmarkedItem) {
-      return setBookmarks([{ uid, title }, ...storedBookmarks]);
+      return setBookmarks([{ uid, title, tags }, ...storedBookmarks]);
     }
     setBookmarks(storedBookmarks.filter((item) => item.uid !== uid));
   };

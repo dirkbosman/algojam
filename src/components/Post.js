@@ -50,25 +50,9 @@ const Post = ({
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  // const getRecommendations = (uid) => {
-  //   const recommendations = MetaData[uid] || [];
-  //   // console.log(recommendations);
-  //   return recommendations;
-  // };
-
-  // const getRecommendations = (uid) => {
-  //   const recommendations = PyMetaData.find((uid) => {
-  //     console.log(recommendations);
-  //     return recommendations;
-  //     // if (item.uid === uid) {
-  //     //   console.log(recommendations);
-  //     // }
-  //   });
-  // };
-
   // console.log(MetaData[uid]);
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
-  console.log(recommendations);
+  // console.log(recommendations);
   return (
     <Card>
       <CardBody>
@@ -93,10 +77,11 @@ const Post = ({
               </CardSubtitle>
             </div>
           </div>
+
           <Button
             color="primary"
             size="sm"
-            onClick={() => handleBookmarks(uid, title)}
+            onClick={() => handleBookmarks(uid, title, tags)}
             style={{
               marginBottom: "1rem",
               backgroundColor: bookmarks.find((item) => item.uid === uid)
