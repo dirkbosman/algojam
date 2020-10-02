@@ -22,6 +22,7 @@ import "react-h5-audio-player/lib/styles.css";
 import Img from "gatsby-image";
 // import MetaData from "../data/meta";
 import PyMetaData from "../data/pymeta";
+import axios from "axios";
 
 // console.log(MetaData);
 
@@ -53,6 +54,73 @@ const Post = ({
   // console.log(MetaData[uid]);
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
   // console.log(recommendations);
+
+  // returnFlaskPost() {
+  //   return fetch( 'http://localhost:5000/api/v1', {
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'Content-Type': 'application/json'
+  //     },
+  //     method: 'POST',
+  //     body: {
+  //       'user1':'1234'
+  //     }
+  //   });
+  // }
+
+  // const saveBookmarkStats = () => {
+  //   fetch('http://localhost:3000/game', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       name: formData, // Use your own property name / key
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((result) => setData(result.rows))
+  //     .catch((err) => console.log('error'))
+  // }
+
+  // $(function () {
+  //   $(".action-vote").bind("click", function () {
+  //     item_id = $(this).data("item-id");
+  //     $(this).addClass("active");
+  //     $.ajax({
+  //       // async: true,
+  //       url: "/vote",
+  //       type: "POST",
+  //       data: { item_id: item_id },
+  //       dataType: "json",
+  //     }).done(function (reply) {});
+  //   });
+  // });
+
+  // useEffect(() => {
+  //   // POST request using axios inside useEffect React hook
+  //   const article = { title: "React Hooks POST Request Example" };
+  //   axios
+  //     .post("http://dojoyo.pythonanywhere.com/vote", article)
+  //     .then((response) => setArticleId(response.data.id));
+  // }, []);
+
+  // queryObj = { item_id: handleBookmarks(uid, title, tags) };
+  // queryObj = { "item_id": handleBookmarks(uid) };
+  // makePostRequest("http://dojoyo.pythonanywhere.com/vote", queryObj);
+
+  function makePostRequest(path, queryObj) {
+    axios.post(path, queryObj).then(
+      (response) => {
+        const result = response.data;
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
   return (
     <Card>
       <CardBody>
@@ -79,9 +147,22 @@ const Post = ({
           </div>
 
           <Button
+            onClick={() =>
+              makePostRequest("http://dojoyo.pythonanywhere.com/vote", {
+                // item_id: handleBookmarks(uid),
+                item: "5677",
+              })
+            }
+          >
+            Log Stats
+          </Button>
+          <Button
             color="primary"
             size="sm"
+            ////////////////////////////////////////////////
             onClick={() => handleBookmarks(uid, title, tags)}
+            ////////////////////////////////////////////////
+
             style={{
               marginBottom: "1rem",
               backgroundColor: bookmarks.find((item) => item.uid === uid)
