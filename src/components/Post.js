@@ -146,23 +146,28 @@ const Post = ({
             </div>
           </div>
 
-          <Button
+          {/* <Button
             onClick={() =>
               makePostRequest("http://dojoyo.pythonanywhere.com/vote", {
-                // item_id: handleBookmarks(uid),
-                item: "5677",
+                item_id: uid,
               })
             }
           >
             Log Stats
-          </Button>
+          </Button> */}
+
           <Button
             color="primary"
             size="sm"
-            ////////////////////////////////////////////////
-            onClick={() => handleBookmarks(uid, title, tags)}
-            ////////////////////////////////////////////////
-
+            onClick={() => {
+              handleBookmarks(uid, title, tags);
+              makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                item_id: uid,
+                item_type: bookmarks.find((item) => item.uid === uid)
+                  ? "unbookmark"
+                  : "bookmark",
+              });
+            }}
             style={{
               marginBottom: "1rem",
               backgroundColor: bookmarks.find((item) => item.uid === uid)
