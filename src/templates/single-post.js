@@ -15,7 +15,7 @@ const SinglePost = ({ data, location }) => {
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
   console.log(post);
-  console.log(bookmarks);
+  console.log({ bookmarks });
 
   return (
     <StateContextProvider>
@@ -41,16 +41,6 @@ const SinglePost = ({ data, location }) => {
             {/* //// Start of Bookmark //// */}
             <Button
               color="primary"
-              size="sm"
-              onClick={() => {
-                handleBookmarks(post.uid, post.title, post.tags);
-                makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-                  item_id: post.uid,
-                  item_type: bookmarks.find((item) => item.uid === post.uid)
-                    ? "unbookmark"
-                    : "bookmark",
-                });
-              }}
               style={{
                 marginBottom: "1rem",
                 backgroundColor: bookmarks.find((item) => item.uid === post.uid)
@@ -59,6 +49,17 @@ const SinglePost = ({ data, location }) => {
                 color: "black",
                 border: "1px solid grey",
                 margin: "6px 0px",
+              }}
+              size="sm"
+              onClick={() => {
+                handleBookmarks(post.uid, post.title, post.tags);
+                makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                  item_id: post.uid,
+                  // item_type: bookmarks.find((item) => item.uid === post.uid)
+                  item_type: bookmarks.includes((item) => item.uid === post.uid)
+                    ? "unbookmark"
+                    : "bookmark",
+                });
               }}
             >
               {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
