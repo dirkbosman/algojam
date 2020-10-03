@@ -43,7 +43,10 @@ const SinglePost = ({ data, location }) => {
               color="primary"
               style={{
                 marginBottom: "1rem",
-                backgroundColor: bookmarks.find((item) => item.uid === post.uid)
+                // backgroundColor: bookmarks.find((item) => item.uid === post.uid)
+                backgroundColor: bookmarks.includes(
+                  (item) => item.uid === post.uid
+                )
                   ? "blue"
                   : "#8CFACA",
                 color: "black",
