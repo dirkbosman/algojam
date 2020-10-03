@@ -10,33 +10,12 @@ import StateContextProvider from "../components/stateContext";
 import { makePostRequest } from "../utils/common";
 // import { useJamsData } from "../hooks/jams";
 
-const SinglePost = ({
-  data,
-  location,
-  // uid,
-  // title,
-  // tags,
-  // id,
-  // slug,
-  // pageContext,
-  // author,
-  // slug,
-  // date,
-  // audio_url,
-  // palette,
-  // fluid,
-  // body,
-}) => {
+const SinglePost = ({ data, location }) => {
   const post = data.markdownRemark.frontmatter;
-  // console.log(post);
-
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  // console.log(post);
-  // console.log(uid);
-  // console.log(slug);
-  // console.log(bookmarks);
-  // console.log(handleBookmarks);
+  console.log(post);
+  console.log(bookmarks);
 
   return (
     <StateContextProvider>
@@ -77,7 +56,6 @@ const SinglePost = ({
                 backgroundColor: bookmarks.find((item) => item.uid === post.uid)
                   ? "blue"
                   : "#8CFACA",
-
                 color: "black",
                 border: "1px solid grey",
                 margin: "6px 0px",
