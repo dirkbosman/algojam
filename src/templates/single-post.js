@@ -7,6 +7,7 @@ import Img from "gatsby-image";
 import { slugify } from "../utils/utilityFunctions";
 import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
+import { makePostRequest } from "../utils/common";
 // import { useJamsData } from "../hooks/jams";
 
 const SinglePost = ({
@@ -62,7 +63,15 @@ const SinglePost = ({
             <Button
               color="primary"
               size="sm"
-              onClick={() => handleBookmarks(post.uid, post.title, post.tags)}
+              onClick={() => {
+                handleBookmarks(post.uid, post.title, post.tags);
+                makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                  item_id: post.uid,
+                  item_type: bookmarks.find((item) => item.uid === post.uid)
+                    ? "unbookmark"
+                    : "bookmark",
+                });
+              }}
               style={{
                 marginBottom: "1rem",
                 backgroundColor: bookmarks.find((item) => item.uid === post.uid)
@@ -76,9 +85,33 @@ const SinglePost = ({
             >
               {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
             </Button>
-            {/* //// End of Bookmark //// */}
 
-            <div></div>
+            {/* <Button
+              color="primary"
+              size="sm"
+              onClick={() => {
+                handleBookmarks(uid, title, tags);
+                makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                  item_id: uid,
+                  item_type: bookmarks.find((item) => item.uid === uid)
+                    ? "unbookmark"
+                    : "bookmark",
+                });
+              }}
+              style={{
+                marginBottom: "1rem",
+                backgroundColor: bookmarks.find((item) => item.uid === uid)
+                  ? "blue"
+                  : "#8CFACA",
+                color: "black",
+                border: "1px solid grey",
+                margin: "6px 0px",
+              }}
+            >
+              {bookmarks.find((item) => item.uid === uid) ? "🔖" : "💾"}
+            </Button> */}
+
+            {/* //// End of Bookmark //// */}
 
             <div
               // Use alternative syntax for dangerouslySetInnerHTML ????
