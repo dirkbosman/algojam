@@ -8,13 +8,4 @@ require("prismjs/themes/prism-okaidia.css");
 
 export const wrapRootElement = ({ element }) => (
   <StateContextProvider>{element}</StateContextProvider>
-
-  //   <StateContext.Provider
-  //     value={{
-  //       bookmarks,
-  //       handleBookmarks,
-  //     }}
-  //   >
-  //     {element}
-  //   </StateContext.Provider>
 );

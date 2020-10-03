@@ -16,6 +16,7 @@ import {
 import { StateContext } from "../components/stateContext";
 import "../styles/index.scss";
 import { slugify } from "../utils/utilityFunctions";
+import { makePostRequest } from "../utils/common";
 // import AudioPlayer from "react-h5-audio-player";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
@@ -108,18 +109,6 @@ const Post = ({
   // queryObj = { item_id: handleBookmarks(uid, title, tags) };
   // queryObj = { "item_id": handleBookmarks(uid) };
   // makePostRequest("http://dojoyo.pythonanywhere.com/vote", queryObj);
-
-  function makePostRequest(path, queryObj) {
-    axios.post(path, queryObj).then(
-      (response) => {
-        const result = response.data;
-        console.log(result);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
 
   return (
     <Card>

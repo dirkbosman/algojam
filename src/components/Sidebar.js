@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { StateContext } from "../components/stateContext";
 import { Link } from "gatsby";
-// import { useJamsData } from "../hooks/jams";
+import { useJamsData } from "../hooks/jams";
 import {
   Button,
   Card,
@@ -14,44 +14,16 @@ import {
   // Input,
 } from "reactstrap";
 // import Img from "gatsby-image";
+import Bookmarks from "../pages/tags/bookmarks";
 
 const Sidebar = ({ uid }) => {
   const { bookmarks, handleBookmarks } = useContext(StateContext);
-
+  const originalData = useJamsData();
   // const originalData = useJamsData();
   // const test = originalData.map(({ node }) => {
   //   node.frontmatter.path;
   //   node.fields.slug;
   // })}
-
-  const listItems = bookmarks.map((bookmark) => (
-    <li
-      key={bookmark.uid}
-      className="BookMarkedItem"
-      style={{ padding: "5px" }}
-    >
-      <Link to={"/" + bookmark.uid}>{bookmark.title} </Link>
-
-      <Button
-        color="primary"
-        size="sm"
-        onClick={() =>
-          handleBookmarks(bookmark.uid, bookmark.title, bookmark.tags)
-        }
-        style={{
-          marginBottom: "1rem",
-          backgroundColor: bookmarks.find((item) => item.uid === uid)
-            ? "#8CFACA"
-            : "blue",
-          color: "black",
-          border: "1px solid grey",
-          margin: "6px 0px",
-        }}
-      >
-        {bookmarks.find((item) => item.uid === uid) ? "💾" : "🔖"}
-      </Button>
-    </li>
-  ));
 
   return (
     <div
@@ -193,7 +165,14 @@ const Sidebar = ({ uid }) => {
               Bookmarked JAMS
             </CardTitle>
             <div>
-              <ul className="entries">{listItems}</ul>
+              <ul className="entries">
+                <Bookmarks
+                  data={originalData}
+                  title="Recent Bookmarks"
+                  limit={3}
+                  isLocal={false}
+                />
+              </ul>
             </div>
           </Card>
           {/* <h4>Featured Ad</h4>

@@ -1,20 +1,64 @@
 import React from "react";
 // import { Link } from "gatsby";
-
-import Layout from "../components/layout";
 import SEO from "../components/seo";
+import Layout from "../components/layout";
+import { Button, Card, CardText, CardBody, CardTitle, Row } from "reactstrap";
+import HarryImage from "../images/harry.jpg";
+import SallyImage from "../images/sally.jpg";
+import authors from "../utils/authors";
+import { slugify } from "../utils/utilityFunctions";
 
 const TribePage = () => (
-  <Layout>
-    <SEO title="Tribe" />
-    <h1>Tribe</h1>
-    {/* <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link> */}
+  <Layout pageTitle="Our Team">
+    <SEO title="Our Team" keywords={[`gatsby`, `application`, `react`]} />
+    <Row className="mb-4">
+      <div className="col-md-3">
+        <img
+          src={HarryImage}
+          style={{ maxWidth: "100%" }}
+          alt="Harry's profile"
+        />
+      </div>
+      <div className="col-md-8">
+        <Card style={{ minHeight: "100%" }}>
+          <CardBody>
+            <CardTitle>{authors[0].name}</CardTitle>
+            <CardText>{authors[0].bio}</CardText>
+            <Button
+              classname="text-uppercase"
+              color="primary"
+              href={`/author/${slugify(authors[0].name)}`}
+            >
+              View posts
+            </Button>
+          </CardBody>
+        </Card>
+      </div>
+    </Row>
+    <Row className="mb-4">
+      <div className="col-md-3">
+        <img
+          src={SallyImage}
+          style={{ maxWidth: "100%" }}
+          alt="Sally's profile"
+        />
+      </div>
+      <div className="col-md-8">
+        <Card style={{ minHeight: "100%" }}>
+          <CardBody>
+            <CardTitle>{authors[1].name}</CardTitle>
+            <CardText>{authors[1].bio}</CardText>
+            <Button
+              classname="text-uppercase"
+              color="primary"
+              href={`/author/${slugify(authors[1].name)}`}
+            >
+              View posts
+            </Button>
+          </CardBody>
+        </Card>
+      </div>
+    </Row>
   </Layout>
 );
 
