@@ -23,7 +23,7 @@ import "react-h5-audio-player/lib/styles.css";
 import Img from "gatsby-image";
 // import MetaData from "../data/meta";
 import PyMetaData from "../data/pymeta";
-import axios from "axios";
+// import axios from "axios";
 
 // console.log(MetaData);
 
@@ -149,6 +149,9 @@ const Post = ({
             color="primary"
             size="sm"
             onClick={() => {
+              /////////////////////////////////////////////////////////////////
+              console.log(bookmarks.find((item) => item.uid === uid));
+              /////////////////////////////////////////////////////////////////
               handleBookmarks(uid, title, tags);
               makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                 item_id: uid,

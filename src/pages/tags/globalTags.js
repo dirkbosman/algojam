@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
-import SEO from "../../components/seo";
+import React, { useState, useEffect } from "react";
+// import SEO from "../../components/seo";
 import { Badge, Button, ButtonGroup } from "reactstrap";
 import Layout from "../../components/layout";
-import { graphql, Link } from "gatsby";
-
+// import { graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import { slugify } from "../../utils/utilityFunctions";
 
 const SORTS = {

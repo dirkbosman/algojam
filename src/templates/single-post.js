@@ -5,48 +5,49 @@ import SEO from "../components/seo";
 import { Button, Badge, Card, CardBody, CardSubtitle } from "reactstrap";
 import Img from "gatsby-image";
 import { slugify } from "../utils/utilityFunctions";
+// import { StateContext } from "../../components/stateContext";
+// import { makePostRequest } from "../../utils/common";
 import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
 import { makePostRequest } from "../utils/common";
-// import { useJamsData } from "../hooks/jams";
 
 const SinglePost = ({ data, location }) => {
   const post = data.markdownRemark.frontmatter;
   const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  console.log(post);
-  console.log(bookmarks);
+  // console.log(post);
+  // console.log(bookmarks);
 
-  const TTest = () => {
-    return (
-      <Button
-        color="primary"
-        style={{
-          marginBottom: "1rem",
-          // backgroundColor: bookmarks.find((item) => item.uid === post.uid)
-          backgroundColor: bookmarks.find((item) => item.uid === post.uid)
-            ? "blue"
-            : "#8CFACA",
-          color: "black",
-          border: "1px solid grey",
-          margin: "6px 0px",
-        }}
-        size="sm"
-        onClick={() => {
-          handleBookmarks(post.uid, post.title, post.tags);
-          makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-            item_id: post.uid,
-            // item_type: bookmarks.find((item) => item.uid === post.uid)
-            item_type: bookmarks.find((item) => item.uid === post.uid)
-              ? "unbookmark"
-              : "bookmark",
-          });
-        }}
-      >
-        {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
-      </Button>
-    );
-  };
+  // const TTest = () => {
+  //   return (
+  //     <Button
+  //       color="primary"
+  //       style={{
+  //         marginBottom: "1rem",
+  //         // backgroundColor: bookmarks.find((item) => item.uid === post.uid)
+  //         backgroundColor: bookmarks.find((item) => item.uid === post.uid)
+  //           ? "blue"
+  //           : "#8CFACA",
+  //         color: "black",
+  //         border: "1px solid grey",
+  //         margin: "6px 0px",
+  //       }}
+  //       size="sm"
+  //       onClick={() => {
+  //         handleBookmarks(post.uid, post.title, post.tags);
+  //         makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+  //           item_id: post.uid,
+  //           // item_type: bookmarks.find((item) => item.uid === post.uid)
+  //           item_type: bookmarks.find((item) => item.uid === post.uid)
+  //             ? "unbookmark"
+  //             : "bookmark",
+  //         });
+  //       }}
+  //     >
+  //       {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
+  //     </Button>
+  //   );
+  // };
 
   return (
     <StateContextProvider>
@@ -68,10 +69,8 @@ const SinglePost = ({ data, location }) => {
               <span className="text-info">{post.date}</span> by{" "}
               <span className="text-info">{post.author}</span>
             </CardSubtitle>
-            <TTest />
-
             {/* //// Start of Bookmark //// */}
-            {/* <Button
+            <Button
               color="primary"
               style={{
                 marginBottom: "1rem",
@@ -85,6 +84,9 @@ const SinglePost = ({ data, location }) => {
               }}
               size="sm"
               onClick={() => {
+                /////////////////////////////////////////////////////////////////
+                console.log(bookmarks.find((item) => item.uid === post.uid));
+                /////////////////////////////////////////////////////////////////
                 handleBookmarks(post.uid, post.title, post.tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                   item_id: post.uid,
@@ -96,7 +98,7 @@ const SinglePost = ({ data, location }) => {
               }}
             >
               {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
-            </Button> */}
+            </Button>
 
             {/* //// End of Bookmark //// */}
 
@@ -127,11 +129,15 @@ export const postQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         uid
         title
-        author
         date(formatString: "MMM Do YYYY")
+        author
+        audio_url
         tags
         palette
         image {

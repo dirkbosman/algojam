@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { StateContext } from "../components/stateContext";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { useJamsData } from "../hooks/jams";
 import {
-  Button,
+  // Button,
   Card,
   CardTitle,
   CardSubtitle,
@@ -17,7 +17,7 @@ import {
 import Bookmarks from "../pages/tags/bookmarks";
 
 const Sidebar = ({ uid }) => {
-  const { bookmarks, handleBookmarks } = useContext(StateContext);
+  // const { bookmarks, handleBookmarks } = useContext(StateContext);
   const originalData = useJamsData();
   // const originalData = useJamsData();
   // const test = originalData.map(({ node }) => {

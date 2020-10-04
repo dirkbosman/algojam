@@ -14,6 +14,7 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
     setSearchableList(dictionary);
     const tempData = [];
     if (isLocal || typeof isLocal === "undefined") return true;
+
     axios
       .get("http://dojoyo.pythonanywhere.com/bookmarks")
       .then(function (response) {
@@ -94,7 +95,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
 export default Bookmarks;
 
 // Utility functions
-
 const createDictionary = (data) => {
   const items = {};
   data.forEach((item) => {
