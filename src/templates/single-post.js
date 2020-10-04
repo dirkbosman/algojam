@@ -65,7 +65,9 @@ const SinglePost = ({ data, location }) => {
                 });
               }}
             >
-              {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
+              {bookmarks.includes((item) => item.uid === post.uid)
+                ? "🔖"
+                : "💾"}
             </Button>
 
             {/* <Button
