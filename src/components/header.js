@@ -9,6 +9,7 @@ import {
   NavItem,
   NavLink,
 } from "reactstrap";
+import StateContextProvider from "../components/stateContext";
 
 // const Header = ({ siteTitle }) => (
 // const Example = (props) => {
@@ -19,33 +20,35 @@ const Header = (props) => {
 
   return (
     <div>
-      <Navbar fixed="top" light expand="sm">
-        <div className="container">
-          <NavbarBrand href="/">{props.siteTitle}</NavbarBrand>
-          <NavbarToggler onClick={toggle} />
-          <Collapse isOpen={isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/trends">Trends</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/tags">Tags</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/tribe">Tribe</NavLink>
-              </NavItem>
-              <NavItem className="submitBtn">
-                <NavLink href="/submit">Submit</NavLink>
-              </NavItem>
-              {/* <NavItem>
+      <StateContextProvider>
+        <Navbar fixed="top" light expand="sm">
+          <div className="container">
+            <NavbarBrand href="/">{props.siteTitle}</NavbarBrand>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink href="/trends">Trends</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/tags">Tags</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/tribe">Tribe</NavLink>
+                </NavItem>
+                <NavItem className="submitBtn">
+                  <NavLink href="/submit">Submit</NavLink>
+                </NavItem>
+                {/* <NavItem>
               <NavLink href="https://github.com/reactstrap/reactstrap">
                 GitHub
               </NavLink>
             </NavItem> */}
-            </Nav>
-          </Collapse>
-        </div>
-      </Navbar>
+              </Nav>
+            </Collapse>
+          </div>
+        </Navbar>
+      </StateContextProvider>
     </div>
   );
 };
