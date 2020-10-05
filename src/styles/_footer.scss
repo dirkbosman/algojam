@@ -14,21 +14,14 @@
 
         a {
           color: $dark-gray;
-
-          &.instagram:hover {
-            color: #e95950;
-          }
-          &.facebook:hover {
-            color: rgb(66, 103, 178);
-          }
           &.twitter:hover {
             color: rgb(56, 161, 243);
           }
-          &.google:hover {
-            color: rgb(221, 75, 57);
+          &.github:hover {
+            color: rgb(194, 66, 183);
           }
-          &.linkedin:hover {
-            color: rgb(0, 119, 181);
+          &.producthunt:hover {
+            color: rgb(216, 96, 41);
           }
         }
       }

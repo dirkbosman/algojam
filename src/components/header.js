@@ -28,7 +28,7 @@ const Header = (props) => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/">Home</NavLink>
+                  <NavLink href="/tags">Tags</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/discover">Discover</NavLink>
@@ -42,11 +42,6 @@ const Header = (props) => {
                 <NavItem className="submitBtn">
                   <NavLink href="/submit">Submit</NavLink>
                 </NavItem>
-                {/* <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem> */}
               </Nav>
             </Collapse>
           </div>

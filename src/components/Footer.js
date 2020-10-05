@@ -2,23 +2,19 @@ import React from "react";
 
 const Footer = () => (
   <div className="site-footer">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossOrigin="anonymous"
+    />
     <h4 className="text-center">Algojam</h4>
-    <p className="text-center">Follow us:</p>
+    <p className="text-center">All up in dose interwebs!</p>
     <div className="footer-social-links">
       <ul className="social-links-list">
         <li>
           <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="facebook"
-          >
-            <i className="fab fa-facebook-f fa-2x" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.facebook.com"
+            href="https://www.twitter.com"
             target="_blank"
             rel="noopener noreferrer"
             className="twitter"
@@ -28,32 +24,22 @@ const Footer = () => (
         </li>
         <li>
           <a
-            href="https://www.facebook.com"
+            href="https://www.github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="instagram"
+            className="github"
           >
-            <i className="fab fa-instagram fa-2x" />
+            <i className="fab fa-github fa-2x" />
           </a>
         </li>
         <li>
           <a
-            href="https://www.facebook.com"
+            href="https://www.producthunt.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="google"
+            className="producthunt"
           >
-            <i className="fab fa-google fa-2x" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="linkedin"
-          >
-            <i className="fab fa-linkedin fa-2x" />
+            <i className="fab fa-product-hunt fa-2x" />
           </a>
         </li>
       </ul>

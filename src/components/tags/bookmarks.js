@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Button } from "reactstrap";
 import { Link } from "gatsby";
 import { StateContext } from "../stateContext";
+import StateContextProvider from "../../components/stateContext";
 import { makePostRequest } from "../../utils/common";
 import axios from "axios";
 
@@ -44,47 +45,49 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
     bookmarksCopy = commBookmarks;
   }
   return (
-    <div>
-      <h3>{title}</h3>
-      <div className="cardTags">
-        <br />
-        <ul className="">
-          {bookmarksCopy.map((bookmark) => {
-            const item = searchableList[bookmark.uid];
-            return (
-              <li key={bookmark.uid}>
-                <Link to={`/${bookmark.uid}`} tabIndex={0}>
-                  {item.title}
-                </Link>
-                &nbsp;&nbsp;
-                <Button
-                  color="primary"
-                  size="sm"
-                  onClick={() => {
-                    handleBookmarks(item.uid, item.title, item.tags);
-                    makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-                      item_id: item.uid,
-                      item_type: true ? "unbookmark" : "bookmark",
-                    });
-                  }}
-                  style={{
-                    display: isLocal ? "inline-block" : "none",
-                    marginBottom: "1rem",
-                    backgroundColor:
-                      item.uid === bookmark.uid ? "blue" : "#8CFACA",
-                    color: "black",
-                    border: "1px solid grey",
-                    margin: "6px 0px",
-                  }}
-                >
-                  {item.uid === bookmark.uid ? "💾" : "🔖"}
-                </Button>
-              </li>
-            );
-          })}
-        </ul>
+    <StateContextProvider>
+      <div>
+        <h3>{title}</h3>
+        <div className="cardTags">
+          <br />
+          <ul className="">
+            {bookmarksCopy.map((bookmark) => {
+              const item = searchableList[bookmark.uid];
+              return (
+                <li key={bookmark.uid}>
+                  <Link to={`/${bookmark.uid}`} tabIndex={0}>
+                    {item.title}
+                  </Link>
+                  &nbsp;&nbsp;
+                  <Button
+                    color="primary"
+                    size="sm"
+                    onClick={() => {
+                      handleBookmarks(item.uid, item.title, item.tags);
+                      makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                        item_id: item.uid,
+                        item_type: true ? "unbookmark" : "bookmark",
+                      });
+                    }}
+                    style={{
+                      display: isLocal ? "inline-block" : "none",
+                      marginBottom: "1rem",
+                      backgroundColor:
+                        item.uid === bookmark.uid ? "blue" : "#8CFACA",
+                      color: "black",
+                      border: "1px solid grey",
+                      margin: "6px 0px",
+                    }}
+                  >
+                    {item.uid === bookmark.uid ? "💾" : "🔖"}
+                  </Button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
-    </div>
+    </StateContextProvider>
   );
 };
 

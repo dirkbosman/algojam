@@ -11,17 +11,25 @@ import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
 import { makePostRequest } from "../utils/common";
 import authors from "../utils/authors";
+import { DiscussionEmbed } from "disqus-react";
 
-const SinglePost = ({ data, location }) => {
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
-  // const post = data.markdownRemark.frontmatter;
-  // const author = authors.find((x) => x.name === post.author);
-
+const SinglePost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark.frontmatter;
+  // const { bookmarks, handleBookmarks } = useContext(StateContext);
   let { bookmarks, handleBookmarks } = useContext(StateContext);
   if (!bookmarks) {
     bookmarks = [];
   }
+
+  const baseUrl = "https://www.algojam.com/";
+
+  const disqusShortname = "algojam";
+  const disqusConfig = {
+    identifier: data.markdownRemark.id,
+    title: post.title,
+    url: baseUrl + pageContext.slug,
+    // url: baseUrl + post.uid,
+  };
 
   return (
     <StateContextProvider>
@@ -39,10 +47,10 @@ const SinglePost = ({ data, location }) => {
           pathname={location.pathname}
         />
         <Card>
-          <Img
+          {/* <Img
             className="card-image-top"
             fluid={post.image.childImageSharp.fluid}
-          />
+          /> */}
           <CardBody>
             <CardSubtitle>
               <span className="text-info">{post.date}</span> by{" "}
@@ -99,6 +107,7 @@ const SinglePost = ({ data, location }) => {
           </CardBody>
         </Card>
         <h3 className="text-center">Share this post</h3>
+        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </Layout>
     </StateContextProvider>
   );
@@ -106,7 +115,7 @@ const SinglePost = ({ data, location }) => {
 
 // query blogPostBySlug($slug: String!, $imageUrl: String!) {
 export const postQuery = graphql`
-  query blogPostBySlug($slug: String!, $imageUrl: String!) {
+  query blogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
@@ -127,13 +136,6 @@ export const postQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
-        }
-      }
-    }
-    file(relativePath: { eq: $imageUrl }) {
-      childImageSharp {
-        fluid(maxWidth: 300) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

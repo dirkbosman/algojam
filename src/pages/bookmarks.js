@@ -17,7 +17,9 @@ const SORTS = {
   COUNT: "count",
   NAME: "name",
 };
-const TagsPage = () => {
+
+const BookmarkPage = () => {
+  // const TagsPage = () => {
   // const { bookmarks, handleBookmarks } = useContext(StateContext);
   const originalData = useJamsData();
   // const { bookmarks } = useContext(StateContext);
@@ -67,4 +69,5 @@ const TagsPage = () => {
   );
 };
 
-export default TagsPage;
+export default BookmarkPage;
+// export default TagsPage;

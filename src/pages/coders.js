@@ -17,7 +17,8 @@ import authors from "../utils/authors";
 import { slugify } from "../utils/utilityFunctions";
 import Sidebar from "../components/Sidebar";
 
-const TribePage = () => (
+const CodersPage = () => (
+  // const TribePage = () => (
   <Layout pageTitle="Our Team">
     <SEO title="Our Team" keywords={[`gatsby`, `application`, `react`]} />
     <Row>
@@ -37,7 +38,7 @@ const TribePage = () => (
                 <CardTitle>{authors[0].name}</CardTitle>
                 <CardText>{authors[0].bio}</CardText>
                 <Button
-                  classname="text-uppercase"
+                  className="text-uppercase"
                   color="primary"
                   href={`/author/${slugify(authors[0].name)}`}
                 >
@@ -61,7 +62,7 @@ const TribePage = () => (
                 <CardTitle>{authors[1].name}</CardTitle>
                 <CardText>{authors[1].bio}</CardText>
                 <Button
-                  classname="text-uppercase"
+                  className="text-uppercase"
                   color="primary"
                   href={`/author/${slugify(authors[1].name)}`}
                 >
@@ -79,4 +80,5 @@ const TribePage = () => (
   </Layout>
 );
 
-export default TribePage;
+export default CodersPage;
+// export default TribePage;
