@@ -10,49 +10,25 @@ import { slugify } from "../utils/utilityFunctions";
 import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
 import { makePostRequest } from "../utils/common";
+import authors from "../utils/authors";
 
 const SinglePost = ({ data, location }) => {
-  const post = data.markdownRemark.frontmatter;
   const { bookmarks, handleBookmarks } = useContext(StateContext);
+  const post = data.markdownRemark.frontmatter;
+  const author = authors.find((x) => x.name === post.author);
 
   // console.log(post);
   console.log(bookmarks);
 
-  // const TTest = () => {
-  //   return (
-  //     <Button
-  //       color="primary"
-  //       style={{
-  //         marginBottom: "1rem",
-  //         // backgroundColor: bookmarks.find((item) => item.uid === post.uid)
-  //         backgroundColor: bookmarks.find((item) => item.uid === post.uid)
-  //           ? "blue"
-  //           : "#8CFACA",
-  //         color: "black",
-  //         border: "1px solid grey",
-  //         margin: "6px 0px",
-  //       }}
-  //       size="sm"
-  //       onClick={() => {
-  //         handleBookmarks(post.uid, post.title, post.tags);
-  //         makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-  //           item_id: post.uid,
-  //           // item_type: bookmarks.find((item) => item.uid === post.uid)
-  //           item_type: bookmarks.find((item) => item.uid === post.uid)
-  //             ? "unbookmark"
-  //             : "bookmark",
-  //         });
-  //       }}
-  //     >
-  //       {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
-  //     </Button>
-  //   );
-  // };
-
   return (
     <StateContextProvider>
-      <Layout pageTitle={post.title}>
+      <Layout
+        pageTitle={post.title}
+        postAuthor={author}
+        authorImageFluid={data.file.childImageSharp.fluid}
+      >
         <SEO
+          author={post.author}
           title={post.title}
           keywords={post.tags}
           description={post.description}
@@ -86,13 +62,7 @@ const SinglePost = ({ data, location }) => {
               size="sm"
               onClick={() => {
                 /////////////////////////////////////////////////////////////////
-
                 //console.log(bookmarks);
-
-                //   if (typeof bookmarks === "undefined") {
-                //     return item_type = "bookmark";
-                // } return item_type = "unbookmark";
-
                 /////////////////////////////////////////////////////////////////
                 handleBookmarks(post.uid, post.title, post.tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
@@ -134,7 +104,7 @@ const SinglePost = ({ data, location }) => {
 
 // query blogPostBySlug($slug: String!, $imageUrl: String!) {
 export const postQuery = graphql`
-  query blogPostBySlug($slug: String!) {
+  query blogPostBySlug($slug: String!, $imageUrl: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
@@ -155,6 +125,13 @@ export const postQuery = graphql`
               ...GatsbyImageSharpFluid
             }
           }
+        }
+      }
+    }
+    file(relativePath: { eq: $imageUrl }) {
+      childImageSharp {
+        fluid(maxWidth: 300) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

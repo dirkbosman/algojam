@@ -41,23 +41,6 @@ const DiscoverPage = () => {
       <Layout>
         <Row>
           <Col md="8">
-            {/* <div className="aggregatedBookmarksContainer">
-              {aggregatedBookmarks.map(({ count }, index) => (
-                <div className="LatestCopylog" key={index}>
-                  <div className="CopylogItem">{count}</div>
-                </div>
-              ))}
-            </div> */}
-            {/* <h3>Community Bookmark Activity</h3>
-            <div className="App">
-              {pokemon.map(({ count }, index) => (
-                <div className="Pokemon" key={index}>
-                  <div className="PokemonName">{count}</div>
-                </div>
-              ))}
-            </div> */}
-            <br />
-            <br />
             <GlobalTags data={originalData} />
             <br />
             <br />
@@ -79,8 +62,6 @@ const DiscoverPage = () => {
                 <li>item 3</li>
               </ul>
             </div>
-
-            {/* <Bookmarks data={originalData} title="Bookmarks" isLocal={true} /> */}
           </Col>
 
           <Col md="4">

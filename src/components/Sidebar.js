@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import StateContextProvider from "../components/stateContext";
 // import { Link } from "gatsby";
 import { useJamsData } from "../hooks/jams";
-
+import { Link } from "gatsby";
 import {
   // Button,
   Card,
@@ -15,17 +15,11 @@ import {
   // FormGroup,
   // Input,
 } from "reactstrap";
-// import Img from "gatsby-image";
 import Bookmarks from "../pages/tags/bookmarks";
+import Earth from "../images/earth.jpg";
 
 const Sidebar = ({ uid }) => {
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
   const originalData = useJamsData();
-  // const originalData = useJamsData();
-  // const test = originalData.map(({ node }) => {
-  //   node.frontmatter.path;
-  //   node.fields.slug;
-  // })}
 
   return (
     <StateContextProvider>
@@ -47,10 +41,18 @@ const Sidebar = ({ uid }) => {
               </CardSubtitle>
               <div>
                 <ul className="featuredBlocks">
-                  <li>One</li>
-                  <li>Two</li>
-                  <li>Three</li>
-                  <li>Four</li>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">SP</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">SC</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">FD</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">Gibber</li>
+                  </Link>
                 </ul>
               </div>
               <CardSubtitle className="text-center text-uppercase mb-3">
@@ -58,10 +60,18 @@ const Sidebar = ({ uid }) => {
               </CardSubtitle>
               <div>
                 <ul className="featuredBlocks">
-                  <li>One</li>
-                  <li>Two</li>
-                  <li>Three</li>
-                  <li>Four</li>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">Hydra</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">P5.js</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">Visor</li>
+                  </Link>
+                  <Link to={`/discover`}>
+                    <li className="featuredBlockItem">glsl</li>
+                  </Link>
                 </ul>
               </div>
               <CardTitle className="text-center text-uppercase mb-3">

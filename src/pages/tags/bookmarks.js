@@ -9,10 +9,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
   const [commBookmarks, setCommBookmarks] = useState([]);
   const [searchableList, setSearchableList] = useState({});
   const { bookmarks, handleBookmarks } = useContext(StateContext);
-  // const data = [];
-
-  // console.log(data.length);
-  // console.log(isLocal);
 
   useEffect(() => {
     const dictionary = createDictionary(data);
@@ -23,9 +19,7 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
     axios
       .get("http://dojoyo.pythonanywhere.com/bookmarks")
       .then(function (response) {
-        // const originalData = [];
         const data = [];
-        // const uniqueData = response.data.map()
         response.data.forEach(({ item_id }) => {
           tempData.push(dictionary[item_id]);
         });
@@ -34,8 +28,8 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
       .catch(function (error) {
         // console.log("Request failed");
       });
-    // }, [data.length, isLocal]);
-  }, [data && data.length, isLocal]);
+  }, [data.length, isLocal]);
+  // }, [data && data.length, isLocal]);
 
   if (Object.keys(searchableList).length === 0) {
     return <div>...</div>;

@@ -17,8 +17,8 @@ const GlobalTags = ({ data }) => {
   useEffect(() => {
     const uniquetags = findUniqueTags(data);
     setTags(sortTags(uniquetags));
-    // }, [data.length]);
-  }, [data && data.length]);
+  }, [data.length]);
+  // }, [data && data.length]);
 
   const setAndSortTags = (sortBy) => {
     setSortBy(sortBy);
