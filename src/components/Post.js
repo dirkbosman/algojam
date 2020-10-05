@@ -23,7 +23,7 @@ import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Img from "gatsby-image";
 // import MetaData from "../data/meta";
-import PyMetaData from "../data/pymeta";
+import PyMetaData from "../utils/pymeta";
 // import axios from "axios";
 
 // console.log(MetaData);
@@ -55,6 +55,7 @@ const Post = ({
   if (!bookmarks) {
     bookmarks = [];
   }
+
   // console.log(MetaData[uid]);
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
   // console.log(recommendations);
@@ -154,7 +155,7 @@ const Post = ({
               size="sm"
               onClick={() => {
                 /////////////////////////////////////////////////////////////////
-                console.log(bookmarks.find((item) => item.uid === uid));
+                // console.log(bookmarks.find((item) => item.uid === uid));
                 /////////////////////////////////////////////////////////////////
                 handleBookmarks(uid, title, tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
@@ -171,6 +172,9 @@ const Post = ({
                   : "#8CFACA",
                 color: "black",
                 border: "1px solid grey",
+                borderRadius: "50%",
+                height: "40px",
+                width: "40px",
                 margin: "6px 0px",
               }}
             >

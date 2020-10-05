@@ -13,15 +13,21 @@ import { makePostRequest } from "../utils/common";
 import authors from "../utils/authors";
 
 const SinglePost = ({ data, location }) => {
-  const { bookmarks, handleBookmarks } = useContext(StateContext);
+  // const { bookmarks, handleBookmarks } = useContext(StateContext);
+  // const post = data.markdownRemark.frontmatter;
+  // const author = authors.find((x) => x.name === post.author);
+
   const post = data.markdownRemark.frontmatter;
-  const author = authors.find((x) => x.name === post.author);
+  let { bookmarks, handleBookmarks } = useContext(StateContext);
+  if (!bookmarks) {
+    bookmarks = [];
+  }
 
   return (
     <StateContextProvider>
       <Layout
         pageTitle={post.title}
-        postAuthor={author}
+        // postAuthor={author}
         authorImageFluid={data.file} //data.file.childImageSharp.fluid
       >
         <SEO
@@ -47,9 +53,9 @@ const SinglePost = ({ data, location }) => {
               color="primary"
               style={{
                 marginBottom: "1rem",
-                // backgroundColor: bookmarks.find((item) => item.uid === post.uid)
                 backgroundColor:
-                  bookmarks && bookmarks.find((item) => item.uid === post.uid)
+                  // bookmarks && bookmarks.find((item) => item.uid === post.uid)
+                  bookmarks.find((item) => item.uid === post.uid)
                     ? "blue"
                     : "#8CFACA",
                 color: "black",
@@ -64,16 +70,15 @@ const SinglePost = ({ data, location }) => {
                 handleBookmarks(post.uid, post.title, post.tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                   item_id: post.uid,
-                  // item_type: bookmarks.find((item) => item.uid === post.uid)
+                  // item_type: bookmarks && bookmarks.find((item) => item.uid === post.uid)
                   item_type: bookmarks.find((item) => item.uid === post.uid)
                     ? "unbookmark"
                     : "bookmark",
                 });
               }}
             >
-              {bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                ? "🔖"
-                : "💾"}
+              {/* {bookmarks && bookmarks.find((item) => item.uid === post.uid) ? "🔖": "💾"} */}
+              {bookmarks.find((item) => item.uid === post.uid) ? "🔖" : "💾"}
             </Button>
 
             {/* //// End of Bookmark //// */}

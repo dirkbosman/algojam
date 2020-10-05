@@ -6,8 +6,7 @@ import Header from "./header";
 import Sidebar from "./Sidebar";
 import Footer from "./Footer";
 import "../styles/index.scss";
-
-import { Row, Col } from "reactstrap";
+// import { Row, Col } from "reactstrap";
 
 const Layout = ({ authorImageFluid, children, pageTitle, postAuthor }) => {
   const data = useStaticQuery(graphql`
