@@ -35,7 +35,7 @@ const Post = ({
   slug,
   date,
   audio_url,
-  palette,
+  palette = [],
   tags,
   fluid,
   body,
@@ -51,8 +51,10 @@ const Post = ({
     "https://confident-ritchie-5e6b2d.netlify.app/";
   const audioFileFormat = ".mp3";
 
-  const { bookmarks, handleBookmarks } = useContext(StateContext);
-
+  let { bookmarks, handleBookmarks } = useContext(StateContext);
+  if (!bookmarks) {
+    bookmarks = [];
+  }
   // console.log(MetaData[uid]);
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
   // console.log(recommendations);

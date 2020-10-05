@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 // import { graphql, Link } from "gatsby";
 // import { StateContext } from "../components/stateContext";
 // import GlobalTags from "./tags/globalTags";
-import Bookmarks from "./tags/bookmarks";
+import Bookmarks from "../components/tags/bookmarks";
 // import Bookmarks from "../tags/bookmarks";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";

@@ -47,9 +47,6 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-
-
-
   if (res.errors) return Promise.reject(res.errors);
 
   // Extracting all posts from res
@@ -65,67 +62,8 @@ exports.createPages = async ({ actions, graphql }) => {
         slug: node.fields.slug,
         // Find author imageUrl from author array and pass it to template
         imageUrl: authors.find((x) => x.name === node.frontmatter.author)
-          // .imag // Get all tags
-          // .img // Get all tags
-          let tags = []
-          _.each(posts, edge => {
-            if (_.get(edge, 'node.frontmatter.tags')) {
-              tags = tags.concat(edge.node.frontmatter.tags)
-            }
-          })
-
-//////////////////////////////
-////  Add Pagination Here ////
-//////////////////////////////
-
-
-//   // Get all tags
-//   let tags = []
-//   _.each(posts, edge => {
-//     if (_.get(edge, 'node.frontmatter.tags')) {
-//       tags = tags.concat(edge.node.frontmatter.tags)
-//     }
-//   })
-
-//   let tagPostCounts = {} // { tutorial: 2, design: 1}
-//   tags.forEach(tag => {
-//     // Or 0 cause it might not exist yet
-//     tagPostCounts[tag] = (tagPostCounts[tag] || 0) + 1
-//   })
-
-//   // Remove duplicates
-//   tags = _.uniq(tags)
-
-//   // Tags page (all tags)
-//   createPage({
-//     path: '/tags',
-//     component: templates.tagsPage,
-//     context: {
-//       tags,
-//       tagPostCounts,
-//     },
-//   })
-
-//   // Tag posts pages
-//   tags.forEach(tag => {
-//     createPage({
-//       path: `/tag/${_.kebabCase(tag)}`,
-//       component: templates.tag,
-//       context: {
-//         tag,
-//       },
-//     })
-//   })
-
-//   // Create author posts pages
-//   authors.forEach(author => {
-//     createPage({
-//       path: `/author/${slugify(author.name)}`,
-//       component: templates.authorPosts,
-//       context: {
-//         authorName: author.name,
-//         imageUrl: author.imageUrl,
-//       },
-//     })
-//   })
-// }
+          .imageUrl,
+      },
+    });
+  });
+};

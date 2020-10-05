@@ -5,7 +5,7 @@ import { useJamsData } from "../hooks/jams";
 import Layout from "../components/layout";
 // import { graphql, Link } from "gatsby";
 import { StateContext } from "../components/stateContext";
-import GlobalTags from "./tags/globalTags";
+import GlobalTags from "../components/tags/globalTags";
 // import Bookmarks from "./tags/bookmarks";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";

@@ -15,7 +15,7 @@ import {
   // FormGroup,
   // Input,
 } from "reactstrap";
-import Bookmarks from "../pages/tags/bookmarks";
+import Bookmarks from "./tags/bookmarks";
 import Earth from "../images/earth.jpg";
 
 const Sidebar = ({ uid }) => {

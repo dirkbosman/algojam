@@ -17,15 +17,12 @@ const SinglePost = ({ data, location }) => {
   const post = data.markdownRemark.frontmatter;
   const author = authors.find((x) => x.name === post.author);
 
-  // console.log(post);
-  console.log(bookmarks);
-
   return (
     <StateContextProvider>
       <Layout
         pageTitle={post.title}
         postAuthor={author}
-        authorImageFluid={data.file.childImageSharp.fluid}
+        authorImageFluid={data.file} //data.file.childImageSharp.fluid
       >
         <SEO
           author={post.author}
@@ -62,16 +59,15 @@ const SinglePost = ({ data, location }) => {
               size="sm"
               onClick={() => {
                 /////////////////////////////////////////////////////////////////
-                console.log(bookmarks);
+                //console.log(bookmarks);
                 /////////////////////////////////////////////////////////////////
                 handleBookmarks(post.uid, post.title, post.tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                   item_id: post.uid,
                   // item_type: bookmarks.find((item) => item.uid === post.uid)
-                  item_type:
-                    bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                      ? "unbookmark"
-                      : "bookmark",
+                  item_type: bookmarks.find((item) => item.uid === post.uid)
+                    ? "unbookmark"
+                    : "bookmark",
                 });
               }}
             >
