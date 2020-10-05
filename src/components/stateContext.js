@@ -33,8 +33,3 @@ function StateContextProvider({ children }) {
 }
 
 export default StateContextProvider;
-
-// if (storedBookmarks.indexOf(uid) === -1) {
-// return setBookmarks([uid, ...storedBookmarks]);
-
-// i.e. bookmarks = [{uid: 16383389398379873 , title: "kjebkebekjbeek"},{uid: 1638338939837898798 , title: "kjebkebekjbeek"}, ]

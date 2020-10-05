@@ -5,7 +5,7 @@ import { useJamsData } from "../hooks/jams";
 import Layout from "../components/layout";
 // import { graphql, Link } from "gatsby";
 import { StateContext } from "../components/stateContext";
-import GlobalTags from "./tags/globalTags";
+// import GlobalTags from "./tags/globalTags";
 import Bookmarks from "./tags/bookmarks";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";
@@ -47,19 +47,24 @@ const TagsPage = () => {
                 </div>
               ))}
             </div> */}
-            <div className="App">
+            <h3>Community Bookmark Activity</h3>
+            <div className="commBookmarksContainer">
               {pokemon.map(({ count }, index) => (
-                <div className="Pokemon" key={index}>
-                  <div className="PokemonName">{count}</div>
+                <div className="commBookmarks" key={index}>
+                  <div className="commBookmarkItem">{count}</div>
                 </div>
               ))}
             </div>
             <br />
             <br />
-            <GlobalTags data={originalData} />
+            {/* <GlobalTags data={originalData} />
             <br />
-            <br />
-            <Bookmarks data={originalData} title="Bookmarks" isLocal={true} />
+            <br /> */}
+            <Bookmarks
+              data={originalData}
+              title="Your Bookmarks"
+              isLocal={true}
+            />
           </Col>
 
           <Col md="4">

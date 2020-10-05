@@ -28,13 +28,16 @@ const Header = (props) => {
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="/trends">Trends</NavLink>
+                  <NavLink href="/">Home</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/tags">Tags</NavLink>
+                  <NavLink href="/discover">Discover</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/tribe">Tribe</NavLink>
+                  <NavLink href="/coders">Coders</NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink href="/bookmarks">Bookmarks</NavLink>
                 </NavItem>
                 <NavItem className="submitBtn">
                   <NavLink href="/submit">Submit</NavLink>

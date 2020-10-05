@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
-import { StateContext } from "../components/stateContext";
+// import { StateContext } from "../components/stateContext";
+import StateContextProvider from "../components/stateContext";
 // import { Link } from "gatsby";
 import { useJamsData } from "../hooks/jams";
+
 import {
   // Button,
   Card,
@@ -26,194 +28,140 @@ const Sidebar = ({ uid }) => {
   // })}
 
   return (
-    <div
-      style={{
-        // padding: "20px 0px 0px 0px",
-        width: "100%",
-        height: "100%",
-        border: "1px solid grey",
-        textAlign: "center",
-      }}
-    >
-      <Card className="featuredSidebarContainer">
-        <CardBody>
-          {/* <Card>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Newsletter
-            </CardTitle>
-            <Form className="text-center">
-              <FormGroup>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Your email address ..."
-                />
-              </FormGroup>
-              <Button className="btn btn-outline-success text-uppercase">
-                Subscribe
-              </Button>
-            </Form>
-          </Card> */}
-          <h4>Featured Tools</h4>
-          <Card className="featuredContainer">
-            {/* <CardTitle className="text-center text-uppercase mb-3">
-              Featured Tools
-            </CardTitle> */}
-            <CardSubtitle className="text-center text-uppercase mb-3">
-              LiveCoding
-            </CardSubtitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardSubtitle className="text-center text-uppercase mb-3">
-              VJ'ing
-            </CardSubtitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Languages
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>.ruby</li>
-                <li>.py</li>
-                <li>.lhs</li>
-                <li>.js</li>
-              </ul>
-            </div>
-          </Card>
-          <h4>Featured Activity</h4>
-          <Card className="featuredContainer">
-            <CardTitle className="text-center text-uppercase mb-3">
-              JAMS
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Samples
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Tracks
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Visuals
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Creators
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Companies
-            </CardTitle>
-            <div>
-              <ul className="featuredBlocks">
-                <li>One</li>
-                <li>Two</li>
-                <li>Three</li>
-                <li>Four</li>
-              </ul>
-            </div>
-            <CardTitle className="text-center text-uppercase mb-3">
-              Bookmarked JAMS
-            </CardTitle>
-            <div>
-              <ul className="entries">
-                <Bookmarks
-                  data={originalData}
-                  title="Recent Bookmarks"
-                  limit={3}
-                  isLocal={false}
-                />
-              </ul>
-            </div>
-          </Card>
-          {/* <h4>Featured Ad</h4>
-          <Card className="featuredContainer">
-            <CardTitle className="text-center text-uppercase mb-3">
-              Want to advertise here?
-            </CardTitle>
-            <div className="featuredBlocks">
-              <Img
-                className="card-image-top"
-                fluid={originalData.fluid}
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  marginRight: "10px",
-                }}
-              />
-            </div>
-          </Card> */}
-          {/* <Card className="featuredContainer">
-            <CardTitle className="text-center text-uppercase mb-3">
-              Bookmarked JAMS
-            </CardTitle>
-            <ul className="entries">{listItems}</ul>
-          </Card> */}
-        </CardBody>
-      </Card>
-    </div>
-
-    // <div
-    //   style={{
-    //     padding: "20px 0px 0px 0px",
-    //     width: "100%",
-    //     height: "100%",
-    //     border: "1px solid grey",
-    //     textAlign: "center",
-    //   }}
-    // >
-    //   <h4>Bookmarked JAMS</h4>
-    //   <ul className="entries">{listItems}</ul>
-    // </div>
+    <StateContextProvider>
+      <div
+        style={{
+          // padding: "20px 0px 0px 0px",
+          width: "100%",
+          height: "100%",
+          border: "1px solid grey",
+          textAlign: "center",
+        }}
+      >
+        <Card className="featuredSidebarContainer">
+          <CardBody>
+            <h4>Featured Tools</h4>
+            <Card className="featuredContainer">
+              <CardSubtitle className="text-center text-uppercase mb-3">
+                LiveCoding
+              </CardSubtitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardSubtitle className="text-center text-uppercase mb-3">
+                VJ'ing
+              </CardSubtitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Languages
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>.ruby</li>
+                  <li>.py</li>
+                  <li>.lhs</li>
+                  <li>.js</li>
+                </ul>
+              </div>
+            </Card>
+            <h4>Featured Activity</h4>
+            <Card className="featuredContainer">
+              <CardTitle className="text-center text-uppercase mb-3">
+                JAMS
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Samples
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Tracks
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Visuals
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Creators
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Companies
+              </CardTitle>
+              <div>
+                <ul className="featuredBlocks">
+                  <li>One</li>
+                  <li>Two</li>
+                  <li>Three</li>
+                  <li>Four</li>
+                </ul>
+              </div>
+              <CardTitle className="text-center text-uppercase mb-3">
+                Bookmarked JAMS
+              </CardTitle>
+              <div>
+                <ul className="entries">
+                  <Bookmarks
+                    data={originalData}
+                    title="Recent Bookmarks"
+                    limit={3}
+                    isLocal={false}
+                  />
+                </ul>
+              </div>
+            </Card>
+          </CardBody>
+        </Card>
+      </div>
+    </StateContextProvider>
   );
 };
 
