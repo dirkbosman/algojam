@@ -56,13 +56,13 @@ const SubmitPage = () => {
                 </pre>
               </div> */}
 
-              <div class="code-block">
+              <div className="code-block">
                 <h3>Main</h3>
-                <div class="inner-code-block card">
+                <div className="inner-code-block card">
                   <div>
-                    <div class="gatsby-code-button-container customButtonContainerClass">
+                    <div className="gatsby-code-button-container customButtonContainerClass">
                       <div
-                        class="gatsby-code-button customButtonClass"
+                        className="gatsby-code-button customButtonClass"
                         data-tooltip=""
                       >
                         Copy
@@ -73,7 +73,7 @@ const SubmitPage = () => {
                       <button onClick={handleCopyClick}>
                         {!isCopied ? "Copy" : "Copied!"}
                       </button>
-                      <code class="language-js">
+                      <code className="language-js">
                         <div>
                           <h3>Main</h3>
                           <ul>

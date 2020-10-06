@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
@@ -26,10 +26,20 @@ const SinglePost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark.frontmatter;
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
+
   // let { bookmarks, handleBookmarks } = useContext(StateContext);
   // if (!bookmarks) {
   //   bookmarks = [];
   // }
+
+  const [hasMounted, setHasMounted] = React.useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
 
   const baseUrl = "https://www.algojam.com/";
 

@@ -15,16 +15,25 @@ import StateContextProvider from "../components/stateContext";
 // import React, { useContext, useState, useEffect } from "react";
 // import axios from "axios";
 
-const SORTS = {
-  COUNT: "count",
-  NAME: "name",
-};
+// const SORTS = {
+//   COUNT: "count",
+//   NAME: "name",
+// };
 
 const BookmarkPage = () => {
   // const TagsPage = () => {
   // const { bookmarks, handleBookmarks } = useContext(StateContext);
   const originalData = useJamsData();
   // const { bookmarks } = useContext(StateContext);
+
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
 
   // const [pokemon, setPokemon] = useState([]);
   // useEffect(() => {
