@@ -28,7 +28,8 @@ const BookmarkPage = () => {
 
   // useEffect(() => {
   //   axios
-  //     .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+  //     .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+  //    // .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
   //     .then(function (response) {
   //       console.log(response);
   //       setPokemon(response.data);

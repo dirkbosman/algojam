@@ -37,13 +37,13 @@ const CodersPage = () => (
               <CardBody>
                 <CardTitle>{authors[0].name}</CardTitle>
                 <CardText>{authors[0].bio}</CardText>
-                <Button
+                {/* <Button
                   className="text-uppercase"
                   color="primary"
                   href={`/author/${slugify(authors[0].name)}`}
                 >
                   View posts
-                </Button>
+                </Button> */}
               </CardBody>
             </Card>
           </div>
@@ -61,13 +61,13 @@ const CodersPage = () => (
               <CardBody>
                 <CardTitle>{authors[1].name}</CardTitle>
                 <CardText>{authors[1].bio}</CardText>
-                <Button
+                {/* <Button
                   className="text-uppercase"
                   color="primary"
                   href={`/author/${slugify(authors[1].name)}`}
                 >
                   View posts
-                </Button>
+                </Button> */}
               </CardBody>
             </Card>
           </div>
