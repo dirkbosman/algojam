@@ -74,111 +74,44 @@ const SubmitPage = () => {
                         {!isCopied ? "Copy" : "Copied!"}
                       </button>
                       <code class="language-js">
-                        <li>- jams: code + recording</li>
-                        <li>- vjs: code + css </li>
-                        <li>- words: poems, raps (+translations)</li>
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-              <div class="code-block">
-                <h3>Sets</h3>
-                <div class="inner-code-block card">
-                  <div>
-                    <div class="gatsby-code-button-container customButtonContainerClass">
-                      <div
-                        class="gatsby-code-button customButtonClass"
-                        data-tooltip=""
-                      >
-                        Copy
-                        {/* Add SVG */}
-                      </div>
-                    </div>
-                    <pre>
-                      <button onClick={handleCopyClick}>
-                        {!isCopied ? "Copy" : "Copied!"}
-                      </button>
-                      <code class="language-javascript">
-                        <li>- jamset: code excerpt + yt</li>
-                        <li>- vjset: code excerpt + yt</li>
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-              <div class="code-block">
-                <h3>Education</h3>
-                <div class="inner-code-block card">
-                  <div>
-                    <div class="gatsby-code-button-container customButtonContainerClass">
-                      <div
-                        class="gatsby-code-button customButtonClass"
-                        data-tooltip=""
-                      >
-                        Copy
-                        {/* Add SVG */}
-                      </div>
-                    </div>
-                    <pre>
-                      <button onClick={handleCopyClick}>
-                        {!isCopied ? "Copy" : "Copied!"}
-                      </button>
-                      <code class="language-javascript">
-                        <li>- jamtut: code excerpt + yt</li>
-                        <li>- vjtut: code excerpt + yt</li>
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-              <div class="code-block">
-                <h3>Samples (code link + mp3)</h3>
-                <div class="inner-code-block card">
-                  <div>
-                    <div class="gatsby-code-button-container customButtonContainerClass">
-                      <div
-                        class="gatsby-code-button customButtonClass"
-                        data-tooltip=""
-                      >
-                        Copy
-                        {/* Add SVG */}
-                      </div>
-                    </div>
-                    <pre>
-                      <button onClick={handleCopyClick}>
-                        {!isCopied ? "Copy" : "Copied!"}
-                      </button>
-                      <code class="language-javascript">
-                        <li>- audio</li>
-                        <li>- vocals</li>
-                        <li>- translated / words -> audio encoded</li>
-                      </code>
-                    </pre>
-                  </div>
-                </div>
-              </div>
-              <div class="code-block">
-                <h3>Future</h3>
-                <div class="inner-code-block card">
-                  <div>
-                    <div class="gatsby-code-button-container customButtonContainerClass">
-                      <div
-                        class="gatsby-code-button customButtonClass"
-                        data-tooltip=""
-                      >
-                        Copy
-                        {/* Add SVG */}
-                      </div>
-                    </div>
-                    <pre>
-                      <button onClick={handleCopyClick}>
-                        {!isCopied ? "Copy" : "Copied!"}
-                      </button>
-                      <code class="language-javascript">
-                        <li>- releases per author</li>
-                        <li>- yt tracks, albums and playlists</li>
-                        <li>- spotify tracks, albums and playlists</li>
+                        <div>
+                          <h3>Main</h3>
+                          <ul>
+                            <li>- jams: code + recording</li>
+                            <li>- vjs: code + css </li>
+                            <li>- words: poems, raps (+translations)</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3>Sets</h3>
+                          <ul>
+                            <li>- jamset: code excerpt + yt</li>
+                            <li>- vjset: code excerpt + yt </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3>Education</h3>
+                          <ul>
+                            <li>- jamtut: code excerpt + yt</li>
+                            <li>- vjtut: code excerpt + yt </li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3>Samples (code link + mp3)</h3>
+                          <ul>
+                            <li>- audio</li>
+                            <li>- vocals</li>
+                            <li>- translated / words -> audio encoded</li>
+                          </ul>
+                        </div>
+                        <div>
+                          <h3>Future</h3>
+                          <ul>
+                            <li>- releases per author</li>
+                            <li>- yt tracks, albums and playlists</li>
+                            <li>- spotify tracks, albums and playlists</li>
+                          </ul>
+                        </div>
                       </code>
                     </pre>
                   </div>
