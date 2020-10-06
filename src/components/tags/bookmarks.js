@@ -64,10 +64,13 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
                     size="sm"
                     onClick={() => {
                       handleBookmarks(item.uid, item.title, item.tags);
-                      makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-                        item_id: item.uid,
-                        item_type: true ? "unbookmark" : "bookmark",
-                      });
+                      makePostRequest(
+                        "https://dojoyo.pythonanywhere.com/mark",
+                        {
+                          item_id: item.uid,
+                          item_type: true ? "unbookmark" : "bookmark",
+                        }
+                      );
                     }}
                     style={{
                       display: isLocal ? "inline-block" : "none",

@@ -105,7 +105,7 @@ const Post = ({
                 // console.log(bookmarks.find((item) => item.uid === uid));
                 /////////////////////////////////////////////////////////////////
                 handleBookmarks(uid, title, tags);
-                makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                makePostRequest("https://dojoyo.pythonanywhere.com/mark", {
                   item_id: uid,
                   item_type:
                     bookmarks && bookmarks.find((item) => item.uid === uid)
