@@ -18,7 +18,8 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
     if (isLocal || typeof isLocal === "undefined") return true;
 
     axios
-      .get("http://dojoyo.pythonanywhere.com/bookmarks")
+      .get("https://dojoyo.pythonanywhere.com/bookmarks")
+      // .get("http://dojoyo.pythonanywhere.com/bookmarks")
       .then(function (response) {
         const data = [];
         response.data.forEach(({ item_id }) => {

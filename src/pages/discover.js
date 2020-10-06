@@ -5,7 +5,7 @@ import { useJamsData } from "../hooks/jams";
 import Layout from "../components/layout";
 // import { graphql, Link } from "gatsby";
 import { StateContext } from "../components/stateContext";
-import GlobalTags from "../components/tags/globalTags";
+// import GlobalTags from "../components/tags/globalTags";
 // import Bookmarks from "./tags/bookmarks";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";
@@ -41,9 +41,9 @@ const DiscoverPage = () => {
       <Layout>
         <Row>
           <Col md="8">
-            <GlobalTags data={originalData} />
-            <br />
-            <br />
+            {/* <GlobalTags data={originalData} /> */}
+
+            <h1>Discover</h1>
             <h3>Tracks AND Playlists (Created with code)</h3>
             <div>
               <ul>
