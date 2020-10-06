@@ -4,9 +4,17 @@
 
 body {
   background-color: $light-gray;
-  // background-color: red;
   font-family: $site-font;
 }
+
+// .algoJamBrand {
+//   // font-family: $site-font;
+//   // font-family: "Oleo Script", cursive;
+//   font-family: "Sansita Swashed", cursive;
+//   font-weight: 800;
+//   display: swap;
+// }
+
 a {
   color: #0056b3;
   &:hover {
@@ -19,9 +27,8 @@ h1 {
   text-align: center;
 }
 .navbar {
-  background-color: rgb(18, 17, 17);
-  // border-right: 1px solid rgba(0, 0, 0, 0.4);
-  // border-left: 1px solid rgba(0, 0, 0, 0.4);
+  // background-color: rgb(18, 17, 17);
+  background-color: magenta;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   line-height: 1;
 }
@@ -31,18 +38,10 @@ h1 {
   margin-right: 4px;
   color: white;
   &:hover {
-    color: #007bff;
+    color: black;
   }
 }
 ul {
   list-style: none;
   padding: 0;
-}
-
-.submitBtn {
-  background-color: magenta;
-  border: 1px solid grey;
-  color: black;
-  border-radius: 5px;
-  margin-left: 4px;
 }

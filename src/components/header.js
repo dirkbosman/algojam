@@ -10,6 +10,7 @@ import {
   NavLink,
 } from "reactstrap";
 import StateContextProvider from "../components/stateContext";
+import IconImage from "../images/icon.png";
 
 // const Header = ({ siteTitle }) => (
 // const Example = (props) => {
@@ -23,7 +24,20 @@ const Header = (props) => {
       <StateContextProvider>
         <Navbar fixed="top" light expand="sm">
           <div className="container">
-            <NavbarBrand href="/">{props.siteTitle}</NavbarBrand>
+            <NavbarBrand href="/" className="algoJamBrand">
+              <img
+                className="iconImage"
+                src={IconImage}
+                style={{}}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  borderRadius: "50%",
+                }}
+                alt="Icon Image"
+              />
+              {/* {props.siteTitle} */}
+            </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -39,7 +53,7 @@ const Header = (props) => {
                 <NavItem>
                   <NavLink href="/bookmarks">Bookmarks</NavLink>
                 </NavItem>
-                <NavItem className="submitBtn">
+                <NavItem>
                   <NavLink href="/submit">Submit</NavLink>
                 </NavItem>
               </Nav>

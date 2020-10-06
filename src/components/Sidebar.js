@@ -43,8 +43,9 @@ const Sidebar = ({ uid }) => {
           // padding: "20px 0px 0px 0px",
           width: "100%",
           height: "100%",
-          border: "1px solid grey",
+          // border: "1px solid grey",
           textAlign: "center",
+          marginTop: "5px",
         }}
       >
         <Card className="featuredSidebarContainer">

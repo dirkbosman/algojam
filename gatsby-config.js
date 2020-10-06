@@ -14,6 +14,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Sansita Swashed`,
+            variants: [`800`, `900`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`400`, `700`, `800`],
+          },
+        ],
+      },
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [

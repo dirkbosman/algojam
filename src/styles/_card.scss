@@ -29,6 +29,7 @@ ul.postTags {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 8px;
 }
 
 .cardTopContent {
@@ -40,6 +41,18 @@ ul.postTags {
 .cardTitleContent {
   display: flex;
   flex-direction: column;
+  // justify-content: center;
+}
+
+.cardTitleText {
+  padding: 0px;
+  margin: 0px;
+}
+
+.cardSubtitleText {
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.8em;
 }
 
 // .cardTags {
@@ -57,81 +70,34 @@ ul.postTags {
 //   line-height: 8px;
 // }
 
-.paletteContainer1 {
+.vjPaletteContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  opacity: 0.4;
   ul {
-    // margin-top: 0px;
     margin-bottom: 0;
+    width: 100%;
   }
   li {
-    height: 10px;
+    height: 4px;
     width: 100%;
     text-align: center;
   }
 }
 
-.paletteContainer2 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  ul {
-    // margin-top: 0px;
-    margin-bottom: 0;
-  }
-  li {
-    height: 10px;
-    width: 100%;
-    text-align: center;
-  }
+.audioPaletteContainer {
+  height: 4px;
+  width: 100%;
+  background-color: mediumslateblue;
+  // background-color: rgb(175, 86, 199);
+  opacity: 0.4;
 }
 
-.paletteContainer3 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  ul {
-    // margin-top: 0px;
-    margin-bottom: 0;
-  }
-  li {
-    height: 10px;
-    width: 100%;
-    text-align: center;
-  }
+.postTagsBadge {
+  background-color: mediumslateblue;
+  // background-color: rgb(175, 86, 199);
 }
-
-.paletteContainer4 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  ul {
-    // margin-top: 0px;
-    margin-bottom: 0;
-  }
-  li {
-    height: 10px;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-// .jamsBtnContainer button {
-// justify-content: center;
-// align-content: center;
-// position: fixed;
-// background-color: blue;
-// top: 50%;
-// left: 50%;
-// margin: 0;
-// position: absolute;
-// top: 50%;
-// width: auto;
-// left: 50%;
-// right: 50%;
-// margin: 0;
-// }
 
 // If you'd like it to default open, add the additional class "in": https://getbootstrap.com/2.3.2/javascript.html#collapse
 .code-container {
@@ -148,9 +114,12 @@ ul.postTags {
 // .card-text {
 .inner-code-block {
   // height: 200px;
+  margin-top: 20px;
   height: auto;
   border: 1px solid #433e45;
-  background-color: rgb(175, 86, 199);
+  // background-color: rgb(175, 86, 199);
+  background-color: mediumslateblue;
+
   color: white;
   padding: 10px 20px;
 
@@ -267,7 +236,8 @@ ul.audioFeatures {
   li {
     margin-right: 10px;
     // background-color: rgb(255, 0, 200);
-    background-color: rgb(175, 86, 199);
+    // background-color: rgb(175, 86, 199);
+    background-color: mediumslateblue;
     color: white;
     // font-weight: bold;
     border-radius: 5px;

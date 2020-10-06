@@ -50,27 +50,27 @@ const IndexPage = () => {
     <StateContextProvider>
       <Layout>
         <SEO title="Home" />
-        {/* <h1>Ready to jam?!</h1> */}
         <Row>
           <Col md="8">
             <div
               className="search-container"
               style={{
                 width: "100%",
-                padding: "4px",
-                margin: "2px",
+                // padding: "4px",
+                marginTop: "5px",
+                marginBottom: "5px",
               }}
             >
               <input
                 type="text"
-                placeholder="Search.."
+                placeholder="find your algo rhythm..."
                 style={{
                   width: "100%",
                   backgroundColor: "white",
                   padding: "4px 8px",
-                  border: "1px solid grey",
+                  border: "1px solid lightgrey",
                   borderRadius: "5px",
-                  margin: "0px 4px 0px 4px",
+                  // margin: "0px 4px 0px 4px",
                 }}
                 value={searchTerm}
                 onChange={(e) => {
@@ -109,22 +109,6 @@ const IndexPage = () => {
           </Col>
           <Col md="4">
             <Sidebar />
-            {/* <Sidebar
-              key={originalData.node.id}
-              uid={originalData.node.frontmatter.uid}
-              path={originalData.node.frontmatter.path}
-            /> */}
-            {/* <div>
-              {originalData(({ node }) => {
-                return (
-                  <Sidebar
-                    key={node.id}
-                    uid={node.frontmatter.uid}
-                    path={node.frontmatter.path}
-                  />
-                );
-              })}
-            </div> */}
           </Col>
         </Row>
       </Layout>

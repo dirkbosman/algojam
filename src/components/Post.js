@@ -8,25 +8,16 @@ import {
   CardSubtitle,
   CardBody,
   Collapse,
-  // Table,
-  // Col,
-  // Row,
 } from "reactstrap";
-
 import StateContextProvider from "../components/stateContext";
 import { StateContext } from "../components/stateContext";
 import "../styles/index.scss";
 import { slugify } from "../utils/utilityFunctions";
 import { makePostRequest } from "../utils/common";
-// import AudioPlayer from "react-h5-audio-player";
 import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Img from "gatsby-image";
-// import MetaData from "../data/meta";
 import PyMetaData from "../utils/pymeta";
-// import axios from "axios";
-
-// console.log(MetaData);
 
 const Post = ({
   uid,
@@ -52,18 +43,33 @@ const Post = ({
   const audioFileFormat = ".mp3";
 
   const { bookmarks, handleBookmarks } = useContext(StateContext);
+  const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
 
   // let { bookmarks, handleBookmarks } = useContext(StateContext);
   // if (!bookmarks) {
   //   bookmarks = [];
   // }
 
-  const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
-  // console.log(recommendations);
-
   return (
     <StateContextProvider>
       <Card>
+        {audio_url ? (
+          <div className="audioPaletteContainer"></div>
+        ) : (
+          <>
+            <ul className="vjPaletteContainer" style={{ marginBottom: 0 }}>
+              {/* {palette(([Math.floor(Math.random() * palette.length)]) => ( */}
+              {palette.map((palette_item) => (
+                <li
+                  key={palette_item}
+                  style={{ backgroundColor: palette_item }}
+                >
+                  {""}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
         <CardBody>
           <div className="cardOverallContent">
             <div className="cardTopContent">
@@ -77,33 +83,19 @@ const Post = ({
                 }}
               />
               <div className="cardTitleContent">
-                <CardTitle>
+                <CardTitle className="cardTitleText">
                   <Link to={slug}>{title}</Link>
                 </CardTitle>
-                <CardSubtitle>
-                  <span className="text-info">{date}</span> by{" "}
+                <CardSubtitle className="cardSubtitleText">
+                  On <span className="text-info">{date}</span> by{" "}
                   <span className="text-info">{author}</span>
                 </CardSubtitle>
               </div>
             </div>
-
-            {/* <Button
-            onClick={() =>
-              makePostRequest("http://dojoyo.pythonanywhere.com/vote", {
-                item_id: uid,
-              })
-            }
-          >
-            Log Stats
-          </Button> */}
-
             <Button
               color="primary"
               size="sm"
               onClick={() => {
-                /////////////////////////////////////////////////////////////////
-                // console.log(bookmarks.find((item) => item.uid === uid));
-                /////////////////////////////////////////////////////////////////
                 handleBookmarks(uid, title, tags);
                 makePostRequest("https://dojoyo.pythonanywhere.com/mark", {
                   item_id: uid,
@@ -138,7 +130,7 @@ const Post = ({
               {tags.map((tag) => (
                 <li key={tag}>
                   <Link to={`/tag/${slugify(tag)}`}>
-                    <Badge color="primary">{tag}</Badge>
+                    <Badge className="postTagsBadge">{tag}</Badge>
                   </Link>
                 </li>
               ))}
@@ -157,57 +149,7 @@ const Post = ({
                 customAdditionalControls={[]}
               />
             ) : (
-              <>
-                <h5 className="text-center">VJ Color Palette</h5>
-                <ul className="paletteContainer1" style={{ marginBottom: 0 }}>
-                  {/* {palette(([Math.floor(Math.random() * palette.length)]) => ( */}
-                  {palette.map((palette_item) => (
-                    <li
-                      key={palette_item}
-                      style={{ backgroundColor: palette_item }}
-                    >
-                      {""}
-                    </li>
-                  ))}
-                </ul>
-
-                <ul className="paletteContainer2" style={{ marginBottom: 0 }}>
-                  {palette
-                    .slice(0)
-                    .reverse()
-                    .map((palette_item) => (
-                      <li
-                        key={palette_item}
-                        style={{ backgroundColor: palette_item }}
-                      >
-                        {""}
-                      </li>
-                    ))}
-                </ul>
-                <ul className="paletteContainer3" style={{ marginBottom: 0 }}>
-                  {palette.map((palette_item) => (
-                    <li
-                      key={palette_item}
-                      style={{ backgroundColor: palette_item }}
-                    >
-                      {""}
-                    </li>
-                  ))}
-                </ul>
-                <ul className="paletteContainer4" style={{ marginBottom: 0 }}>
-                  {palette
-                    .slice(0)
-                    .reverse()
-                    .map((palette_item) => (
-                      <li
-                        key={palette_item}
-                        style={{ backgroundColor: palette_item }}
-                      >
-                        {""}
-                      </li>
-                    ))}
-                </ul>
-              </>
+              ""
             )}
           </div>
 
@@ -223,7 +165,7 @@ const Post = ({
                   backgroundColor: "#ff00ff",
                   color: "black",
                   border: "1px solid grey",
-                  margin: "10px 0",
+                  margin: "4px 0",
                   // marginLeft: "auto",
                   // marginRight: "auto",
                   // marginTop: "10px",
@@ -268,7 +210,6 @@ const Post = ({
               </div>
               {/* //// */}
               <div className="code-block">
-                {/* <h5 className="text-center">Code</h5> */}
                 <Card
                   // className="card-text-md"
                   className="inner-code-block"
@@ -277,55 +218,6 @@ const Post = ({
               </div>
             </Collapse>
           </div>
-
-          {/* <div className="recommenderContainer">
-          <h5>Similar JAMS</h5>
-          <div className="recos">
-            <AudioPlayer
-              className="reco_1"
-              src={audio_url}
-              onPlay={(e) => console.log("onPlay")}
-              layout="horizontal-reverse"
-              showJumpControls={false}
-              customVolumeControls={[]}
-              customAdditionalControls={[]}
-              showDownloadProgress={false}
-              customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
-            />
-            <AudioPlayer
-              className="reco_2"
-              src={audio_url}
-              onPlay={(e) => console.log("onPlay")}
-              layout="horizontal-reverse"
-              showJumpControls={false}
-              customVolumeControls={[]}
-              customAdditionalControls={[]}
-              showDownloadProgress={false}
-              customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
-            />
-          </div>
-        </div> */}
-
-          {/* <div className="recommenderContainer">
-          {getRecommendations(uid).map(({ uid, title, audio_url }, index) => (
-            <Fragment key={uid} className="recos">
-              <div className={"reco_" + index}>
-                <Link to={"/" + uid}>{title}</Link>
-                <AudioPlayer
-                  // className="reco_1" {"reco"+index}
-                  // className={"reco_" + index}
-                  src={audio_url}
-                  layout="horizontal-reverse"
-                  showJumpControls={false}
-                  customVolumeControls={[]}
-                  customAdditionalControls={[]}
-                  showDownloadProgress={false}
-                  customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
-                />
-              </div>
-            </Fragment>
-          ))}
-        </div> */}
 
           {recommendations ? (
             <div className="recommenderContainer">
