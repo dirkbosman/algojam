@@ -25,11 +25,11 @@ import Sidebar from "../components/Sidebar";
 const SinglePost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark.frontmatter;
 
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
-  let { bookmarks, handleBookmarks } = useContext(StateContext);
-  if (!bookmarks) {
-    bookmarks = [];
-  }
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
+  // let { bookmarks, handleBookmarks } = useContext(StateContext);
+  // if (!bookmarks) {
+  //   bookmarks = [];
+  // }
 
   const baseUrl = "https://www.algojam.com/";
 
@@ -84,6 +84,7 @@ const SinglePost = ({ data, pageContext, location }) => {
                     marginBottom: "1rem",
                     backgroundColor:
                       // bookmarks && bookmarks.find((item) => item.uid === post.uid)
+                      bookmarks &&
                       bookmarks.find((item) => item.uid === post.uid)
                         ? "blue"
                         : "#8CFACA",
@@ -100,14 +101,16 @@ const SinglePost = ({ data, pageContext, location }) => {
                     makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                       item_id: post.uid,
                       // item_type: bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                      item_type: bookmarks.find((item) => item.uid === post.uid)
-                        ? "unbookmark"
-                        : "bookmark",
+                      item_type:
+                        bookmarks &&
+                        bookmarks.find((item) => item.uid === post.uid)
+                          ? "unbookmark"
+                          : "bookmark",
                     });
                   }}
                 >
                   {/* {bookmarks && bookmarks.find((item) => item.uid === post.uid) ? "🔖": "💾"} */}
-                  {bookmarks.find((item) => item.uid === post.uid)
+                  {bookmarks && bookmarks.find((item) => item.uid === post.uid)
                     ? "🔖"
                     : "💾"}
                 </Button>
