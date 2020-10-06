@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 // import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
 // import { Link } from "gatsby";
@@ -20,6 +21,20 @@ import Earth from "../images/earth.jpg";
 
 const Sidebar = ({ uid }) => {
   const originalData = useJamsData();
+
+  const [pokemon, setPokemon] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+      // .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+      .then(function (response) {
+        console.log(response);
+        setPokemon(response.data);
+      })
+      .catch(function (error) {
+        console.log("Request failed");
+      });
+  }, []);
 
   return (
     <StateContextProvider>
@@ -74,17 +89,6 @@ const Sidebar = ({ uid }) => {
                   </Link>
                 </ul>
               </div>
-              <CardTitle className="text-center text-uppercase mb-3">
-                Languages
-              </CardTitle>
-              <div>
-                <ul className="featuredBlocks">
-                  <li>.ruby</li>
-                  <li>.py</li>
-                  <li>.lhs</li>
-                  <li>.js</li>
-                </ul>
-              </div>
             </Card>
             <h4>Featured Activity</h4>
             <Card className="featuredContainer">
@@ -101,17 +105,6 @@ const Sidebar = ({ uid }) => {
               </div>
               <CardTitle className="text-center text-uppercase mb-3">
                 Samples
-              </CardTitle>
-              <div>
-                <ul className="featuredBlocks">
-                  <li>One</li>
-                  <li>Two</li>
-                  <li>Three</li>
-                  <li>Four</li>
-                </ul>
-              </div>
-              <CardTitle className="text-center text-uppercase mb-3">
-                Tracks
               </CardTitle>
               <div>
                 <ul className="featuredBlocks">
@@ -143,20 +136,27 @@ const Sidebar = ({ uid }) => {
                   <li>Four</li>
                 </ul>
               </div>
-              <CardTitle className="text-center text-uppercase mb-3">
-                Companies
-              </CardTitle>
+            </Card>
+            <h4>Community Bookmarks</h4>
+            <Card className="featuredContainer">
+              {/* <CardTitle className="text-center text-uppercase mb-3">
+                Overview
+              </CardTitle> */}
+              <h5>Overview</h5>
+              {/* <div className="commBookmarksContainer">
+                {pokemon.map(({ count }, index) => (
+                  <div className="commBookmarks" key={index}>
+                    <div className="commBookmarkItem">{count}</div>
+                  </div>
+                ))} */}
               <div>
-                <ul className="featuredBlocks">
-                  <li>One</li>
-                  <li>Two</li>
-                  <li>Three</li>
-                  <li>Four</li>
-                </ul>
+                {pokemon.map(({ count }, index) => (
+                  <div key={index}>
+                    <div>{count}</div>
+                  </div>
+                ))}
               </div>
-              <CardTitle className="text-center text-uppercase mb-3">
-                Bookmarked JAMS
-              </CardTitle>
+              {/* //////////////////////////////////////////////// */}
               <div>
                 <ul className="entries">
                   <Bookmarks

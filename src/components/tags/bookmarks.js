@@ -48,9 +48,8 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
   return (
     <StateContextProvider>
       <div>
-        <h3>{title}</h3>
+        <h5>{title}</h5>
         <div className="cardTags">
-          <br />
           <ul className="">
             {bookmarksCopy.map((bookmark) => {
               const item = searchableList[bookmark.uid];

@@ -11,7 +11,9 @@ import Bookmarks from "../components/tags/bookmarks";
 // import Bookmarks from "../tags/bookmarks";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";
-import axios from "axios";
+
+// import React, { useContext, useState, useEffect } from "react";
+// import axios from "axios";
 
 const SORTS = {
   COUNT: "count",
@@ -25,7 +27,6 @@ const BookmarkPage = () => {
   // const { bookmarks } = useContext(StateContext);
 
   // const [pokemon, setPokemon] = useState([]);
-
   // useEffect(() => {
   //   axios
   //     .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
