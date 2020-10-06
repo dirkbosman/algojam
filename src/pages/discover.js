@@ -22,19 +22,19 @@ const DiscoverPage = () => {
   const { bookmarks } = useContext(StateContext);
 
   // https://codesandbox.io/s/pokemon-axios-forked-ky3f5?file=/src/App.js:209-839
-  const [pokemon, setPokemon] = useState([]);
+  // const [pokemon, setPokemon] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-      .then(function (response) {
-        console.log(response);
-        setPokemon(response.data);
-      })
-      .catch(function (error) {
-        console.log("Request failed");
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+  //     .then(function (response) {
+  //       console.log(response);
+  //       setPokemon(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log("Request failed");
+  //     });
+  // }, []);
 
   return (
     <StateContextProvider>

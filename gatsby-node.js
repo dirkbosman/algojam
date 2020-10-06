@@ -25,7 +25,7 @@ exports.createPages = async ({ actions, graphql }) => {
     // singlePost: path.resolve("src/templates/single-post.js"),
     post: path.resolve("src/templates/single-post.js"),
     tagsPage: path.resolve("src/templates/tags-page.js"),
-    tag: path.resolve("src/templates/tag-posts.js"),
+    tagPosts: path.resolve("src/templates/tag-posts.js"),
     // postList: path.resolve('src/templates/post-list.js'),
     // authorPosts: path.resolve("src/templates/author-posts.js"),
   };
@@ -96,8 +96,8 @@ exports.createPages = async ({ actions, graphql }) => {
     },
   });
 
-  console.log(tags);
-  console.log(tagPostCounts);
+  // console.log(tags);
+  // console.log(tagPostCounts);
 
   // Tag posts pages
   tags.forEach((tag) => {
@@ -109,14 +109,4 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
-
-  // tags.forEach((tag) => {
-  //   createPage({
-  //     path: `/tag/${_.kebabCase(tag)}`,
-  //     component: templates.tagPosts,
-  //     context: {
-  //       tag,
-  //     },
-  //   });
-  // });
 };

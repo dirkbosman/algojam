@@ -9,7 +9,7 @@ const Footer = () => (
       crossOrigin="anonymous"
     />
     <h4 className="text-center">Algojam</h4>
-    <p className="text-center">All up in dose interwebs!</p>
+    <p className="text-center">All up in da interwebs!</p>
     <div className="footer-social-links">
       <ul className="social-links-list">
         <li>
