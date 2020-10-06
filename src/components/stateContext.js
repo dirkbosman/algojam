@@ -7,12 +7,12 @@ function StateContextProvider({ children }) {
   const [bookmarks, setBookmarks] = useLocalStorage("bookmarks", []);
 
   const handleBookmarks = (uid, title, tags) => {
-    // const storedBookmarks = JSON.parse(
-    //   window.localStorage.getItem("bookmarks") || "[]"
-    // );
-    const isServer = typeof localStorage === "undefined";
-    const localStorageBookmarks = isServer ? "[]" : localStorage.bookmarks;
-    const storedBookmarks = JSON.parse(localStorageBookmarks);
+    const storedBookmarks = JSON.parse(
+      window.localStorage.getItem("bookmarks") || "[]"
+    );
+    // const isServer = typeof localStorage === "undefined";
+    // const localStorageBookmarks = isServer ? "[]" : localStorage.bookmarks;
+    // const storedBookmarks = JSON.parse(localStorageBookmarks);
 
     const bookmarkedItem = storedBookmarks.find((item) => item.uid === uid);
 

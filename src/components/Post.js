@@ -51,12 +51,12 @@ const Post = ({
     "https://confident-ritchie-5e6b2d.netlify.app/";
   const audioFileFormat = ".mp3";
 
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  let { bookmarks, handleBookmarks } = useContext(StateContext);
-  if (!bookmarks) {
-    bookmarks = [];
-  }
+  // let { bookmarks, handleBookmarks } = useContext(StateContext);
+  // if (!bookmarks) {
+  //   bookmarks = [];
+  // }
 
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
   // console.log(recommendations);
@@ -107,16 +107,18 @@ const Post = ({
                 handleBookmarks(uid, title, tags);
                 makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
                   item_id: uid,
-                  item_type: bookmarks.find((item) => item.uid === uid)
-                    ? "unbookmark"
-                    : "bookmark",
+                  item_type:
+                    bookmarks && bookmarks.find((item) => item.uid === uid)
+                      ? "unbookmark"
+                      : "bookmark",
                 });
               }}
               style={{
                 marginBottom: "1rem",
-                backgroundColor: bookmarks.find((item) => item.uid === uid)
-                  ? "blue"
-                  : "#8CFACA",
+                backgroundColor:
+                  bookmarks && bookmarks.find((item) => item.uid === uid)
+                    ? "blue"
+                    : "#8CFACA",
                 color: "black",
                 border: "1px solid grey",
                 borderRadius: "50%",
@@ -125,7 +127,9 @@ const Post = ({
                 margin: "6px 0px",
               }}
             >
-              {bookmarks.find((item) => item.uid === uid) ? "🔖" : "💾"}
+              {bookmarks && bookmarks.find((item) => item.uid === uid)
+                ? "🔖"
+                : "💾"}
             </Button>
           </div>
 
