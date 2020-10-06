@@ -15,10 +15,10 @@ import StateContextProvider from "../components/stateContext";
 // import React, { useContext, useState, useEffect } from "react";
 // import axios from "axios";
 
-const SORTS = {
-  COUNT: "count",
-  NAME: "name",
-};
+// const SORTS = {
+//   COUNT: "count",
+//   NAME: "name",
+// };
 
 const BookmarkPage = () => {
   // const TagsPage = () => {
@@ -26,35 +26,12 @@ const BookmarkPage = () => {
   const originalData = useJamsData();
   // const { bookmarks } = useContext(StateContext);
 
-  // const [pokemon, setPokemon] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-  //    // .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-  //     .then(function (response) {
-  //       console.log(response);
-  //       setPokemon(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log("Request failed");
-  //     });
-  // }, []);
-
   return (
     <StateContextProvider>
       <Layout>
         <Row>
           <Col md="8">
-            {/* <h3>Community Bookmark Activity</h3>
-            <div className="commBookmarksContainer">
-              {pokemon.map(({ count }, index) => (
-                <div className="commBookmarks" key={index}>
-                  <div className="commBookmarkItem">{count}</div>
-                </div>
-              ))}
-            </div>
-            <br />
-            <br /> */}
+            <h1>History</h1>
             <Bookmarks
               data={originalData}
               title="Your Bookmarks"

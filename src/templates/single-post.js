@@ -25,11 +25,11 @@ import Sidebar from "../components/Sidebar";
 const SinglePost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark.frontmatter;
 
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
-  let { bookmarks, handleBookmarks } = useContext(StateContext);
-  if (!bookmarks) {
-    bookmarks = [];
-  }
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
+  // let { bookmarks, handleBookmarks } = useContext(StateContext);
+  // if (!bookmarks) {
+  //   bookmarks = [];
+  // }
 
   const baseUrl = "https://www.algojam.com/";
 

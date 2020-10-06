@@ -51,12 +51,12 @@ const Post = ({
     "https://confident-ritchie-5e6b2d.netlify.app/";
   const audioFileFormat = ".mp3";
 
-  // const { bookmarks, handleBookmarks } = useContext(StateContext);
+  const { bookmarks, handleBookmarks } = useContext(StateContext);
 
-  let { bookmarks, handleBookmarks } = useContext(StateContext);
-  if (!bookmarks) {
-    bookmarks = [];
-  }
+  // let { bookmarks, handleBookmarks } = useContext(StateContext);
+  // if (!bookmarks) {
+  //   bookmarks = [];
+  // }
 
   const recommendations = PyMetaData.find((track) => track.uid === uid) || null;
   // console.log(recommendations);

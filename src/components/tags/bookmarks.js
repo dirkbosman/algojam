@@ -55,19 +55,18 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
               const item = searchableList[bookmark.uid];
               return (
                 <li key={bookmark.uid}>
-                  <Link to={`/${bookmark.uid}`} tabIndex={0}>
-                    {item.title}
-                  </Link>
-                  &nbsp;&nbsp;
                   <Button
                     color="primary"
                     size="sm"
                     onClick={() => {
                       handleBookmarks(item.uid, item.title, item.tags);
-                      makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
-                        item_id: item.uid,
-                        item_type: true ? "unbookmark" : "bookmark",
-                      });
+                      makePostRequest(
+                        "https://dojoyo.pythonanywhere.com/mark",
+                        {
+                          item_id: item.uid,
+                          item_type: true ? "unbookmark" : "bookmark",
+                        }
+                      );
                     }}
                     style={{
                       display: isLocal ? "inline-block" : "none",
@@ -80,7 +79,11 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
                     }}
                   >
                     {item.uid === bookmark.uid ? "💾" : "🔖"}
-                  </Button>
+                  </Button>{" "}
+                  <Link to={`/${bookmark.uid}`} tabIndex={0}>
+                    {item.title}
+                  </Link>
+                  &nbsp;&nbsp;
                 </li>
               );
             })}
