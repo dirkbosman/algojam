@@ -97,7 +97,7 @@ const SinglePost = ({ data, pageContext, location }) => {
                   // console.log(bookmarks);
                   /////////////////////////////////////////////////////////////////
                   handleBookmarks(post.uid, post.title, post.tags);
-                  makePostRequest("http://dojoyo.pythonanywhere.com/mark", {
+                  makePostRequest("https://dojoyo.pythonanywhere.com/mark", {
                     item_id: post.uid,
                     // item_type: bookmarks && bookmarks.find((item) => item.uid === post.uid)
                     item_type:
