@@ -24,27 +24,26 @@ const BookmarkPage = () => {
   const originalData = useJamsData();
   // const { bookmarks } = useContext(StateContext);
 
-  // https://codesandbox.io/s/pokemon-axios-forked-ky3f5?file=/src/App.js:209-839
-  const [pokemon, setPokemon] = useState([]);
+  // const [pokemon, setPokemon] = useState([]);
 
-  useEffect(() => {
-    axios
-      .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-      .then(function (response) {
-        console.log(response);
-        setPokemon(response.data);
-      })
-      .catch(function (error) {
-        console.log("Request failed");
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
+  //     .then(function (response) {
+  //       console.log(response);
+  //       setPokemon(response.data);
+  //     })
+  //     .catch(function (error) {
+  //       console.log("Request failed");
+  //     });
+  // }, []);
 
   return (
     <StateContextProvider>
       <Layout>
         <Row>
           <Col md="8">
-            <h3>Community Bookmark Activity</h3>
+            {/* <h3>Community Bookmark Activity</h3>
             <div className="commBookmarksContainer">
               {pokemon.map(({ count }, index) => (
                 <div className="commBookmarks" key={index}>
@@ -53,7 +52,7 @@ const BookmarkPage = () => {
               ))}
             </div>
             <br />
-            <br />
+            <br /> */}
             <Bookmarks
               data={originalData}
               title="Your Bookmarks"

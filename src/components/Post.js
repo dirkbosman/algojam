@@ -51,6 +51,8 @@ const Post = ({
     "https://confident-ritchie-5e6b2d.netlify.app/";
   const audioFileFormat = ".mp3";
 
+  // const { bookmarks, handleBookmarks } = useContext(StateContext);
+
   let { bookmarks, handleBookmarks } = useContext(StateContext);
   if (!bookmarks) {
     bookmarks = [];

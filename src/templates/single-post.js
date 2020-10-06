@@ -24,6 +24,7 @@ import Sidebar from "../components/Sidebar";
 
 const SinglePost = ({ data, pageContext, location }) => {
   const post = data.markdownRemark.frontmatter;
+
   // const { bookmarks, handleBookmarks } = useContext(StateContext);
   let { bookmarks, handleBookmarks } = useContext(StateContext);
   if (!bookmarks) {
