@@ -45,16 +45,17 @@ const SubmitPage = () => {
                 scourge of the seven seas boatswain schooner gaff booty Jack Tar
                 transom spirits.
               </p>
-              <div className="App">
-                <h1>Custom React hook</h1>
 
+              {/* <div className="App">
+                <h1>Custom React hook</h1>
                 <pre>
                   <button onClick={handleCopyClick}>
                     {!isCopied ? "Copy" : "Copied!"}
                   </button>
                   <code>console.log('Yoyoyyyoiyoy')</code>
                 </pre>
-              </div>
+              </div> */}
+
               <div class="code-block">
                 <h3>Main</h3>
                 <div class="inner-code-block card">
@@ -95,6 +96,9 @@ const SubmitPage = () => {
                       </div>
                     </div>
                     <pre>
+                      <button onClick={handleCopyClick}>
+                        {!isCopied ? "Copy" : "Copied!"}
+                      </button>
                       <code class="language-javascript">
                         <li>- jamset: code excerpt + yt</li>
                         <li>- vjset: code excerpt + yt</li>
@@ -117,6 +121,9 @@ const SubmitPage = () => {
                       </div>
                     </div>
                     <pre>
+                      <button onClick={handleCopyClick}>
+                        {!isCopied ? "Copy" : "Copied!"}
+                      </button>
                       <code class="language-javascript">
                         <li>- jamtut: code excerpt + yt</li>
                         <li>- vjtut: code excerpt + yt</li>
@@ -139,6 +146,9 @@ const SubmitPage = () => {
                       </div>
                     </div>
                     <pre>
+                      <button onClick={handleCopyClick}>
+                        {!isCopied ? "Copy" : "Copied!"}
+                      </button>
                       <code class="language-javascript">
                         <li>- audio</li>
                         <li>- vocals</li>
@@ -162,6 +172,9 @@ const SubmitPage = () => {
                       </div>
                     </div>
                     <pre>
+                      <button onClick={handleCopyClick}>
+                        {!isCopied ? "Copy" : "Copied!"}
+                      </button>
                       <code class="language-javascript">
                         <li>- releases per author</li>
                         <li>- yt tracks, albums and playlists</li>
