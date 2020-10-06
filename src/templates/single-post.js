@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Layout from "../components/layout";
 import { graphql, Link } from "gatsby";
 import SEO from "../components/seo";
@@ -32,7 +32,7 @@ const SinglePost = ({ data, pageContext, location }) => {
   //   bookmarks = [];
   // }
 
-  const [hasMounted, setHasMounted] = React.useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
     setHasMounted(true);

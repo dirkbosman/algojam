@@ -15,6 +15,12 @@ const IndexPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
 
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   // triggered only once if there is some data
   useEffect(() => {
     if (results.length === 0) {
@@ -35,6 +41,10 @@ const IndexPage = () => {
   }, [searchTerm]);
 
   const hasResults = results.length > 0;
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <StateContextProvider>

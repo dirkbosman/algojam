@@ -1,5 +1,5 @@
-// import React, { useState, useEffect } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
+// import React from "react";
 // import { Link } from "gatsby";
 import { Row, Col } from "reactstrap";
 import Layout from "../components/layout";
@@ -14,11 +14,21 @@ import StateContextProvider from "../components/stateContext";
 // import "../styles/index.scss";
 
 const SubmitPage = () => {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   const [isCopied, setClipboard] = useClipboard(2000);
 
   const handleCopyClick = () => {
     setClipboard(document.querySelector("code").innerText);
   };
+
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <StateContextProvider>

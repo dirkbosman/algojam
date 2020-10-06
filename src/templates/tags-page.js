@@ -1,3 +1,4 @@
+// import React, { useState, useEffect } from "react";
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -10,8 +11,14 @@ import StateContextProvider from "../components/stateContext";
 const tagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;
 
-  // console.log(tags);
-  // console.log(tagPostCounts);
+  // const [hasMounted, setHasMounted] = useState(false);
+  // useEffect(() => {
+  //   setHasMounted(true);
+  // }, []);
+
+  // if (!hasMounted) {
+  //   return null;
+  // }
 
   return (
     <StateContextProvider>

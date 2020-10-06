@@ -1,4 +1,5 @@
 import React from "react";
+// import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Post from "../components/Post";
@@ -14,6 +15,15 @@ const tagPosts = ({ data, pageContext }) => {
   const pageHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`;
+
+  // const [hasMounted, setHasMounted] = useState(false);
+  // useEffect(() => {
+  //   setHasMounted(true);
+  // }, []);
+
+  // if (!hasMounted) {
+  //   return null;
+  // }
 
   // handle bookmarks' state -> for people to unbookmark
 

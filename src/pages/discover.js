@@ -23,30 +23,25 @@ import axios from "axios";
 import HarryImage from "../images/harry.jpg";
 import discover from "../utils/discover";
 
-const SORTS = {
-  COUNT: "count",
-  NAME: "name",
-};
+// const SORTS = {
+//   COUNT: "count",
+//   NAME: "name",
+// };
+
 // const TagsPage = () => {
 const DiscoverPage = () => {
   // const { bookmarks, handleBookmarks } = useContext(StateContext);
   const originalData = useJamsData();
   const { bookmarks } = useContext(StateContext);
 
-  // https://codesandbox.io/s/pokemon-axios-forked-ky3f5?file=/src/App.js:209-839
-  // const [pokemon, setPokemon] = useState([]);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-  //     .then(function (response) {
-  //       console.log(response);
-  //       setPokemon(response.data);
-  //     })
-  //     .catch(function (error) {
-  //       console.log("Request failed");
-  //     });
-  // }, []);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <StateContextProvider>
