@@ -17,7 +17,7 @@ import { slugify } from "../utils/utilityFunctions";
 // import { StateContext } from "../../components/stateContext";
 // import { makePostRequest } from "../../utils/common";
 import { StateContext } from "../components/stateContext";
-import StateContextProvider from "../components/stateContext";
+// import StateContextProvider from "../components/stateContext";
 import { makePostRequest } from "../utils/common";
 // import authors from "../utils/authors";
 import { DiscussionEmbed } from "disqus-react";
@@ -53,7 +53,6 @@ const SinglePost = ({ data, pageContext, location }) => {
   };
 
   return (
-    // <StateContextProvider>
     <Layout
       pageTitle={post.title}
       // postAuthor={author}
@@ -179,7 +178,6 @@ const SinglePost = ({ data, pageContext, location }) => {
         </Col>
       </Row>
     </Layout>
-    // </StateContextProvider>
   );
 };
 

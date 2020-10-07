@@ -10,7 +10,7 @@ import Layout from "../components/layout";
 import Bookmarks from "../components/tags/bookmarks";
 // import Bookmarks from "../tags/bookmarks";
 import Sidebar from "../components/Sidebar";
-import StateContextProvider from "../components/stateContext";
+// import StateContextProvider from "../components/stateContext";
 
 // import React, { useContext, useState, useEffect } from "react";
 // import axios from "axios";
@@ -50,11 +50,10 @@ const BookmarkPage = () => {
   // }, []);
 
   return (
-    <StateContextProvider>
-      <Layout>
-        <Row>
-          <Col md="8">
-            {/* <h3>Community Bookmark Activity</h3>
+    <Layout>
+      <Row>
+        <Col md="8">
+          {/* <h3>Community Bookmark Activity</h3>
             <div className="commBookmarksContainer">
               {pokemon.map(({ count }, index) => (
                 <div className="commBookmarks" key={index}>
@@ -64,18 +63,17 @@ const BookmarkPage = () => {
             </div>
             <br />
             <br /> */}
-            <Bookmarks
-              data={originalData}
-              title="Your Bookmarks"
-              isLocal={true}
-            />
-          </Col>
-          <Col md="4">
-            <Sidebar />
-          </Col>
-        </Row>
-      </Layout>
-    </StateContextProvider>
+          <Bookmarks
+            data={originalData}
+            title="Your Bookmarks"
+            isLocal={true}
+          />
+        </Col>
+        <Col md="4">
+          <Sidebar />
+        </Col>
+      </Row>
+    </Layout>
   );
 };
 

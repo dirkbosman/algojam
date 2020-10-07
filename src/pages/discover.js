@@ -17,7 +17,7 @@ import { StateContext } from "../components/stateContext";
 // import GlobalTags from "../components/tags/globalTags";
 // import Bookmarks from "./tags/bookmarks";
 import Sidebar from "../components/Sidebar";
-import StateContextProvider from "../components/stateContext";
+// import StateContextProvider from "../components/stateContext";
 import axios from "axios";
 
 import HarryImage from "../images/harry.jpg";
@@ -44,45 +44,14 @@ const DiscoverPage = () => {
   }
 
   return (
-    <StateContextProvider>
-      <Layout>
-        {/* <Row>
-          <Col md="8"> */}
-        {/* <GlobalTags data={originalData} /> */}
-
-        {/* <h1>Discover</h1>
+    <Layout>
+      <Row>
+        <Col md="8">
+          {" "}
+          <Row className="mb-4">
             <h3>Tracks AND Playlists (Created with code)</h3>
-            <div>
-              <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-              </ul>
-            </div>
-            <br />
-            <br />
-            <h3>Tracks AND Playlists (Created with no-code)</h3>
-            <div>
-              <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-              </ul>
-            </div>
-          </Col>
 
-          <Col md="4">
-            <Sidebar />
-          </Col>
-        </Row> */}
-
-        <Row>
-          <Col md="8">
-            {" "}
-            <Row className="mb-4">
-              <h3>Tracks AND Playlists (Created with code)</h3>
-
-              {/* <div>
+            {/* <div>
                 <ul>
                   {Object.keys(discover).map(function (key, index) {
                     <li key={index}>{discover[key]}</li>;
@@ -90,7 +59,7 @@ const DiscoverPage = () => {
                 </ul>
               </div> */}
 
-              {/* <div>
+            {/* <div>
               {Object.keys(discover).map((v, index) => (
                 <ul key={index} className="quicklist-content">
                   {QuickListData[v].map((item, itemIndex) => (
@@ -106,45 +75,44 @@ const DiscoverPage = () => {
                 </ul>
               </div> */}
 
-              <div className="col-md-8">
-                {discover.map((item, index) => (
-                  // <div key={index}>
-                  //   {item.description}
-                  // </div>
+            <div className="col-md-8">
+              {discover.map((item, index) => (
+                // <div key={index}>
+                //   {item.description}
+                // </div>
 
-                  <Card key={index} className="tracksPlaylistContainer">
-                    <CardBody className="tracksPlaylist">
-                      <div className="tracksPlaylistWrapper">
-                        <img
-                          src={HarryImage}
-                          // style={{ maxWidth: "100%" }}
-                          style={{ width: "40px", height: "40px" }}
-                          alt="Harry's profile"
-                        />
-                        <CardTitle>{item.name}</CardTitle>
-                        <Button
-                          className="text-uppercase"
-                          color="primary"
-                          href={item.audioUrl}
-                        >
-                          GO!
-                        </Button>
-                      </div>
-                      {/* <CardText className="tracksPlaylistDescription">
+                <Card key={index} className="tracksPlaylistContainer">
+                  <CardBody className="tracksPlaylist">
+                    <div className="tracksPlaylistWrapper">
+                      <img
+                        src={HarryImage}
+                        // style={{ maxWidth: "100%" }}
+                        style={{ width: "40px", height: "40px" }}
+                        alt="Harry's profile"
+                      />
+                      <CardTitle>{item.name}</CardTitle>
+                      <Button
+                        className="text-uppercase"
+                        color="primary"
+                        href={item.audioUrl}
+                      >
+                        GO!
+                      </Button>
+                    </div>
+                    {/* <CardText className="tracksPlaylistDescription">
                         {item.description}
                       </CardText> */}
-                    </CardBody>
-                  </Card>
-                ))}
-              </div>
-            </Row>
-          </Col>
-          <Col md="4">
-            <Sidebar />
-          </Col>
-        </Row>
-      </Layout>
-    </StateContextProvider>
+                  </CardBody>
+                </Card>
+              ))}
+            </div>
+          </Row>
+        </Col>
+        <Col md="4">
+          <Sidebar />
+        </Col>
+      </Row>
+    </Layout>
   );
 };
 
