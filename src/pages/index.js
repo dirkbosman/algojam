@@ -6,7 +6,7 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import { useJamsData } from "../hooks/jams";
-import StateContextProvider from "../components/stateContext";
+// import StateContextProvider from "../components/stateContext";
 
 let fuseData = [];
 
@@ -45,72 +45,70 @@ const IndexPage = () => {
   }
 
   return (
-    <StateContextProvider>
-      <Layout>
-        <SEO title="Home" />
-        <Row>
-          <Col md="8">
-            <div
-              className="search-container"
+    <Layout>
+      <SEO title="Home" />
+      <Row>
+        <Col md="8">
+          <div
+            className="search-container"
+            style={{
+              width: "100%",
+              // padding: "4px",
+              marginTop: "5px",
+              marginBottom: "5px",
+            }}
+          >
+            <input
+              type="text"
+              placeholder="find your algo rhythm..."
               style={{
                 width: "100%",
-                // padding: "4px",
-                marginTop: "5px",
-                marginBottom: "5px",
+                backgroundColor: "white",
+                padding: "4px 8px",
+                border: "1px solid lightgrey",
+                borderRadius: "5px",
+                // margin: "0px 4px 0px 4px",
               }}
-            >
-              <input
-                type="text"
-                placeholder="find your algo rhythm..."
-                style={{
-                  width: "100%",
-                  backgroundColor: "white",
-                  padding: "4px 8px",
-                  border: "1px solid lightgrey",
-                  borderRadius: "5px",
-                  // margin: "0px 4px 0px 4px",
-                }}
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                }}
-              />
-            </div>
-            <div>
-              {searchTerm && hasResults && (
-                <strong>Found {results.length} items</strong>
-              )}
-              {searchTerm && !hasResults && <strong>No items found</strong>}
-            </div>
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            {searchTerm && hasResults && (
+              <strong>Found {results.length} items</strong>
+            )}
+            {searchTerm && !hasResults && <strong>No items found</strong>}
+          </div>
 
-            <div>
-              {results.map(({ node }) => {
-                return (
-                  <Post
-                    key={node.id}
-                    uid={node.frontmatter.uid}
-                    title={node.frontmatter.title}
-                    author={node.frontmatter.author}
-                    ///////////////////////
-                    slug={node.fields.slug}
-                    ///////////////////////
-                    date={node.frontmatter.date}
-                    audio_url={node.frontmatter.audio_url}
-                    tags={node.frontmatter.tags}
-                    palette={node.frontmatter.palette}
-                    fluid={node.frontmatter.image.childImageSharp.fluid}
-                    body={node.html}
-                  />
-                );
-              })}
-            </div>
-          </Col>
-          <Col md="4">
-            <Sidebar />
-          </Col>
-        </Row>
-      </Layout>
-    </StateContextProvider>
+          <div>
+            {results.map(({ node }) => {
+              return (
+                <Post
+                  key={node.id}
+                  uid={node.frontmatter.uid}
+                  title={node.frontmatter.title}
+                  author={node.frontmatter.author}
+                  ///////////////////////
+                  slug={node.fields.slug}
+                  ///////////////////////
+                  date={node.frontmatter.date}
+                  audio_url={node.frontmatter.audio_url}
+                  tags={node.frontmatter.tags}
+                  palette={node.frontmatter.palette}
+                  fluid={node.frontmatter.image.childImageSharp.fluid}
+                  body={node.html}
+                />
+              );
+            })}
+          </div>
+        </Col>
+        <Col md="4">
+          <Sidebar />
+        </Col>
+      </Row>
+    </Layout>
   );
 };
 
