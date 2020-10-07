@@ -28,7 +28,7 @@ const TagPosts = ({ data, pageContext }) => {
   // handle bookmarks' state -> for people to unbookmark
 
   return (
-    <StateContextProvider>
+    // <StateContextProvider>
       {/* <Layout pageTitle={pageHeader}> */}
       <Layout>
         <Row>
@@ -58,7 +58,7 @@ const TagPosts = ({ data, pageContext }) => {
           </Col>
         </Row>
       </Layout>
-    </StateContextProvider>
+    // </StateContextProvider>
   );
 };
 
