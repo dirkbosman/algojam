@@ -7,18 +7,17 @@ import SEO from "../components/seo";
 import Sidebar from "../components/Sidebar";
 // import { useJamsData } from "../hooks/jams";
 // import StateContextProvider from "../components/stateContext";
-import useClipboard from "../utils/copyToClipboard";
-// import StateContextProvider from "../components/stateContext";
+// import useClipboard from "../utils/copyToClipboard";
 
 // import "../styles/clipboard.css";
 // import "../styles/index.scss";
 
 const SubmitPage = () => {
-  const [isCopied, setClipboard] = useClipboard(2000);
+  // const [isCopied, setClipboard] = useClipboard(2000);
 
-  const handleCopyClick = () => {
-    setClipboard(document.querySelector("code").innerText);
-  };
+  // const handleCopyClick = () => {
+  //   setClipboard(document.querySelector("code").innerText);
+  // };
 
   const [hasMounted, setHasMounted] = useState(false);
 
