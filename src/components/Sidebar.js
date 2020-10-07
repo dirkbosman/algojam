@@ -9,17 +9,14 @@ import Bookmarks from "./tags/bookmarks";
 const Sidebar = () => {
   const originalData = useJamsData();
 
-  const [pokemon, setPokemon] = useState([]);
+  const [cumulBookmarkStats, setCumulBookmarkStats] = useState([]);
   useEffect(() => {
     axios
       .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
       .then(function (response) {
-        console.log(response);
-        setPokemon(response.data);
+        setCumulBookmarkStats(response.data);
       })
-      .catch(function (error) {
-        console.log("Request failed");
-      });
+      .catch(function (error) {});
   }, []);
 
   return (
@@ -126,7 +123,7 @@ const Sidebar = () => {
             <Card className="featuredContainer">
               <h5>Overview</h5>
               <div>
-                {pokemon.map(({ count }, index) => (
+                {cumulBookmarkStats.map(({ count }, index) => (
                   <div key={index}>
                     <div>{count}</div>
                   </div>

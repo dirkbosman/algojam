@@ -1,8 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, CardBody, CardTitle, Button } from "reactstrap";
-import { useJamsData } from "../hooks/jams";
 import Layout from "../components/layout";
-import { StateContext } from "../components/stateContext";
 import Sidebar from "../components/Sidebar";
 import HarryImage from "../images/harry.jpg";
 import discover from "../utils/discover";
