@@ -14,17 +14,17 @@ import StateContextProvider from "../components/stateContext";
 // import "../styles/index.scss";
 
 const SubmitPage = () => {
-  const [hasMounted, setHasMounted] = useState(false);
-
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-
   const [isCopied, setClipboard] = useClipboard(2000);
 
   const handleCopyClick = () => {
     setClipboard(document.querySelector("code").innerText);
   };
+
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   if (!hasMounted) {
     return null;
