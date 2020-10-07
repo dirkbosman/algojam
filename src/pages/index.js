@@ -14,9 +14,9 @@ const IndexPage = () => {
   const originalData = useJamsData();
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
+  const hasResults = results.length > 0;
 
   const [hasMounted, setHasMounted] = useState(false);
-
   useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -39,8 +39,6 @@ const IndexPage = () => {
     const results = fuseData.search(searchTerm).map((item) => item.item);
     setResults(results);
   }, [searchTerm]);
-
-  const hasResults = results.length > 0;
 
   if (!hasMounted) {
     return null;

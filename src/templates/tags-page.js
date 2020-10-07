@@ -6,7 +6,7 @@ import { Badge, Button } from "reactstrap";
 import { slugify } from "../utils/utilityFunctions";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
-import StateContextProvider from "../components/stateContext";
+// import StateContextProvider from "../components/stateContext";
 
 const TagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;
@@ -21,7 +21,6 @@ const TagsPage = ({ pageContext }) => {
   }
 
   return (
-    // <StateContextProvider>
     <Layout pageTitle="All tags">
       <SEO title="All tags" keywords={["tags", "topics"]} />
       <Row>
@@ -48,7 +47,6 @@ const TagsPage = ({ pageContext }) => {
         </Col>
       </Row>
     </Layout>
-    // </StateContextProvider>
   );
 };
 
