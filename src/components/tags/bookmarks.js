@@ -47,11 +47,11 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
   }
   return (
     <StateContextProvider>
-      <h1>{title}</h1>
+      <br />
+      <h5>{title}</h5>
       {bookmarks.length === 0 ? (
         <div className="bookmarkPageTitle">
           <h5>You have not bookmarked anything yet :'(</h5>
-
           <p>
             (Use <i className="far fa-bookmark"></i> to bookmark)
           </p>

@@ -157,7 +157,7 @@ const Sidebar = ({ uid }) => {
                   </div>
                 ))}
               </div>
-              {/* //////////////////////////////////////////////// */}
+
               <div>
                 <ul className="entries">
                   <Bookmarks

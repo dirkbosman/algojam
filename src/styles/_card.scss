@@ -118,9 +118,7 @@ ul.postTags {
   margin-top: 20px;
   height: auto;
   border: 1px solid #433e45;
-  // background-color: rgb(175, 86, 199);
   background-color: mediumslateblue;
-
   color: white;
   padding: 10px 20px;
 
@@ -132,31 +130,6 @@ ul.postTags {
   word-break: break-word;
   word-wrap: break-word; /* IE & Edge */
 }
-
-// p {
-//   overflow: visible;
-//   text-overflow: auto;
-//   white-space: normal;
-//   overflow-wrap: break-word;
-//   word-break: break-word;
-//   word-wrap: break-word; /* IE & Edge */
-//   padding: 4px;
-//   margin: 4px;
-// }
-
-// .gatsby-code-button-container {
-//   touch-action: none;
-//   top: 28px;
-//   z-index: 100;
-//   // background-color: rgb(210, 175, 36);
-// }
-
-// .gatsby-code-button {
-//   padding: 5px;
-//   color: rgb(182, 71, 230);
-//   font-size: 16px;
-//   background-color: rgb(73, 12, 86);
-// }
 
 .gatsby-code-button {
   padding: 4px;
