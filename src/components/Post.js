@@ -169,6 +169,7 @@ const Post = ({
                 {recommendations ? (
                   <div className="audioFeaturesContainer">
                     <div>
+                      <h5>Audio Features</h5>
                       <ul className="audioFeatures">
                         <li>bpm: {recommendations.bpm.toString()}</li>
                         <li>stft: {recommendations.chroma_stft.toString()}</li>
