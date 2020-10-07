@@ -1,9 +1,35 @@
-.submitPageTitle h5 {
+.submitPage {
+  width: 100%;
+}
+
+.submitPage h5 {
   text-align: center;
 }
 
-.submitPageTitle p {
+.submitPage p {
   text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.submitPage Button {
+  text-align: justify;
+}
+
+.submitPageFocus {
+  margin-left: 40px;
+}
+
+.submitPage h6 {
+  font-weight: bold;
+}
+
+.submitPage li {
+  list-style-type: disc;
+}
+
+.algojamsPR {
+  text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
 }
