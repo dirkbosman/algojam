@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import { Link } from "gatsby";
 import SEO from "../components/seo";
 import Layout from "../components/layout";
-import {
-  Button,
-  Card,
-  CardText,
-  CardBody,
-  CardTitle,
-  Row,
-  Col,
-} from "reactstrap";
+import { Card, CardText, CardBody, CardTitle, Row, Col } from "reactstrap";
 import HarryImage from "../images/harry.jpg";
 import SallyImage from "../images/sally.jpg";
 import authors from "../utils/authors";
-import { slugify } from "../utils/utilityFunctions";
 import Sidebar from "../components/Sidebar";
 
 const CodersPage = () => {
@@ -29,7 +19,6 @@ const CodersPage = () => {
   }
 
   return (
-    // const TribePage = () => (
     <Layout pageTitle="Our Team">
       <SEO title="Our Team" keywords={[`gatsby`, `application`, `react`]} />
       <Row>
@@ -48,13 +37,6 @@ const CodersPage = () => {
                 <CardBody>
                   <CardTitle>{authors[0].name}</CardTitle>
                   <CardText>{authors[0].bio}</CardText>
-                  {/* <Button
-                  className="text-uppercase"
-                  color="primary"
-                  href={`/author/${slugify(authors[0].name)}`}
-                >
-                  View posts
-                </Button> */}
                 </CardBody>
               </Card>
             </div>
@@ -72,13 +54,6 @@ const CodersPage = () => {
                 <CardBody>
                   <CardTitle>{authors[1].name}</CardTitle>
                   <CardText>{authors[1].bio}</CardText>
-                  {/* <Button
-                  className="text-uppercase"
-                  color="primary"
-                  href={`/author/${slugify(authors[1].name)}`}
-                >
-                  View posts
-                </Button> */}
                 </CardBody>
               </Card>
             </div>
@@ -93,4 +68,3 @@ const CodersPage = () => {
 };
 
 export default CodersPage;
-// export default TribePage;

@@ -2,8 +2,7 @@ const authors = [
   {
     name: "Dirk B",
     imageUrl: "john.jpg",
-    bio:
-      "John has been a front-end and UI designer fpr over 10 years, he is a brilliant artist",
+    bio: "Almost there",
     facebook: "https://www.facebook.com/",
     twitter: "https://www.twitter.com/",
     instagram: "https://www.instagram.com/",
@@ -13,8 +12,7 @@ const authors = [
   {
     name: "Jane Doe",
     imageUrl: "jane.jpg",
-    bio:
-      "Jane is a back-end developer, she specializes in security and her favourite stack is the MERN stack",
+    bio: "Almost there",
     facebook: "https://www.facebook.com/",
     twitter: "https://www.twitter.com/",
     instagram: "https://www.instagram.com/",

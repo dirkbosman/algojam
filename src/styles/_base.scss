@@ -4,18 +4,8 @@
 
 body {
   background-color: $light-gray;
-  // background-color: black;
-  // background-color: $dark-gray;
   font-family: $site-font;
 }
-
-// .algoJamBrand {
-//   // font-family: $site-font;
-//   // font-family: "Oleo Script", cursive;
-//   font-family: "Sansita Swashed", cursive;
-//   font-weight: 800;
-//   display: swap;
-// }
 
 a {
   color: #0056b3;
@@ -31,7 +21,6 @@ h1 {
 }
 
 .navbar {
-  // background-color: rgb(18, 17, 17);
   background-color: magenta;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   line-height: 1;

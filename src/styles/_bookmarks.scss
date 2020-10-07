@@ -1,69 +1,12 @@
-// bookmarks page
-
 .commBookmarksContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-// .commBookmarks {
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: space-between;
-// }
-
 .commBookmarkItem {
   border: 1px solid black;
 }
-
-// .container#content {
-//   margin-top: 60px;
-// }
-
-// body {
-//   background-color: $light-gray;
-//   // background-color: red;
-//   font-family: $site-font;
-// }
-// a {
-//   color: #0056b3;
-//   &:hover {
-//     color: #007bff;
-//     text-decoration: none;
-//   }
-// }
-// h1 {
-//   margin-bottom: 20px;
-//   text-align: center;
-// }
-// .navbar {
-//   background-color: rgb(18, 17, 17);
-//   // border-right: 1px solid rgba(0, 0, 0, 0.4);
-//   // border-left: 1px solid rgba(0, 0, 0, 0.4);
-//   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-//   line-height: 1;
-// }
-// .navbar-light .navbar-nav .nav-link,
-// .navbar-light .navbar-brand {
-//   margin-left: 4px;
-//   margin-right: 4px;
-//   color: white;
-//   &:hover {
-//     color: #007bff;
-//   }
-// }
-// ul {
-//   list-style: none;
-//   padding: 0;
-// }
-
-// .submitBtn {
-//   background-color: magenta;
-//   border: 1px solid grey;
-//   color: black;
-//   border-radius: 5px;
-//   margin-left: 4px;
-// }
 
 .bookmarkPageTitle > h5 {
   margin-top: 20px;

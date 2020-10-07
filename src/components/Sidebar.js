@@ -1,32 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { StateContext } from "../components/stateContext";
 import StateContextProvider from "../components/stateContext";
-// import { Link } from "gatsby";
 import { useJamsData } from "../hooks/jams";
 import { Link } from "gatsby";
-import {
-  // Button,
-  Card,
-  CardTitle,
-  CardSubtitle,
-  CardBody,
-  // Collapse,
-  // Form,
-  // FormGroup,
-  // Input,
-} from "reactstrap";
+import { Card, CardTitle, CardSubtitle, CardBody } from "reactstrap";
 import Bookmarks from "./tags/bookmarks";
-import Earth from "../images/earth.jpg";
 
-const Sidebar = ({ uid }) => {
+const Sidebar = () => {
   const originalData = useJamsData();
 
   const [pokemon, setPokemon] = useState([]);
   useEffect(() => {
     axios
       .get("https://dojoyo.pythonanywhere.com/aggregatedbookmarks")
-      // .get("http://dojoyo.pythonanywhere.com/aggregatedbookmarks")
       .then(function (response) {
         console.log(response);
         setPokemon(response.data);
@@ -40,10 +26,8 @@ const Sidebar = ({ uid }) => {
     <StateContextProvider>
       <div
         style={{
-          // padding: "20px 0px 0px 0px",
           width: "100%",
           height: "100%",
-          // border: "1px solid grey",
           textAlign: "center",
           marginTop: "5px",
         }}
@@ -140,16 +124,7 @@ const Sidebar = ({ uid }) => {
             </Card>
             <h4>Community Bookmarks</h4>
             <Card className="featuredContainer">
-              {/* <CardTitle className="text-center text-uppercase mb-3">
-                Overview
-              </CardTitle> */}
               <h5>Overview</h5>
-              {/* <div className="commBookmarksContainer">
-                {pokemon.map(({ count }, index) => (
-                  <div className="commBookmarks" key={index}>
-                    <div className="commBookmarkItem">{count}</div>
-                  </div>
-                ))} */}
               <div>
                 {pokemon.map(({ count }, index) => (
                   <div key={index}>

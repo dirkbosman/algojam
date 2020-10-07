@@ -6,7 +6,6 @@ import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import { useJamsData } from "../hooks/jams";
-// import StateContextProvider from "../components/stateContext";
 
 let fuseData = [];
 
@@ -21,16 +20,13 @@ const IndexPage = () => {
     setHasMounted(true);
   }, []);
 
-  // triggered only once if there is some data
   useEffect(() => {
     if (results.length === 0) {
       setResults(originalData);
-      // also prepare the fuse data so that we can search from this data
       fuseData = prepareFuseData(originalData);
     }
-  }, [originalData.length > 0]);
+  }, [originalData.length]);
 
-  // gets triggered everytime the search is changed
   useEffect(() => {
     if (!searchTerm) {
       setResults(originalData);
@@ -53,7 +49,6 @@ const IndexPage = () => {
             className="search-container"
             style={{
               width: "100%",
-              // padding: "4px",
               marginTop: "5px",
               marginBottom: "5px",
             }}
@@ -67,7 +62,6 @@ const IndexPage = () => {
                 padding: "4px 8px",
                 border: "1px solid lightgrey",
                 borderRadius: "5px",
-                // margin: "0px 4px 0px 4px",
               }}
               value={searchTerm}
               onChange={(e) => {
@@ -90,9 +84,7 @@ const IndexPage = () => {
                   uid={node.frontmatter.uid}
                   title={node.frontmatter.title}
                   author={node.frontmatter.author}
-                  ///////////////////////
                   slug={node.fields.slug}
-                  ///////////////////////
                   date={node.frontmatter.date}
                   audio_url={node.frontmatter.audio_url}
                   tags={node.frontmatter.tags}

@@ -1,13 +1,11 @@
 const path = require("path");
 const { slugify } = require("./src/utils/utilityFunctions");
-// const authors = require("./src/utils/authors");
 const _ = require("lodash");
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === "MarkdownRemark") {
-    // const slugFromTitle = slugify(node.frontmatter.title);
     const slugFromUid = slugify(node.frontmatter.uid);
     createNodeField({
       node,
@@ -22,12 +20,9 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Page templates
   const templates = {
-    // singlePost: path.resolve("src/templates/single-post.js"),
     post: path.resolve("src/templates/single-post.js"),
     tagsPage: path.resolve("src/templates/tags-page.js"),
     tagPosts: path.resolve("src/templates/tag-posts.js"),
-    // postList: path.resolve('src/templates/post-list.js'),
-    // authorPosts: path.resolve("src/templates/author-posts.js"),
   };
 
   const res = await graphql(`
@@ -58,13 +53,9 @@ exports.createPages = async ({ actions, graphql }) => {
     createPage({
       path: node.fields.slug,
       component: templates.post,
-      // component: templates.singlePost,
       context: {
         // Passing slug for template to use to fetch the post
         slug: node.fields.slug,
-        // Find author imageUrl from author array and pass it to template
-        // imageUrl: authors.find((x) => x.name === node.frontmatter.author)
-        //   .imageUrl,
       },
     });
   });
@@ -77,9 +68,8 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   });
 
-  let tagPostCounts = {}; // { tutorial: 2, design: 1}
+  let tagPostCounts = {};
   tags.forEach((tag) => {
-    // Or 0 cause it might not exist yet
     tagPostCounts[tag] = (tagPostCounts[tag] || 0) + 1;
   });
 
@@ -95,9 +85,6 @@ exports.createPages = async ({ actions, graphql }) => {
       tagPostCounts,
     },
   });
-
-  // console.log(tags);
-  // console.log(tagPostCounts);
 
   // Tag posts pages
   tags.forEach((tag) => {

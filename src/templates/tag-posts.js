@@ -1,13 +1,9 @@
-// import React from "react";
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Post from "../components/Post";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
-// import StateContextProvider from "../components/stateContext";
-
-// import { slugify } from "../utils/utilityFunctions";
 
 const TagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;

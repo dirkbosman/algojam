@@ -58,7 +58,6 @@ const Post = ({
         ) : (
           <>
             <ul className="vjPaletteContainer" style={{ marginBottom: 0 }}>
-              {/* {palette(([Math.floor(Math.random() * palette.length)]) => ( */}
               {palette.map((palette_item) => (
                 <li
                   key={palette_item}
@@ -108,10 +107,6 @@ const Post = ({
               style={{
                 marginBottom: "1rem",
                 backgroundColor: "mediumslateblue",
-                // backgroundColor:
-                //   bookmarks && bookmarks.find((item) => item.uid === uid)
-                //     ? "mediumspringgreen"
-                //     : "mediumslateblue",
                 color: "white",
                 border: "1px solid grey",
                 borderRadius: "50%",
@@ -143,10 +138,7 @@ const Post = ({
             {audio_url ? (
               <AudioPlayer
                 src={audio_url}
-                // autoPlay and other props here
-                // src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
                 onPlay={(e) => console.log("onPlay")}
-                // layout="horizontal-reverse"
                 customVolumeControls={[]}
                 customAdditionalControls={[]}
               />
@@ -162,27 +154,20 @@ const Post = ({
                 size="sm"
                 onClick={toggle}
                 style={{
-                  // textAlign: "center",
                   marginBottom: "1rem",
                   backgroundColor: "#ff00ff",
                   color: "black",
                   border: "1px solid grey",
                   margin: "4px 0",
-                  // marginLeft: "auto",
-                  // marginRight: "auto",
-                  // marginTop: "10px",
-                  // marginButton: "10px",
                 }}
               >
                 {status}
               </Button>
             </div>
             <Collapse isOpen={isOpen} onEntered={onEntered} onExited={onExited}>
-              {/* //// */}
               <div className="audioFeaturesBigContainer">
                 {recommendations ? (
                   <div className="audioFeaturesContainer">
-                    {/* <h5 className="text-center">Stats</h5> */}
                     <div>
                       <ul className="audioFeatures">
                         <li>bpm: {recommendations.bpm.toString()}</li>
@@ -210,10 +195,8 @@ const Post = ({
                   ""
                 )}
               </div>
-              {/* //// */}
               <div className="code-block">
                 <Card
-                  // className="card-text-md"
                   className="inner-code-block"
                   dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
                 ></Card>
@@ -228,7 +211,6 @@ const Post = ({
                 <Fragment>
                   <div className="reco_0">
                     <AudioPlayer
-                      // className="reco_1" {"reco"+index}
                       src={
                         netflifyAudioHostingUrl +
                         recommendations.neighbour_1.toString() +
@@ -241,13 +223,10 @@ const Post = ({
                       showDownloadProgress={false}
                       customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
                     />
-                    <Link to={"/" + recommendations.neighbour_1}>
-                      {/* {recommendations.neighbour_1} */} info
-                    </Link>
+                    <Link to={"/" + recommendations.neighbour_1}>info</Link>
                   </div>
                   <div className="reco_1">
                     <AudioPlayer
-                      // className="reco_1" {"reco"+index}
                       src={
                         netflifyAudioHostingUrl +
                         recommendations.neighbour_2.toString() +
@@ -260,9 +239,7 @@ const Post = ({
                       showDownloadProgress={false}
                       customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}
                     />
-                    <Link to={"/" + recommendations.neighbour_2}>
-                      {/* {recommendations.neighbour_2} */} info
-                    </Link>
+                    <Link to={"/" + recommendations.neighbour_2}>info</Link>
                   </div>
                 </Fragment>
               </div>

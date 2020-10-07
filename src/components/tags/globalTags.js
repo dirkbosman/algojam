@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import SEO from "../../components/seo";
 import { Badge, Button, ButtonGroup } from "reactstrap";
-// import Layout from "../../components/layout";
-// import { graphql, Link } from "gatsby";
 import { Link } from "gatsby";
 import { slugify } from "../../utils/utilityFunctions";
 
@@ -18,7 +15,6 @@ const GlobalTags = ({ data }) => {
     const uniquetags = findUniqueTags(data);
     setTags(sortTags(uniquetags));
   }, [data.length]);
-  // }, [data && data.length]);
 
   const setAndSortTags = (sortBy) => {
     setSortBy(sortBy);
@@ -68,8 +64,6 @@ const GlobalTags = ({ data }) => {
 
 export default GlobalTags;
 
-// Utility functions
-
 const findUniqueTags = (data) => {
   const tags = {};
   data.forEach((item) => {
@@ -85,7 +79,6 @@ const findUniqueTags = (data) => {
   });
   const tagsArr = [];
 
-  // convert object to array
   Object.keys(tags).forEach((tag) => {
     tagsArr.push({ name: tag, count: tags[tag].count });
   });

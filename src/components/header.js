@@ -12,8 +12,6 @@ import {
 import StateContextProvider from "../components/stateContext";
 import IconImage from "../images/icon.png";
 
-// const Header = ({ siteTitle }) => (
-// const Example = (props) => {
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,7 +34,6 @@ const Header = (props) => {
                 }}
                 alt="Icon Image"
               />
-              {/* {props.siteTitle} */}
             </NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>

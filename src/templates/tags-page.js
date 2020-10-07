@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Badge, Button } from "reactstrap";
 import { slugify } from "../utils/utilityFunctions";
 import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
-// import StateContextProvider from "../components/stateContext";
 
 const TagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;

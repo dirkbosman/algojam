@@ -1,24 +1,10 @@
 import React, { useState, useEffect } from "react";
-// import React from "react";
-// import { Link } from "gatsby";
 import { Row, Col } from "reactstrap";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Sidebar from "../components/Sidebar";
-// import { useJamsData } from "../hooks/jams";
-// import StateContextProvider from "../components/stateContext";
-// import useClipboard from "../utils/copyToClipboard";
-
-// import "../styles/clipboard.css";
-// import "../styles/index.scss";
 
 const SubmitPage = () => {
-  // const [isCopied, setClipboard] = useClipboard(2000);
-
-  // const handleCopyClick = () => {
-  //   setClipboard(document.querySelector("code").innerText);
-  // };
-
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
@@ -42,27 +28,8 @@ const SubmitPage = () => {
               mizzenmast yardarm. Pinnace holystone mizzenmast quarter crow's
               nest nipperkin grog yardarm hempen halter furl. Swab barque
               interloper chantey doubloon starboard grog black jack gangway
-              rutters. Deadlights jack lad schooner scallywag dance the hempen
-              jig carouser broadside cable strike colors. Bring a spring upon
-              her cable holystone blow the man down spanker Shiver me timbers to
-              go on account lookout wherry doubloon chase. Belay yo-ho-ho
-              keelhaul squiffy black spot yardarm spyglass sheet transom heave
-              to. Trysail Sail ho Corsair red ensign hulk smartly boom jib rum
-              gangway. Case shot Shiver me timbers gangplank crack Jennys tea
-              cup ballast Blimey lee snow crow's nest rutters. Fluke jib scourge
-              of the seven seas boatswain schooner gaff booty Jack Tar transom
-              spirits.
+              rutters.
             </p>
-
-            {/* <div className="App">
-                <h1>Custom React hook</h1>
-                <pre>
-                  <button onClick={handleCopyClick}>
-                    {!isCopied ? "Copy" : "Copied!"}
-                  </button>
-                  <code>console.log('Yoyoyyyoiyoy')</code>
-                </pre>
-              </div> */}
 
             <div className="code-block">
               <h3>Main</h3>
@@ -78,9 +45,6 @@ const SubmitPage = () => {
                     </div>
                   </div>
                   <pre>
-                    {/* <button onClick={handleCopyClick}>
-                      {!isCopied ? "Copy" : "Copied!"}
-                    </button> */}
                     <code className="language-js">
                       <div>
                         <h3>Main</h3>
