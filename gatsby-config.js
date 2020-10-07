@@ -64,7 +64,7 @@ module.exports = {
               svgIconClass: `customSvgIconClass`,
               toasterClass: `customToasterClass`,
               toasterTextClass: `customToasterTextClass`,
-              toasterText: "Copied Successfully",
+              toasterText: "✅ Copied Successfully! Time for Jammin 🤘👨‍🎤🤘",
               toasterDuration: 4000,
             },
           },
