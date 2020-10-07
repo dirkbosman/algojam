@@ -1,9 +1,9 @@
 .site-footer {
-  background-color: black;
+  background-color: magenta;
   margin-top: 20px;
   padding: 40px;
   text-align: center;
-  color: white;
+  color: black;
 
   .footer-social-links {
     text-align: center;
@@ -14,7 +14,8 @@
         display: inline-block;
 
         a {
-          color: $dark-gray;
+          // color: $dark-gray;
+          color: black;
           &.twitter:hover {
             color: rgb(56, 161, 243);
           }

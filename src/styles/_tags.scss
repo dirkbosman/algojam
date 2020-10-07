@@ -3,3 +3,21 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.cardTagsPage > h5 {
+  text-align: center;
+  padding: 20px;
+}
+
+ul.postTagsPage {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-around;
+  justify-content: center;
+  // text-align: center;
+  padding: 0;
+  list-style: none;
+  li {
+    margin-right: 10px;
+  }
+}
