@@ -42,7 +42,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
   }
   return (
     <StateContextProvider>
-      <br />
       <h5>{title}</h5>
       {bookmarks.length === 0 ? (
         <div className="bookmarkPageTitle">

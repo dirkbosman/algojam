@@ -24,7 +24,9 @@ const DiscoverPage = () => {
     <Layout>
       <Row>
         <Col md="8">
-          {" "}
+          <div className="pageSymbols">
+            <i className="fab fa-itunes-note"></i>
+          </div>
           <h1>Discover</h1>
           <Row>
             <div className="col-xl-8 discoverSubHeaders">
@@ -73,7 +75,7 @@ const DiscoverPage = () => {
             <div className="col-xl-8">
               <Card className="tracksPlaylistContainer">
                 <CardBody className="tracksPlaylist">
-                  <CardTitle>Algo Playlists</CardTitle>
+                  <CardTitle>Algo Albums / Playlists</CardTitle>
                   {discoverAlgoPlaylists.map((item, index) => (
                     <div key={index} className="tracksPlaylistWrapper">
                       <img

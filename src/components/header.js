@@ -45,9 +45,6 @@ const Header = (props) => {
                   <NavLink href="/discover">Discover</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/coders">Coders</NavLink>
-                </NavItem>
-                <NavItem>
                   <NavLink href="/bookmarks">Bookmarks</NavLink>
                 </NavItem>
                 <NavItem>

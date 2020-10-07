@@ -23,6 +23,9 @@ const TagsPage = ({ pageContext }) => {
       <SEO title="All tags" keywords={["tags", "topics"]} />
       <Row>
         <Col md="8">
+          <div className="pageSymbols">
+            <i className="fas fa-tags"></i>
+          </div>
           <h1>All Tags</h1>
           <div className="cardTagsPage">
             <h5>Browse your fav jams by tag:</h5>

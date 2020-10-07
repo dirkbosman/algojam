@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Card, CardBody } from "reactstrap";
 import { useJamsData } from "../hooks/jams";
 import Layout from "../components/layout";
 import Bookmarks from "../components/tags/bookmarks";
@@ -21,11 +21,19 @@ const BookmarkPage = () => {
     <Layout>
       <Row>
         <Col md="8">
-          <Bookmarks
-            data={originalData}
-            title="Your Bookmarks"
-            isLocal={true}
-          />
+          <div className="pageSymbols">
+            <i className="fas fa-bookmark"></i>
+          </div>
+          <h1>Bookmarks</h1>
+          <Card>
+            <CardBody>
+              <Bookmarks
+                data={originalData}
+                title="Your Bookmark History"
+                isLocal={true}
+              />
+            </CardBody>
+          </Card>
         </Col>
         <Col md="4">
           <Sidebar />

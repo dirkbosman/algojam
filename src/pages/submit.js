@@ -18,9 +18,13 @@ const SubmitPage = () => {
   return (
     <Layout>
       <SEO title="Submit" />
-      <h1>Submit</h1>
+
       <Row>
         <Col md="8">
+          <div className="pageSymbols">
+            <i className="fas fa-cloud-upload-alt"></i>
+          </div>
+          <h1>Submit</h1>
           <div>
             <h2>Considering submitting your latest jam!</h2>
             <p>
