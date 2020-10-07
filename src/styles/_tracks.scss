@@ -1,0 +1,30 @@
+// .tracksPlaylistContainer {
+//   width: 100%;
+// }
+
+.discoverSubHeaders h5 {
+  text-align: center;
+}
+
+.tracksPlaylistWrapper {
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid darkgrey;
+}
+
+.tracksPlaylistWrapperItem {
+  margin-left: 20px;
+  padding: 20px 0px;
+}
+
+.tracksPlaylistPR {
+  text-align: center;
+  margin-top: 20px;
+}
+
+// .tracksPlaylistDescription {
+//   padding: 10px 0px 0px 0px;
+// }
