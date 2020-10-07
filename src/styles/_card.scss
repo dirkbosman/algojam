@@ -15,10 +15,10 @@
 }
 
 ul.postTags {
-  padding: 0;
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
 
   li {
     margin-right: 10px;
@@ -57,7 +57,7 @@ ul.postTags {
 
 // .cardTags {
 //   display: flex;
-//   flex-wrap: wrap;
+//   // flex-wrap: wrap;
 // }
 
 .jamsContainer {

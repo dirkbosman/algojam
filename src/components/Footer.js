@@ -1,12 +1,24 @@
 import React from "react";
+import IconImage from "../images/icon.png";
 
 const Footer = () => (
   <div className="site-footer">
-    <link
+    {/* <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
       integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
       crossOrigin="anonymous"
+    /> */}
+    <img
+      className="iconImage"
+      src={IconImage}
+      style={{}}
+      style={{
+        width: "30px",
+        height: "30px",
+        borderRadius: "50%",
+      }}
+      alt="Icon Image"
     />
     <h4 className="text-center">Algojam</h4>
     <p className="text-center">All up in da interwebs!</p>

@@ -47,49 +47,72 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
   }
   return (
     <StateContextProvider>
-      <div>
-        <h5>{title}</h5>
-        <div className="cardTags">
-          <ul className="">
-            {bookmarksCopy.map((bookmark) => {
-              const item = searchableList[bookmark.uid];
-              return (
-                <li key={bookmark.uid}>
-                  <Link to={`/${bookmark.uid}`} tabIndex={0}>
-                    {item.title}
-                  </Link>
-                  &nbsp;&nbsp;
-                  <Button
-                    color="primary"
-                    size="sm"
-                    onClick={() => {
-                      handleBookmarks(item.uid, item.title, item.tags);
-                      makePostRequest(
-                        "https://dojoyo.pythonanywhere.com/mark",
-                        {
-                          item_id: item.uid,
-                          item_type: true ? "unbookmark" : "bookmark",
-                        }
-                      );
-                    }}
-                    style={{
-                      display: isLocal ? "inline-block" : "none",
-                      marginBottom: "1rem",
-                      backgroundColor:
-                        item.uid === bookmark.uid ? "blue" : "#8CFACA",
-                      color: "black",
-                      border: "1px solid grey",
-                      margin: "6px 0px",
-                    }}
-                  >
-                    {item.uid === bookmark.uid ? "💾" : "🔖"}
-                  </Button>
-                </li>
-              );
-            })}
-          </ul>
+      <h1>{title}</h1>
+      {bookmarks.length === 0 ? (
+        <div className="bookmarkPageTitle">
+          <h5>You have not bookmarked anything yet :'(</h5>
+
+          <p>
+            Navigate to the home-feed and click on{" "}
+            <i className="far fa-bookmark"></i> to start saving your favourite
+            algojams.
+          </p>
         </div>
-      </div>
+      ) : (
+        <div>
+          <div className="cardTags">
+            <ul className="">
+              {bookmarksCopy.map((bookmark) => {
+                const item = searchableList[bookmark.uid];
+                return (
+                  <li key={bookmark.uid}>
+                    <Button
+                      color="primary"
+                      size="sm"
+                      onClick={() => {
+                        handleBookmarks(item.uid, item.title, item.tags);
+                        makePostRequest(
+                          "https://dojoyo.pythonanywhere.com/mark",
+                          {
+                            item_id: item.uid,
+                            item_type: true ? "unbookmark" : "bookmark",
+                          }
+                        );
+                      }}
+                      style={{
+                        display: isLocal ? "inline-block" : "none",
+                        marginBottom: "1rem",
+                        backgroundColor: "mediumslateblue",
+                        // backgroundColor:
+                        //   item.uid === bookmark.uid ? "blue" : "#8CFACA",
+                        color: "white",
+                        border: "1px solid grey",
+                        margin: "6px 0px",
+                        borderRadius: "50%",
+                        height: "40px",
+                        width: "40px",
+                      }}
+                    >
+                      {item.uid === bookmark.uid ? (
+                        // ? "💾"
+                        <i className="fas fa-bookmark"></i>
+                      ) : (
+                        // : "🔖"
+                        <i className="far fa-bookmark"></i>
+                      )}
+                    </Button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Link to={`/${bookmark.uid}`} tabIndex={0}>
+                      {item.title}
+                    </Link>
+                    {/* {item.tags} */}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      )}
     </StateContextProvider>
   );
 };

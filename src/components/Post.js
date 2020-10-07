@@ -107,11 +107,12 @@ const Post = ({
               }}
               style={{
                 marginBottom: "1rem",
-                backgroundColor:
-                  bookmarks && bookmarks.find((item) => item.uid === uid)
-                    ? "blue"
-                    : "#8CFACA",
-                color: "black",
+                backgroundColor: "mediumslateblue",
+                // backgroundColor:
+                //   bookmarks && bookmarks.find((item) => item.uid === uid)
+                //     ? "mediumspringgreen"
+                //     : "mediumslateblue",
+                color: "white",
                 border: "1px solid grey",
                 borderRadius: "50%",
                 height: "40px",
@@ -119,12 +120,13 @@ const Post = ({
                 margin: "6px 0px",
               }}
             >
-              {bookmarks && bookmarks.find((item) => item.uid === uid)
-                ? "🔖"
-                : "💾"}
+              {bookmarks && bookmarks.find((item) => item.uid === uid) ? (
+                <i className="fas fa-bookmark"></i>
+              ) : (
+                <i className="far fa-bookmark"></i>
+              )}
             </Button>
           </div>
-
           <div className="cardTags">
             <ul className="postTags">
               {tags.map((tag) => (

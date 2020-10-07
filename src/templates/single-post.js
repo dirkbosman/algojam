@@ -7,6 +7,7 @@ import {
   Badge,
   Card,
   CardBody,
+  CardTitle,
   CardSubtitle,
   Row,
   Col,
@@ -69,67 +70,105 @@ const SinglePost = ({ data, pageContext, location }) => {
       <Row>
         <Col md="8">
           <Card>
-            {/* <Img
-            className="card-image-top"
-            fluid={post.image.childImageSharp.fluid}
-          /> */}
             <CardBody>
-              <CardSubtitle>
-                <span className="text-info">{post.date}</span> by{" "}
-                <span className="text-info">{post.author}</span>
-              </CardSubtitle>
-              <ul className="post-tags">
-                {post.tags.map((tag) => (
-                  <li key={tag}>
-                    <Link to={`/tag/${slugify(tag)}`}>
-                      <Badge color="primary">{tag}</Badge>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-              {/* //// Start of Bookmark //// */}
-              <Button
-                color="primary"
-                style={{
-                  marginBottom: "1rem",
-                  backgroundColor:
-                    // bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                    bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                      ? "blue"
-                      : "#8CFACA",
-                  color: "black",
-                  border: "1px solid grey",
-                  margin: "6px 0px",
-                }}
-                size="sm"
-                onClick={() => {
-                  /////////////////////////////////////////////////////////////////
-                  // console.log(bookmarks);
-                  /////////////////////////////////////////////////////////////////
-                  handleBookmarks(post.uid, post.title, post.tags);
-                  makePostRequest("https://dojoyo.pythonanywhere.com/mark", {
-                    item_id: post.uid,
-                    // item_type: bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                    item_type:
-                      bookmarks &&
-                      bookmarks.find((item) => item.uid === post.uid)
-                        ? "unbookmark"
-                        : "bookmark",
-                  });
-                }}
-              >
-                {/* {bookmarks && bookmarks.find((item) => item.uid === post.uid) ? "🔖": "💾"} */}
-                {bookmarks && bookmarks.find((item) => item.uid === post.uid)
-                  ? "🔖"
-                  : "💾"}
-              </Button>
+              <div className="cardOverallContent">
+                <div className="cardTopContent">
+                  <Img
+                    className="card-image-top"
+                    // fluid={fluid}
+                    fluid={post.image.childImageSharp.fluid}
+                    style={{
+                      width: "60px",
+                      height: "60px",
+                      marginRight: "10px",
+                    }}
+                  />
+                  <div className="cardTitleContent">
+                    <CardTitle className="cardTitleText">
+                      <Link>{post.title}</Link>
+                    </CardTitle>
+                    <CardSubtitle className="cardSubtitleText">
+                      On <span className="text-info">{post.date}</span> by{" "}
+                      <span className="text-info">{post.author}</span>
+                    </CardSubtitle>
+                  </div>
+                </div>
 
-              {/* //// End of Bookmark //// */}
+                <Button
+                  color="primary"
+                  style={{
+                    marginBottom: "1rem",
+                    backgroundColor: "mediumslateblue",
+                    // backgroundColor:
+                    //   bookmarks &&
+                    //   bookmarks.find((item) => item.uid === post.uid)
+                    //     ? "mediumspringgreen"
+                    //     : "#8CFACA",
+                    color: "white",
+                    border: "1px solid grey",
+                    margin: "6px 0px",
+                    borderRadius: "50%",
+                    height: "40px",
+                    width: "40px",
+                  }}
+                  size="sm"
+                  onClick={() => {
+                    /////////////////////////////////////////////////////////////////
+                    // console.log(bookmarks);
+                    /////////////////////////////////////////////////////////////////
+                    handleBookmarks(post.uid, post.title, post.tags);
+                    makePostRequest("https://dojoyo.pythonanywhere.com/mark", {
+                      item_id: post.uid,
+                      // item_type: bookmarks && bookmarks.find((item) => item.uid === post.uid)
+                      item_type:
+                        bookmarks &&
+                        bookmarks.find((item) => item.uid === post.uid)
+                          ? "unbookmark"
+                          : "bookmark",
+                    });
+                  }}
+                >
+                  {/* {bookmarks && bookmarks.find((item) => item.uid === post.uid) ? "🔖": "💾"} */}
+                  {bookmarks &&
+                  bookmarks.find((item) => item.uid === post.uid) ? (
+                    // "🔖"
+                    <i className="fas fa-bookmark"></i>
+                  ) : (
+                    // : "💾"}
+                    <i className="far fa-bookmark"></i>
+                  )}
+                </Button>
+              </div>
 
-              <div
+              <div className="cardTags">
+                <ul className="postTags">
+                  {post.tags.map((tag) => (
+                    <li key={tag}>
+                      <Link to={`/tag/${slugify(tag)}`}>
+                        <Badge className="postTagsBadge">{tag}</Badge>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* ////////// OLD //////////// */}
+
+              {/* ////////////////////////////////////////////////////////////////////////////////////// */}
+
+              {/* <div
                 // Use alternative syntax for dangerouslySetInnerHTML ????
                 dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-              />
+              /> */}
+
+              <div className="code-block">
+                <Card
+                  // className="card-text-md"
+                  className="inner-code-block"
+                  // dangerouslySetInnerHTML={{ __html: `<div>${body}</div>` }}
+                  dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+                ></Card>
+              </div>
             </CardBody>
           </Card>
           <h3 className="text-center">We Wuf Feedback!</h3>

@@ -26,6 +26,7 @@ const tagsPage = ({ pageContext }) => {
         <SEO title="All tags" keywords={["tags", "topics"]} />
         <Row>
           <Col md="8">
+            <h1>All Tags</h1>
             <ul>
               {tags.map((tag) => (
                 <li key={tag} style={{ marginBottom: "10px" }}>
