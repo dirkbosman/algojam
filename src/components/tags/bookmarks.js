@@ -19,7 +19,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
 
     axios
       .get("https://dojoyo.pythonanywhere.com/bookmarks")
-      // .get("http://dojoyo.pythonanywhere.com/bookmarks")
       .then(function (response) {
         const data = [];
         response.data.forEach(({ item_id }) => {
@@ -27,11 +26,8 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
         });
         setCommBookmarks(tempData);
       })
-      .catch(function (error) {
-        // console.log("Request failed");
-      });
+      .catch(function (error) {});
   }, [data.length, isLocal]);
-  // }, [data && data.length, isLocal]);
 
   if (Object.keys(searchableList).length === 0) {
     return <div>...</div>;
@@ -81,8 +77,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
                         display: isLocal ? "inline-block" : "none",
                         marginBottom: "1rem",
                         backgroundColor: "mediumslateblue",
-                        // backgroundColor:
-                        //   item.uid === bookmark.uid ? "blue" : "#8CFACA",
                         color: "white",
                         border: "1px solid grey",
                         margin: "6px 0px",
@@ -92,10 +86,8 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
                       }}
                     >
                       {item.uid === bookmark.uid ? (
-                        // ? "💾"
                         <i className="fas fa-bookmark"></i>
                       ) : (
-                        // : "🔖"
                         <i className="far fa-bookmark"></i>
                       )}
                     </Button>
@@ -103,7 +95,6 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
                     <Link to={`/${bookmark.uid}`} tabIndex={0}>
                       {item.title}
                     </Link>
-                    {/* {item.tags} */}
                   </li>
                 );
               })}
