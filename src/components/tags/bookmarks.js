@@ -53,9 +53,7 @@ const Bookmarks = ({ data, limit, title, isLocal }) => {
           <h5>You have not bookmarked anything yet :'(</h5>
 
           <p>
-            Navigate to the home-feed and click on{" "}
-            <i className="far fa-bookmark"></i> to start saving your favourite
-            algojams.
+            (Use <i className="far fa-bookmark"></i> to bookmark)
           </p>
         </div>
       ) : (

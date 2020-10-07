@@ -78,9 +78,9 @@ const SubmitPage = () => {
                     </div>
                   </div>
                   <pre>
-                    <button onClick={handleCopyClick}>
+                    {/* <button onClick={handleCopyClick}>
                       {!isCopied ? "Copy" : "Copied!"}
-                    </button>
+                    </button> */}
                     <code className="language-js">
                       <div>
                         <h3>Main</h3>
