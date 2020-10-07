@@ -1,5 +1,5 @@
-// import React, { useState, useEffect } from "react";
-import React from "react";
+import React, { useState, useEffect } from "react";
+// import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { Badge, Button } from "reactstrap";
@@ -8,17 +8,17 @@ import { Row, Col } from "reactstrap";
 import Sidebar from "../components/Sidebar";
 import StateContextProvider from "../components/stateContext";
 
-const tagsPage = ({ pageContext }) => {
+const TagsPage = ({ pageContext }) => {
   const { tags, tagPostCounts } = pageContext;
 
-  // const [hasMounted, setHasMounted] = useState(false);
-  // useEffect(() => {
-  //   setHasMounted(true);
-  // }, []);
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
-  // if (!hasMounted) {
-  //   return null;
-  // }
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <StateContextProvider>
@@ -52,4 +52,4 @@ const tagsPage = ({ pageContext }) => {
   );
 };
 
-export default tagsPage;
+export default TagsPage;

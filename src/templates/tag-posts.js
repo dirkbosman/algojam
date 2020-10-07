@@ -1,5 +1,5 @@
-import React from "react";
-// import React, { useState, useEffect } from "react";
+// import React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Post from "../components/Post";
@@ -9,21 +9,21 @@ import StateContextProvider from "../components/stateContext";
 
 // import { slugify } from "../utils/utilityFunctions";
 
-const tagPosts = ({ data, pageContext }) => {
+const TagPosts = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const { totalCount } = data.allMarkdownRemark;
   const pageHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } tagged with "${tag}"`;
 
-  // const [hasMounted, setHasMounted] = useState(false);
-  // useEffect(() => {
-  //   setHasMounted(true);
-  // }, []);
+  const [hasMounted, setHasMounted] = useState(false);
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
-  // if (!hasMounted) {
-  //   return null;
-  // }
+  if (!hasMounted) {
+    return null;
+  }
 
   // handle bookmarks' state -> for people to unbookmark
 
@@ -99,4 +99,4 @@ export const tagQuery = graphql`
   }
 `;
 
-export default tagPosts;
+export default TagPosts;
