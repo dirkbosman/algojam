@@ -1,10 +1,12 @@
 .featuredSidebarContainer {
   height: 100%;
+  background-color: black;
 }
 
 .featuredContainer {
   border: 1px solid darkgrey;
   padding-top: 10px;
+  // margin-top: 50px;
 }
 
 .featuredBlocks {
@@ -37,6 +39,23 @@
 .featuredBlocks li:hover {
   background-color: magenta;
   border: 2px solid grey;
+}
+
+.featuredBlocks img:hover {
+  background-color: magenta;
+  border: 4px solid grey;
+}
+
+.featuredContainerStats {
+  display: flex;
+  justify-content: center;
+  // margin-left: 60px;
+  // margin: auto;
+}
+
+.featuredContainerStats i {
+  // justify-content: star;
+  margin-right: 10px;
 }
 
 .author-social-links {
