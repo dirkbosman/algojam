@@ -6,11 +6,13 @@
   color: black;
 
   .footer-social-links {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 
     ul.social-links-list {
       li {
-        margin-right: 25px;
+        margin-left: 15px;
+        margin-right: 15px;
         display: inline-block;
 
         a {

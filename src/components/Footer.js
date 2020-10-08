@@ -19,7 +19,7 @@ const Footer = () => (
       <ul className="social-links-list">
         <li>
           <a
-            href="https://www.twitter.com"
+            href="https://twitter.com/dirkjobosman"
             target="_blank"
             rel="noopener noreferrer"
             className="twitter"
@@ -29,7 +29,7 @@ const Footer = () => (
         </li>
         <li>
           <a
-            href="https://www.github.com"
+            href="https://github.com/dirkbosman/algojam"
             target="_blank"
             rel="noopener noreferrer"
             className="github"
@@ -39,7 +39,7 @@ const Footer = () => (
         </li>
         <li>
           <a
-            href="https://www.producthunt.com"
+            href="https://www.producthunt.com/posts/algojam"
             target="_blank"
             rel="noopener noreferrer"
             className="producthunt"
