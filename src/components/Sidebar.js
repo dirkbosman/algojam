@@ -240,7 +240,7 @@ const Sidebar = () => {
                 <ul className="entries">
                   <Bookmarks
                     data={originalData}
-                    title="Bookmarks"
+                    title="Top Bookmarks"
                     limit={3}
                     isLocal={false}
                   />
